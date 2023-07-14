@@ -28,8 +28,15 @@ function Login() {
             <Input width='85%' height='94%' />
           </StyledInputBox>
           <StyledLoginButton>로그인</StyledLoginButton>
+          <StyledMenuBox>
+            <StyledMenuLink>Email 찾기</StyledMenuLink>
+            <StyledMenuLink>비밀번호 찾기</StyledMenuLink>
+          </StyledMenuBox>
+          <StyledBlock />
+          <StyledJoinButton>처음 방문하셨나요?</StyledJoinButton>
         </StyledLoginBox>
         <StyledBannerBox>
+          <Image src='../images/dmu.png' alt='wait' />
         </StyledBannerBox>
       </Wrap>
     </Container>
@@ -48,7 +55,7 @@ const Container = styled.div`
 
 const Wrap = styled.div`
   width: 35%;
-  height: 80%;
+  height: 75%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,7 +66,7 @@ const Wrap = styled.div`
 
 const StyledLogoBox = styled.div`
   width: 100%;
-  height: 40%;
+  height: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +74,7 @@ const StyledLogoBox = styled.div`
 
 const StyledLoginBox = styled.div`
   width: 100%;
-  height: 35%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,8 +83,8 @@ const StyledLoginBox = styled.div`
 `
 
 const StyledInputBox = styled.div<ILoginProps>`
-  width: 70%;
-  height: 20%;
+  width: 75%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,13 +105,52 @@ const StyledIconBox = styled.div`
 `
 
 const StyledLoginButton = styled.div`
-  width: 70.3%;
+  width: 75.8%;
   height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-color: #172B60;
+  background-color: #0064ff;
+  cursor: pointer;
+`
+
+const StyledJoinButton = styled.div`
+  width: 75.8%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: #0064ff;
+  cursor: pointer;
+`
+
+const StyledBlock = styled.div`
+  width: 75%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  border-top: solid 1px #D9D8D7;
+`
+
+const StyledMenuBox = styled.div`
+  width: 75%;
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+`
+
+const StyledMenuLink = styled.div`
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:  #A4A4A4;
+  font-size: 14px;
 `
 
 const StyledBannerBox = styled.div`
@@ -113,10 +159,10 @@ const StyledBannerBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: red; */
 `
 
-
 const Image = styled.img`
-  width: 40%;
-  height: 55%;
+  width: 30%;
+  height: 65%;
 `
