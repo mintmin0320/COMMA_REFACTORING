@@ -9,6 +9,7 @@ interface InputProps {
   onSubmit?: () => void;
   width?: string;
   height?: string;
+  placeholder?: string;
 }
 
 const StyledInput = styled.input<InputProps>`
@@ -16,10 +17,10 @@ const StyledInput = styled.input<InputProps>`
   border: none;
   width: ${(props) => props.width && props.width};
   height: ${(props) => props.height && props.height};
-  font-size: 18px;
+  font-size: 15px;
 `;
 
-function Input({ children, name, value, width, height, onChange, onSubmit }: InputProps) {
+function Input({ children, name, value, width, height, placeholder, onChange, onSubmit }: InputProps) {
   const onEnterSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!onSubmit || e.nativeEvent.isComposing) return;
     if (e.key === "Enter") {
@@ -35,6 +36,7 @@ function Input({ children, name, value, width, height, onChange, onSubmit }: Inp
       onKeyDown={onEnterSubmit}
       width={width}
       height={height}
+      placeholder={placeholder}
     >
       {children}
     </StyledInput>
