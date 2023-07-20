@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router } from "react-router-dom";
-import MainRouter from './routues/MainRoter';
+import MainRoute from './routes/MainRote';
 
 function App() {
   return (
     <Router>
-      <MainRouter />
+      <MainRoute />
     </Router>
   );
-}
+};
 
 export default App;
