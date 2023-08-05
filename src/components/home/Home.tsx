@@ -17,7 +17,7 @@ const Container = styled.div`
   height: 90%;
   display: flex;
   justify-content: center;
-
+  /* background-color: red; */
 `;
 
 const Wrap = styled.div`
