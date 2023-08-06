@@ -12,25 +12,25 @@ export default function MainRoute() {
       <Route
         path="/*"
         element={
-          <PrivateRoute>
-            <HomeRoute />
-          </PrivateRoute>
+          // <PrivateRoute>
+          <HomeRoute />
+          // </PrivateRoute>
         }
       />
       <Route
         path="/notice/*"
         element={
-          <PrivateRoute>
-            <NoticeRoute />
-          </PrivateRoute>
+          // <PrivateRoute>
+          <NoticeRoute />
+          // </PrivateRoute>
         }
       />
       <Route
         path="/auth/*"
         element={
-          <UnPrivateRoute>
-            <AuthRoute />
-          </UnPrivateRoute>
+          // <UnPrivateRoute>
+          <AuthRoute />
+          // </UnPrivateRoute>
         }
       />
     </Routes>

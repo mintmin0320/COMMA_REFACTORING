@@ -5,7 +5,9 @@ import { getItem } from '../components/utils/localStorage';
 
 export default function PrivateRoute({ children }: { children: React.ReactNode }) {
   const isLogIn = getItem('userId', null);
-  console.log({ children })
 
-  return isLogIn ? <Fragment>{children}</Fragment> : <Navigate to="/auth/login" />
+  return isLogIn ?
+    <Fragment>{children}</Fragment>
+    :
+    <Navigate to="/auth/login" />
 };

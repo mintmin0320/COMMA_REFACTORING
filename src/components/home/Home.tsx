@@ -1,11 +1,26 @@
+/*
+  메인 페이지
+  - 컴퓨터공학부 이미지
+  - 공지사항 모아보기 관련 썸네일
+  - 부품 신청 페이지 관련 썸네일
+*/
+
 import styled from 'styled-components';
 
 function Home() {
   return (
     <Container>
-      <Wrap>
-        메인페이지
-      </Wrap>
+      <StyledFirstBox>
+        <StyledFirstText>
+          <H1>컴퓨터공학부 커뮤니티 콤마</H1>
+        </StyledFirstText>
+      </StyledFirstBox>
+      <StyledSecondBox>
+        2.공지사항 모아보기 사진
+      </StyledSecondBox>
+      <StyledThirdBox>
+        3. 부품 신청 페이지 사진
+      </StyledThirdBox>
     </Container>
   );
 };
@@ -13,29 +28,45 @@ function Home() {
 export default Home;
 
 const Container = styled.div`
-  width: 85%;
-  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledFirstBox = styled.div`
+  width: 100%;
+  height: 95vh;
   display: flex;
   justify-content: center;
-  /* background-color: red; */
+  background: url(../images/dmu-logo.png) no-repeat center;
+  opacity: 0.7;
+  top: 0;
+  left: 0;
+  /* background-size: cover; */
 `;
 
-const Wrap = styled.div`
-  width: 94%;
-  height: 100%;
+const StyledFirstText = styled.div`
+  width: 70%;
+  height: 15%;
   display: flex;
-  border: solid 1px black;
+  justify-content: center;
+  align-items: center;
+  padding-top: 150px;
 `;
 
-
-
-const StyledLogoBox = styled.div`
-  width: 77%;
-  height: 100%;
-  display: flex;
-  border-right: solid 1px black;
-  
-  img {
-
-  }
+const H1 = styled.h1`
+  font-size: 66px;
 `;
+
+const StyledSecondBox = styled.div`
+  width: 100%;
+  height: 180px;
+  background-color: red;
+`;
+
+const StyledThirdBox = styled.div`
+  width: 100%;
+  height: 180px;
+  background-color: green;
+`;
+

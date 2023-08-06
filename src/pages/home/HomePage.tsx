@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
+// layout
 import Home from '../../components/home/Home';
-import SideBar from '../../components/layout/SideBar';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
+
+import ScrollTopBtn from '../../components/common/ScrollTopBtn';
 
 
 function HomePage() {
@@ -11,10 +13,10 @@ function HomePage() {
     <Container>
       <Header />
       <StyledHomeBox>
-        <SideBar />
         <Home />
       </StyledHomeBox>
       <Footer />
+      <ScrollTopBtn />
     </Container>
   )
 }
@@ -23,18 +25,15 @@ export default HomePage;
 
 const Container = styled.div`
   width: 100%;
-  height: 100vmax;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* background-color: blue; */
 `;
 
 const StyledHomeBox = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
+  
 `;
 
 

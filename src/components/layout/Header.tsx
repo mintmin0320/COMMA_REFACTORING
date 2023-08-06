@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 function Header() {
   return (
@@ -10,6 +11,20 @@ function Header() {
             COMMA
           </StyledLogoTitle>
         </StyledLogoBox>
+        <StyledMenuList>
+          <StyledMenuLinkBox
+            to={'/notice'}
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#000',
+              backgroundColor: isActive ? '#0064ff' : '#fff',
+            })}
+          >
+            공지사항
+          </StyledMenuLinkBox>
+          <StyledMenuLinkBox to={'/'}>메뉴2</StyledMenuLinkBox>
+          <StyledMenuLinkBox to={'/'}>메뉴3</StyledMenuLinkBox>
+          <StyledMenuLinkBox to={'/'}>메뉴4</StyledMenuLinkBox>
+        </StyledMenuList>
       </HeaderWrap>
     </Container>
   );
@@ -19,13 +34,14 @@ export default Header;
 
 const Container = styled.div`
   width: 100%;
-  height: 120px;
+  height: 70px;
   display: flex;
   justify-content: center;
   border-bottom: solid 1px #D8D8D8;
   background-color: #fff;
   position: sticky;
   top: 0px;
+  z-index: 1;
 `;
 
 const HeaderWrap = styled.div`
@@ -33,6 +49,7 @@ const HeaderWrap = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const StyledLogoBox = styled.div`
@@ -41,13 +58,11 @@ const StyledLogoBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
-
 `;
 
 const StyledLogoImg = styled.img`
-  width: 45px;
-  height: 45px;
+  width: 30px;
+  height: 30px;
 `;
 
 const StyledLogoTitle = styled.div`
@@ -55,7 +70,37 @@ const StyledLogoTitle = styled.div`
   height: 45px;
   display: flex;
   align-items: center;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bolder;
   margin-left: 8px;
+`;
+
+const StyledMenuList = styled.div`
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+// const StyledMenuBtn = styled.div`
+//   width: 23%;
+//   height: 40%;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: pink;
+// `;
+
+const StyledMenuLinkBox = styled(NavLink)`
+  width: 15%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+
+  &:hover{  
+    background-color : #F2F2F2;
+  }
 `;
