@@ -17,7 +17,6 @@ const Container = styled.div`
   height: 120px;
   display: flex;
   justify-content: center;
-  background-color: #F2F2F2;
 `;
 
 const Wrap = styled.div`

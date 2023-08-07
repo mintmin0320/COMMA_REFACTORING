@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+// icon
+import { ImArrowUp2 } from "react-icons/im";
+
 const ScrollTopBtn = () => {
   const [ScrollY, setScrollY] = useState<number>(0);
 
@@ -28,10 +31,10 @@ const ScrollTopBtn = () => {
   return (
     <Container>
       <button
-        className="topBtn"
+        className='topBtn'
         onClick={handleOnTopBtn}
       >
-        업
+        <ImArrowUp2 size='30px' />
       </button>
     </Container>
   );
@@ -46,6 +49,9 @@ const Container = styled.div`
     right: 40px;
     width: 50px; 
     height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 100%;
     border: 0 none;
     background: #0064ff;
@@ -54,7 +60,7 @@ const Container = styled.div`
     font-weight: bold;
     letter-spacing: -0.06em;
     cursor: pointer;
-  }
+  };
 
   .topBtn:hover,
   .topBtn:focus,

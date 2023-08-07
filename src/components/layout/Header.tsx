@@ -5,7 +5,7 @@ function Header() {
   return (
     <Container>
       <HeaderWrap>
-        <StyledLogoBox>
+        <StyledLogoBox to='/'>
           <StyledLogoImg src='./images/blue_bg.svg' />
           <StyledLogoTitle>
             COMMA
@@ -52,12 +52,13 @@ const HeaderWrap = styled.div`
   justify-content: space-between;
 `;
 
-const StyledLogoBox = styled.div`
+const StyledLogoBox = styled(NavLink)`
   width: 30%;
   height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000;
 `;
 
 const StyledLogoImg = styled.img`
@@ -83,22 +84,14 @@ const StyledMenuList = styled.div`
   justify-content: space-between;
 `;
 
-// const StyledMenuBtn = styled.div`
-//   width: 23%;
-//   height: 40%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: pink;
-// `;
-
 const StyledMenuLinkBox = styled(NavLink)`
   width: 15%;
-  height: 40%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
+  color: #000;
 
   &:hover{  
     background-color : #F2F2F2;
