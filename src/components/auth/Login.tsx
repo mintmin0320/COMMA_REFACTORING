@@ -11,7 +11,7 @@ import { setItem } from '../utils/localStorage';
 import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
 import 'react-toastify/dist/ReactToastify.css';
 
-interface ILoginProps {
+interface LoginProps {
   $top?: string;
 }
 
@@ -122,7 +122,7 @@ const StyledLoginBox = styled.div`
   border: 1px #D9D8D7;
 `;
 
-const StyledInputBox = styled.div<ILoginProps>`
+const StyledInputBox = styled.div<LoginProps>`
   width: 75%;
   height: 15%;
   display: flex;
