@@ -6,7 +6,7 @@
 
 <br/>
 
-## 주요 리팩토리 사항
+## 주요 리팩토링 사항
 - JS -> TS로 전환
 - 더미 데이터를 작성해 서버 없이 구동
 - Airbnb 컨벤션 준수 <a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a>
