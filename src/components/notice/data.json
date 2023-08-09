@@ -1,35 +1,35 @@
 [
   {
     "postId": 1,
-    "title": "2023학년도 1학기 1차 강의평가 시행",
+    "title": "2023학년도 2학기 수강신청 안내",
     "writer": "박재선",
-    "create_date": "2023.03.23",
+    "create_date": "2023.08.07",
     "postView": 815,
-    "file": 1
+    "file": 2
   },
   {
     "postId": 2,
-    "title": "2023학년도 1학기 1차 강의평가 시행",
+    "title": "2023학년도 1학기 2차 강의평가 시행 안내",
     "writer": "박재선",
-    "create_date": "2023.03.23",
-    "postView": 815,
-    "file": 1
-  },
-  {
-    "postId": 3,
-    "title": "2023학년도 1학기 1차 강의평가 시행",
-    "writer": "박재선",
-    "create_date": "2023.03.23",
+    "create_date": "2023.06.07",
     "postView": 815,
     "file": 0
   },
   {
-    "postId": 4,
-    "title": "2023학년도 1학기 1차 강의평가 시행",
-    "writer": "박재선",
-    "create_date": "2023.03.23",
+    "postId": 3,
+    "title": "[교양]2023학년도 1학기 기말고사 교양과목 시간표 안내",
+    "writer": "이은실",
+    "create_date": "2023.06.02",
     "postView": 815,
-    "file": 3
+    "file": 1
+  },
+  {
+    "postId": 4,
+    "title": "2023학년도 하계 계절학기 수강 신청 안내",
+    "writer": "박재선",
+    "create_date": "2023.06.01",
+    "postView": 815,
+    "file": 1
   },
   {
     "postId": 5,
@@ -49,7 +49,7 @@
   },
   {
     "postId": 7,
-    "title": "2023학년도 1학기 중간고사 시행 안내",
+    "title": "2023학년도 1학기 기말고사 시행 안내 (공적 사유 결시 인정 신청 포함)",
     "writer": "박재선",
     "create_date": "2023.04.04",
     "postView": 815,
@@ -57,15 +57,15 @@
   },
   {
     "postId": 8,
-    "title": "2023학년도 1학기 1차 강의평가 시행",
-    "writer": "박재선",
+    "title": "2023-1학기 중간고사 공적사유로 인한 결시인정신청서 제출 안내",
+    "writer": "민승현",
     "create_date": "2023.03.23",
     "postView": 815,
     "file": 0
   },
   {
     "postId": 9,
-    "title": "2023학년도 1학기 1차 강의평가 시행",
+    "title": "2023학년도 1학기 중간고사 시행 안내",
     "writer": "박재선",
     "create_date": "2023.03.23",
     "postView": 815,

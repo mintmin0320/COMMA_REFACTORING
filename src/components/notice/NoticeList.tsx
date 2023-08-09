@@ -42,7 +42,7 @@ export default NoticeList;
 
 const Container = styled.div`
   width: 55%;
-  height: 100%;
+  height: 95%;
   display: flex;
   justify-content: center;
   align-items: center;

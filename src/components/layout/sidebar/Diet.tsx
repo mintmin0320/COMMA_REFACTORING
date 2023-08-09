@@ -37,7 +37,6 @@ const StyledDateBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #E6E6E6; */
   border-bottom: solid 1px #000;
 `;
 
@@ -50,15 +49,15 @@ const StyledMenuBox = styled.div`
   width: 100%;
   height: 120px;
   display: grid;
+  place-items: center;
   align-items: center;
   grid-template-columns: 1fr 1fr;
 `;
 
 const StyledMenu = styled.p`
-  width: 96%;
+  width: 80%;
   height: 18px;
   font-size: 15px;
   display: flex;
-  justify-content: center;
   padding-top: 2px;
 `;

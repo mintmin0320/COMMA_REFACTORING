@@ -15,7 +15,7 @@ function Home() {
     <Container>
       <StyledFirstBox>
         <StyledFirstText>
-          <H1>컴퓨터공학부 커뮤니티 콤마</H1>
+          <H1>컴퓨터공학부 커뮤니티 COMMA</H1>
         </StyledFirstText>
       </StyledFirstBox>
       <StyledSecondBox>

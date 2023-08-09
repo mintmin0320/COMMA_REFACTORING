@@ -6,20 +6,21 @@ import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 
 import ScrollTopBtn from '../../components/common/ScrollTopBtn';
-
+import ScrollProgressBar from '../../components/common/ScrollProgressBar';
 
 function HomePage() {
   return (
     <Container>
       <Header />
+      <ScrollProgressBar />
       <StyledHomeBox>
         <Home />
       </StyledHomeBox>
       <Footer />
       <ScrollTopBtn />
     </Container>
-  )
-}
+  );
+};
 
 export default HomePage;
 
