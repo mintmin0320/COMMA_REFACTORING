@@ -16,11 +16,15 @@ function SideBar() {
 export default SideBar;
 
 const Container = styled.div`
-  width: 25%;
+  width: 20%;
   height: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media screen and (max-width: 1500px) {
+    width: 28%;
+  };
 `;
 
 const StyledDietTitle = styled.h1`

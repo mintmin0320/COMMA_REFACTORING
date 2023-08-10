@@ -55,7 +55,7 @@ const StyledMenuBox = styled.div`
 `;
 
 const StyledMenu = styled.p`
-  width: 80%;
+  width: 83%;
   height: 18px;
   font-size: 15px;
   display: flex;

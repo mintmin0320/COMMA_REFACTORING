@@ -16,7 +16,7 @@ function NoticePage() {
   );
 };
 
-export default NoticePage
+export default NoticePage;
 
 const Container = styled.div`
   width: 100%;
