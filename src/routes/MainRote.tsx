@@ -1,10 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
-import PrivateRoute from './PrivateRoute';
-import UnPrivateRoute from './UnProtected';
-import NoticeRoute from './NoticeRoute';
-import AuthRoute from './AuthRoute';
-import HomeRoute from './HomeRoute';
+import { HomeRoute, AuthRoute, NoticeRoute, ProductRoute } from './index'
+
 
 export default function MainRoute() {
   return (
@@ -18,6 +15,14 @@ export default function MainRoute() {
         }
       />
       <Route
+        path="/auth/*"
+        element={
+          // <UnPrivateRoute>
+          <AuthRoute />
+          // </UnPrivateRoute>
+        }
+      />
+      <Route
         path="/notice/*"
         element={
           // <PrivateRoute>
@@ -26,11 +31,11 @@ export default function MainRoute() {
         }
       />
       <Route
-        path="/auth/*"
+        path="/product/*"
         element={
-          // <UnPrivateRoute>
-          <AuthRoute />
-          // </UnPrivateRoute>
+          // <PrivateRoute>
+          <ProductRoute />
+          // </PrivateRoute>
         }
       />
     </Routes>

@@ -21,7 +21,13 @@ function Header() {
           >
             공지사항
           </StyledMenuLinkBox>
-          <StyledMenuLinkBox to={'/'}>메뉴2</StyledMenuLinkBox>
+          <StyledMenuLinkBox
+            to={'/product'}
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#000',
+              backgroundColor: isActive ? '#0064ff' : '#fff',
+            })}
+          >상품 목록</StyledMenuLinkBox>
           <StyledMenuLinkBox to={'/'}>메뉴3</StyledMenuLinkBox>
           <StyledMenuLinkBox to={'/'}>메뉴4</StyledMenuLinkBox>
         </StyledMenuList>
