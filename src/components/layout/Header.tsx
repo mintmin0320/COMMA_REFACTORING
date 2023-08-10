@@ -34,7 +34,7 @@ export default Header;
 
 const Container = styled.div`
   width: 100%;
-  height: 70px;
+  height: 65px;
   display: flex;
   justify-content: center;
   border-bottom: solid 1px #D8D8D8;

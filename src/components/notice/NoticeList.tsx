@@ -27,12 +27,15 @@ function NoticeList() {
           </StyledNoticeListInfo>
           <Notice />
         </StyledNoticeListBox>
-        <StyledNoticePageBtnBox>
-          버튼
-        </StyledNoticePageBtnBox>
-        <StyledNoticePageSearchBox>
-          검색
-        </StyledNoticePageSearchBox>
+        <StyledNoticeBtnBox>
+          페이지 이동 버튼
+        </StyledNoticeBtnBox>
+        <StyledNoticeSearchBox>
+          <StyledSearchInput />
+          <StyledSearchBtn>
+            검색
+          </StyledSearchBtn>
+        </StyledNoticeSearchBox>
       </NoticeWrap>
     </Container>
   );
@@ -122,8 +125,8 @@ const StyledNoticeListFile = styled.div`
   align-items: center;
 `;
 
-const StyledNoticePageBtnBox = styled.div`
-  width: 10%;
+const StyledNoticeBtnBox = styled.div`
+  width: 100%;
   height: 6%;
   display: flex;
   justify-content: center;
@@ -131,11 +134,25 @@ const StyledNoticePageBtnBox = styled.div`
   background-color: yellow;
 `;
 
-const StyledNoticePageSearchBox = styled.div`
-  width: 10%;
+const StyledNoticeSearchBox = styled.div`
+  width: 70%;
   height: 6%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  /* background-color: pink; */
+`;
+
+const StyledSearchInput = styled.input`
+  width: 35%;
+  height: 40%;
+  margin-right: 8px;
+`;
+
+const StyledSearchBtn = styled.button`
+  width: 10%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

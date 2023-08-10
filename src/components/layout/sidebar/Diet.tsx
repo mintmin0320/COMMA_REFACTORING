@@ -37,7 +37,7 @@ const StyledDateBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: solid 1px #000;
+  border-bottom: solid 1px #d8d8d8;
 `;
 
 const StyledDivisionBox = styled.div`

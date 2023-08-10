@@ -47,7 +47,7 @@ export default ScrollProgressBar;
 
 const ProgressWrap = styled.div`
   width: 100%;
-  height: 73.1px;
+  height: 68.1px;
   display: flex;
   align-items: flex-end;
   position: fixed;
