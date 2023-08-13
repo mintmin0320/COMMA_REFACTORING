@@ -1,38 +1,86 @@
 import styled from 'styled-components';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import ProductCategory from './ProductCategory';
 
+import ProductItemData from './ProductData.json';
+
+interface ProductInfo {
+  itemId: number,
+  itemTitle: string,
+  itemCategory: string,
+  itemImg: string,
+  postView: number,
+  itemCount: number
+};
 
 function ProductList() {
   return (
-    <Container>
-      <ProductWrap>
-        <ProductCategory />
-      </ProductWrap>
-    </Container>
+    <ProductListBox>
+      {
+        ProductItemData.map((item: ProductInfo) => {
+          return (
+            <ProductItem key={item.itemId}>
+              <ProductImgBox>
+                <ProductImg src={item.itemImg} />
+                <ProductTitleBox>
+                  {item.itemTitle}
+                </ProductTitleBox>
+                <ProductCategoryBox>
+                  {item.itemCategory}
+                </ProductCategoryBox>
+                <ProductCountBox>
+                  {item.itemCount}
+                </ProductCountBox>
+              </ProductImgBox>
+            </ProductItem>
+          )
+        })
+      }
+    </ProductListBox>
   );
 };
 
 export default ProductList;
 
-const Container = styled.div`
-  width: 55%;
-  height: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: solid 1px #d8d8d8;
-  background-color: #fff;
-  border-radius: 8px;
+const ProductListBox = styled.div`
+  width: 100%;
+  /* height: 100px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 35px 15px;
+  place-items: center;
+
+  @media screen and (min-width: 1500px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  };
 `;
 
-const ProductWrap = styled.div`
-  width: 96%;
+const ProductItem = styled.div`
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+`;
+
+const ProductImgBox = styled.div`
+  width: 100%;
+  height: 230px;
+`;
+
+const ProductImg = styled.img`
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  border: solid 1px #d8d8d8;
-  background-color: #fff;
 `;
 
+const ProductTitleBox = styled.div`
+  width: 100%;
+  font-size: 18px;
+`;
+
+const ProductCategoryBox = styled.div`
+  width: 100%;
+  color: #A4A4A4;
+`;
+
+const ProductCountBox = styled.div`
+  width: 100%;
+  color: #A4A4A4;
+`;

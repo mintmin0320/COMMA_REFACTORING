@@ -1,107 +1,66 @@
-/**
-  공지사항 리스트
-  - 분류 버튼 분류작성 필요
-  - 리스트 상세페이지 제작 필요
- */
-
+import { Fragment } from 'react';
 import styled from 'styled-components';
-import Notice from './Notice';
-import { useState } from 'react';
 
-function NoticeList() {
+import data from './data.json';
+
+interface TitleProps {
+  $title?: string;
+}
+
+function Notice() {
   return (
-    <Container>
-      <NoticeWrap>
-        <StyledClassificationBox>
-          <StyledClassificationBtn>대학공지</StyledClassificationBtn>
-          <StyledClassificationBtn>소프트웨어공학</StyledClassificationBtn>
-          <StyledClassificationBtn>정보공학</StyledClassificationBtn>
-          <StyledClassificationBtn>인공지능</StyledClassificationBtn>
-        </StyledClassificationBox>
-        <StyledNoticeListBox>
-          <StyledNoticeListInfo>
-            <StyledNoticeListTitle>제목</StyledNoticeListTitle>
-            <StyledNoticeListWriter>작성자</StyledNoticeListWriter>
-            <StyledNoticeListDate>작성일</StyledNoticeListDate>
-            <StyledNoticeListFile>첨부파일</StyledNoticeListFile>
-          </StyledNoticeListInfo>
-          <Notice />
-        </StyledNoticeListBox>
-        <StyledNoticeBtnBox>
-          페이지 이동 버튼
-        </StyledNoticeBtnBox>
-        <StyledNoticeSearchBox>
-          <StyledSearchInput />
-          <StyledSearchBtn>
-            검색
-          </StyledSearchBtn>
-        </StyledNoticeSearchBox>
-      </NoticeWrap>
-    </Container>
+    <Fragment>
+      {
+        data.map((list) => {
+          return (
+            <StyledNoticeInfo>
+              <StyledNoticeTitle >
+                <StyledNoticeInfoText $title='title'>{list.title}</StyledNoticeInfoText>
+              </StyledNoticeTitle>
+              <StyledNoticeWriter>
+                <StyledNoticeInfoText >{list.writer}</StyledNoticeInfoText>
+              </StyledNoticeWriter>
+              <StyledNoticeDate>
+                <StyledNoticeInfoText>{list.create_date}</StyledNoticeInfoText>
+              </StyledNoticeDate>
+              <StyledNoticeFile>
+                <StyledNoticeInfoText>{list.file}</StyledNoticeInfoText>
+              </StyledNoticeFile>
+            </StyledNoticeInfo>
+          )
+        })
+      }
+    </Fragment>
   );
 };
 
-export default NoticeList;
+export default Notice;
 
-const Container = styled.div`
-  width: 55%;
-  height: 95%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px #d8d8d8;
-  border-radius: 8px;
-`;
-
-const NoticeWrap = styled.div`
+const StyledNoticeInfo = styled.div`
   width: 100%;
-  height: 100%;
+  height: 8.5%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-  background-color: #fff;
-`;
-
-const StyledClassificationBox = styled.div`
-  width: 96%;
-  height: 8%;
-  display: flex;
-  border-bottom: solid 2px #d8d8d8;
-`;
-
-const StyledClassificationBtn = styled.div`
-  height: 50px;
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 28px;
-  border-bottom: solid 2px #0064ff;
-`;
-
-const StyledNoticeListBox = styled.div`
-  width: 96%;
-  height: 80%;
-`;
-
-const StyledNoticeListInfo = styled.div`
-  width: 100%;
-  height: 45px;
-  display: flex;
-  background-color: #f5f5f5;
   border-bottom: solid 1px #d8d8d8;
 `;
 
-const StyledNoticeListTitle = styled.div`
+const StyledNoticeInfoText = styled.div<TitleProps>`
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: ${(props) => props.$title === 'title' ? 'flex-start' : 'center'};
+  padding-left: ${(props) => props.$title === 'title' ? '25px' : '0'};
+  font-size: 15px;
+`;
+
+const StyledNoticeTitle = styled.div`
   width: 59%;
   height: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
 `;
 
-const StyledNoticeListWriter = styled.div`
+const StyledNoticeWriter = styled.div`
   width: 13%;
   height: 100%;
   display: flex;
@@ -109,7 +68,7 @@ const StyledNoticeListWriter = styled.div`
   align-items: center;
 `;
 
-const StyledNoticeListDate = styled.div`
+const StyledNoticeDate = styled.div`
   width: 18%;
   height: 100%;
   display: flex;
@@ -117,41 +76,9 @@ const StyledNoticeListDate = styled.div`
   align-items: center;
 `;
 
-const StyledNoticeListFile = styled.div`
+const StyledNoticeFile = styled.div`
   width: 10%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledNoticeBtnBox = styled.div`
-  width: 100%;
-  height: 6%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: yellow;
-`;
-
-const StyledNoticeSearchBox = styled.div`
-  width: 70%;
-  height: 6%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: pink; */
-`;
-
-const StyledSearchInput = styled.input`
-  width: 35%;
-  height: 40%;
-  margin-right: 8px;
-`;
-
-const StyledSearchBtn = styled.button`
-  width: 10%;
-  height: 60%;
   display: flex;
   justify-content: center;
   align-items: center;

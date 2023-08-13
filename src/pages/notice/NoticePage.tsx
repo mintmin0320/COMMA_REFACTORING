@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 
 import Header from '../../components/layout/Header'
 import SideBar from '../../components/layout/sidebar/SideBar';
-import NoticeList from '../../components/notice/NoticeList'
+import Notice from '../../components/notice/Notice'
 
 function NoticePage() {
   return (
@@ -10,7 +10,7 @@ function NoticePage() {
       <Header />
       <StyledNoticeBox>
         <SideBar />
-        <NoticeList />
+        <Notice />
       </StyledNoticeBox>
     </Container>
   );

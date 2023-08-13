@@ -15,7 +15,7 @@ function ProductCarousel() {
           <CarouselImg src='./images/product1.jpg' />
         </CarouselList>
         <CarouselList>
-
+          <CarouselImg src='./images/mintmin.jpg' />
         </CarouselList>
       </Carousel>
     </CarouselBox>
@@ -25,24 +25,22 @@ function ProductCarousel() {
 export default ProductCarousel;
 
 const CarouselBox = styled.div`
-  width: 70%;
-  height: 300px;
+  width: 100%;
+  height: 320px;
   display: flex;
-  border-radius: 8px;
   align-items: center;
-  background-color: red;
 `;
 
 const CarouselList = styled.div`
   width: 100%;
-  height: 300px;
+  height: 280px;
   display: flex;
   justify-content: center;
-  overflow: hidden;
-  
+  /* overflow: hidden; */
 `;
 
 const CarouselImg = styled.img`
   height: 300px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  object-fit: contain;
 `;

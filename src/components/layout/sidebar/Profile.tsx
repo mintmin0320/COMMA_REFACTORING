@@ -35,7 +35,7 @@ export default Profile;
 
 const ProfileWrap = styled.div`
   width: 80%;
-  height: 310px;
+  height: 270px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,15 +47,15 @@ const ProfileWrap = styled.div`
 
 const StyledProfileBox = styled.div`
   width: 100%;
-  height: 200px;
+  height: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const StyledProfileFrame = styled.div`
-  width: 170px;
-  height: 170px;
+  width: 144px;
+  height: 144px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,14 +68,14 @@ const StyledProfileFrame = styled.div`
 `;
 
 const StyledProfile = styled.img`
-  width: 166px;
-  height: 166px;
+  width: 140px;
+  height: 140px;
   display: flex;
   border-radius: 50%;
 `;
 
 const StyledButtonBox = styled.div`
-  width: 80%;
+  width: 60%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
@@ -84,7 +84,7 @@ const StyledButtonBox = styled.div`
 
 const StyledNavButton = styled.button`
   width: 100%;
-  height: 40px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;

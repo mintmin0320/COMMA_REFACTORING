@@ -32,4 +32,5 @@ const StyledDietTitle = styled.h1`
   font-size: 25px;
   display: flex;
   margin-top: 30px;
+  margin-bottom: 10px;
 `;
