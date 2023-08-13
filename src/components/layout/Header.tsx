@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import ScrollProgressBar from '../common/ScrollProgressBar';
 
 function Header() {
   return (
@@ -32,6 +33,7 @@ function Header() {
           <StyledMenuLinkBox to={'/'}>메뉴4</StyledMenuLinkBox>
         </StyledMenuList>
       </HeaderWrap>
+      <ScrollProgressBar />
     </Container>
   );
 };
@@ -42,7 +44,8 @@ const Container = styled.div`
   width: 100%;
   height: 65px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   border-bottom: solid 1px #D8D8D8;
   background-color: #fff;
   position: sticky;

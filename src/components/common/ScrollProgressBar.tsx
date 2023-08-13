@@ -36,24 +36,12 @@ const ScrollProgressBar = () => {
   };
 
   return (
-    <ProgressWrap>
-      <StyledProgress
-        style={{ width: `${progress}%`, background: `${setProgressColor(progress)}` }} />
-    </ProgressWrap>
+    <StyledProgress
+      style={{ width: `${progress}%`, background: `${setProgressColor(progress)}` }} />
   );
 };
 
 export default ScrollProgressBar;
-
-const ProgressWrap = styled.div`
-  width: 100%;
-  height: 64px;
-  display: flex;
-  align-items: flex-end;
-  position: fixed;
-  top: 0;
-  left: 0;
-`;
 
 const StyledProgress = styled.div`
   height: 2px;
