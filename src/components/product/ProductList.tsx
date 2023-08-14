@@ -27,7 +27,9 @@ function ProductList() {
                   {item.itemCategory}
                 </ProductCategoryBox>
                 <ProductCountBox>
-                  {item.itemCount}
+                  {
+                    item.itemCount === 0 ? '품 절' : `${item.itemCount}EA`
+                  }
                 </ProductCountBox>
               </ProductImgBox>
             </ProductItem>
@@ -72,15 +74,17 @@ const ProductImg = styled.img`
 
 const ProductTitleBox = styled.div`
   width: 100%;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: bolder;
 `;
 
 const ProductCategoryBox = styled.div`
   width: 100%;
   color: #A4A4A4;
+  margin-top: 6px;
 `;
 
 const ProductCountBox = styled.div`
   width: 100%;
-  color: #A4A4A4;
+  margin-top: 12px;
 `;

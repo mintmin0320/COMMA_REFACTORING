@@ -15,7 +15,10 @@ function ProductCarousel() {
           <CarouselImg src='./images/product1.jpg' />
         </CarouselList>
         <CarouselList>
-          <CarouselImg src='./images/mintmin.jpg' />
+          <CarouselImg src='./images/arduino2.jpg' />
+        </CarouselList>
+        <CarouselList>
+          <CarouselImg src='./images/arduino5.jpg' />
         </CarouselList>
       </Carousel>
     </CarouselBox>
@@ -26,7 +29,7 @@ export default ProductCarousel;
 
 const CarouselBox = styled.div`
   width: 100%;
-  height: 320px;
+  height: 330px;
   display: flex;
   align-items: center;
 `;
@@ -40,7 +43,7 @@ const CarouselList = styled.div`
 `;
 
 const CarouselImg = styled.img`
-  height: 300px;
+  height: 280px;
   /* overflow: hidden; */
-  object-fit: contain;
+  /* object-fit: contain; */
 `;

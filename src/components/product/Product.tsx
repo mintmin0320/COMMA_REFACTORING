@@ -36,8 +36,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: solid 1px #d8d8d8;
-  background-color: #fff;
+  /* border: solid 1px #d8d8d8; */
+  /* background-color: #fff; */
   border-radius: 8px;
 `;
 
@@ -48,7 +48,7 @@ const ProductWrap = styled.div`
   flex-direction: column;
   /* align-items: center; */
   /* border: solid 1px #d8d8d8; */
-  background-color: #fff;
+  /* background-color: #fff; */
 `;
 
 
