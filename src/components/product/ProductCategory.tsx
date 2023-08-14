@@ -21,7 +21,7 @@ const ProductCategoryBox = styled.div`
   width: 100%;
   height: 100px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
   border: solid 1px #d8d8d8;
   border-radius: 8px;
 `;
