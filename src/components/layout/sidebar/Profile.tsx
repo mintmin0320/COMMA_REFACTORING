@@ -5,34 +5,7 @@ import { BsFillBasketFill, BsFillChatDotsFill } from "react-icons/bs";
 import { BiSolidUser } from "react-icons/bi";
 import { RiLogoutBoxRFill } from "react-icons/ri";
 
-function Profile() {
-  return (
-    <ProfileWrap>
-      <StyledProfileBox>
-        <StyledProfileFrame>
-          <StyledProfile src='./images/mintmin.jpg' alt='' />
-        </StyledProfileFrame>
-      </StyledProfileBox>
-      <StyledButtonBox>
-        <StyledNavButton>
-          <BiSolidUser size='20px' />
-        </StyledNavButton>
-        <StyledNavButton>
-          <RiLogoutBoxRFill size='20px' />
-        </StyledNavButton>
-        <StyledNavButton>
-          <BsFillBasketFill size='20px' />
-        </StyledNavButton>
-        <StyledNavButton>
-          <BsFillChatDotsFill size='20px' />
-        </StyledNavButton>
-      </StyledButtonBox>
-    </ProfileWrap>
-  );
-};
-
-export default Profile;
-
+// CSS
 const ProfileWrap = styled.div`
   width: 80%;
   height: 270px;
@@ -89,3 +62,31 @@ const StyledNavButton = styled.button`
   justify-content: center;
   align-items: center;
 `;
+
+function Profile() {
+  return (
+    <ProfileWrap>
+      <StyledProfileBox>
+        <StyledProfileFrame>
+          <StyledProfile src='./images/mintmin.jpg' alt='' />
+        </StyledProfileFrame>
+      </StyledProfileBox>
+      <StyledButtonBox>
+        <StyledNavButton>
+          <BiSolidUser size='20px' />
+        </StyledNavButton>
+        <StyledNavButton>
+          <RiLogoutBoxRFill size='20px' />
+        </StyledNavButton>
+        <StyledNavButton>
+          <BsFillBasketFill size='20px' />
+        </StyledNavButton>
+        <StyledNavButton>
+          <BsFillChatDotsFill size='20px' />
+        </StyledNavButton>
+      </StyledButtonBox>
+    </ProfileWrap>
+  );
+};
+
+export default Profile;

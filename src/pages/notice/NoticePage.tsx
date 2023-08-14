@@ -4,20 +4,7 @@ import Header from '../../components/layout/Header'
 import SideBar from '../../components/layout/sidebar/SideBar';
 import Notice from '../../components/notice/Notice'
 
-function NoticePage() {
-  return (
-    <Container>
-      <Header />
-      <StyledNoticeBox>
-        <SideBar />
-        <Notice />
-      </StyledNoticeBox>
-    </Container>
-  );
-};
-
-export default NoticePage;
-
+// CSS
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -33,3 +20,17 @@ const StyledNoticeBox = styled.div`
   justify-content: center;
   margin-top: 25px;
 `;
+
+function NoticePage() {
+  return (
+    <Container>
+      <Header />
+      <StyledNoticeBox>
+        <SideBar />
+        <Notice />
+      </StyledNoticeBox>
+    </Container>
+  );
+};
+
+export default NoticePage;

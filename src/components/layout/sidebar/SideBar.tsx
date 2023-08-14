@@ -3,18 +3,7 @@ import styled from 'styled-components';
 import Diet from './Diet';
 import Profile from './Profile';
 
-function SideBar() {
-  return (
-    <Container>
-      <Profile />
-      <StyledDietTitle>오늘의 식단</StyledDietTitle>
-      <Diet />
-    </Container>
-  );
-};
-
-export default SideBar;
-
+// CSS
 const Container = styled.div`
   width: 20%;
   height: 90%;
@@ -34,3 +23,15 @@ const StyledDietTitle = styled.h1`
   margin-top: 30px;
   margin-bottom: 10px;
 `;
+
+function SideBar() {
+  return (
+    <Container>
+      <Profile />
+      <StyledDietTitle>오늘의 식단</StyledDietTitle>
+      <Diet />
+    </Container>
+  );
+};
+
+export default SideBar;

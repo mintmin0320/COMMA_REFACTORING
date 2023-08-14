@@ -11,38 +11,8 @@ interface ProductInfo {
   itemCount: number
 };
 
-function ProductList() {
-  return (
-    <ProductListBox>
-      {
-        ProductItemData.map((item: ProductInfo) => {
-          return (
-            <ProductItem key={item.itemId}>
-              <ProductImgBox>
-                <ProductImg src={item.itemImg} />
-                <ProductTitleBox>
-                  {item.itemTitle}
-                </ProductTitleBox>
-                <ProductCategoryBox>
-                  {item.itemCategory}
-                </ProductCategoryBox>
-                <ProductCountBox>
-                  {
-                    item.itemCount === 0 ? '품 절' : `${item.itemCount}EA`
-                  }
-                </ProductCountBox>
-              </ProductImgBox>
-            </ProductItem>
-          )
-        })
-      }
-    </ProductListBox>
-  );
-};
-
-export default ProductList;
-
-const ProductListBox = styled.div`
+// CSS
+const StyledProductList = styled.div`
   width: 100%;
   /* height: 100px; */
   display: grid;
@@ -55,36 +25,67 @@ const ProductListBox = styled.div`
   };
 `;
 
-const ProductItem = styled.div`
+const StyledProductItem = styled.div`
   width: 100%;
   height: 350px;
   display: flex;
   justify-content: center;
 `;
 
-const ProductImgBox = styled.div`
+const StyledProductImgBox = styled.div`
   width: 100%;
   height: 230px;
 `;
 
-const ProductImg = styled.img`
+const StyledProductImg = styled.img`
   width: 100%;
   height: 100%;
 `;
 
-const ProductTitleBox = styled.div`
+const StyledProductTitle = styled.div`
   width: 100%;
   font-size: 16px;
   font-weight: bolder;
 `;
 
-const ProductCategoryBox = styled.div`
+const StyledProductCategory = styled.div`
   width: 100%;
   color: #A4A4A4;
   margin-top: 6px;
 `;
 
-const ProductCountBox = styled.div`
+const StyledProductCount = styled.div`
   width: 100%;
   margin-top: 12px;
 `;
+
+function ProductList() {
+  return (
+    <StyledProductList>
+      {
+        ProductItemData.map((item: ProductInfo) => {
+          return (
+            <StyledProductItem key={item.itemId}>
+              <StyledProductImgBox>
+                <StyledProductImg src={item.itemImg} />
+                <StyledProductTitle>
+                  {item.itemTitle}
+                </StyledProductTitle>
+                <StyledProductCategory>
+                  {item.itemCategory}
+                </StyledProductCategory>
+                <StyledProductCount>
+                  {
+                    item.itemCount === 0 ? '품 절' : `${item.itemCount}EA`
+                  }
+                </StyledProductCount>
+              </StyledProductImgBox>
+            </StyledProductItem>
+          )
+        })
+      }
+    </StyledProductList>
+  );
+};
+
+export default ProductList;

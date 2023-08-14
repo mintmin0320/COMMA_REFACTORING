@@ -1,3 +1,8 @@
+/*
+  로그인 페이지
+  서버와 통신이 불가능 -> 비회원 접속 버튼
+*/
+
 import { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,79 +12,11 @@ import { toast, ToastContainer } from 'react-toastify';
 import Input from '../common/Input';
 import { setItem } from '../utils/localStorage';
 
-// css, icon
+// library-CSS, icon
 import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
 import 'react-toastify/dist/ReactToastify.css';
 
-interface LoginProps {
-  $top?: string;
-}
-
-function Login() {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    toast.info('처음 방문하셨나요? 비회원 접속이 가능합니다.');
-  }, []);
-
-  const handleOnLoginBtn = () => {
-    setItem('userId', JSON.stringify('guest'));
-
-    navigate('/');
-  };
-
-  return (
-    <Container>
-      <Wrap>
-        <StyledLogoBox>
-          <Image src='../images/blue_bg.svg' alt='wait' />
-        </StyledLogoBox>
-        <StyledLoginBox>
-          <StyledInputBox>
-            <StyledIconBox>
-              <HiUser />
-            </StyledIconBox >
-            <Input width='40%' height='94%' placeholder='ID' />
-            <StyleIdDomain>@365.dongyang.ac.kr</StyleIdDomain>
-          </StyledInputBox>
-          <StyledInputBox $top='top'>
-            <StyledIconBox>
-              <HiMiniLockClosed />
-            </StyledIconBox>
-            <Input width='85%' height='94%' placeholder='PASSWORD' />
-          </StyledInputBox>
-          <StyledLoginButton>로그인</StyledLoginButton>
-          <StyledMenuBox>
-            <StyledMenuLink>Email 찾기</StyledMenuLink>
-            <StyledMenuLink>비밀번호 찾기</StyledMenuLink>
-          </StyledMenuBox>
-          <StyledBlock />
-          <StyledJoinButton onClick={handleOnLoginBtn}>비회원 접속</StyledJoinButton>
-        </StyledLoginBox>
-        <StyledBannerBox>
-          <StyledBannerLink to='/'>
-            <Image src='../images/dmu.png' alt='wait' />
-          </StyledBannerLink>
-        </StyledBannerBox>
-      </Wrap>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </Container>
-  )
-};
-
-export default Login;
-
+// CSS
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -122,7 +59,7 @@ const StyledLoginBox = styled.div`
   border: 1px #D9D8D7;
 `;
 
-const StyledInputBox = styled.div<LoginProps>`
+const StyledInputBox = styled.div<{ $top?: string }>`
   width: 75%;
   height: 15%;
   display: flex;
@@ -206,7 +143,7 @@ const StyledBannerBox = styled.div`
   img {
     width: 40%;
     height: 80%;
-  }
+  };
 `;
 
 const StyledBannerLink = styled(Link)`
@@ -226,3 +163,68 @@ const StyleIdDomain = styled.div`
   align-items: center;
   font-size: 15px;
 `;
+
+function Login() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    toast.info('처음 방문하셨나요? 비회원 접속이 가능합니다.');
+  }, []);
+
+  const handleOnLoginBtn = () => {
+    setItem('userId', JSON.stringify('guest'));
+
+    navigate('/');
+  };
+
+  return (
+    <Container>
+      <Wrap>
+        <StyledLogoBox>
+          <Image src='../images/blue_bg.svg' alt='wait' />
+        </StyledLogoBox>
+        <StyledLoginBox>
+          <StyledInputBox>
+            <StyledIconBox>
+              <HiUser />
+            </StyledIconBox >
+            <Input width='40%' height='94%' placeholder='ID' />
+            <StyleIdDomain>@365.dongyang.ac.kr</StyleIdDomain>
+          </StyledInputBox>
+          <StyledInputBox $top='top'>
+            <StyledIconBox>
+              <HiMiniLockClosed />
+            </StyledIconBox>
+            <Input width='85%' height='94%' placeholder='PASSWORD' />
+          </StyledInputBox>
+          <StyledLoginButton>로그인</StyledLoginButton>
+          <StyledMenuBox>
+            <StyledMenuLink>Email 찾기</StyledMenuLink>
+            <StyledMenuLink>비밀번호 찾기</StyledMenuLink>
+          </StyledMenuBox>
+          <StyledBlock />
+          <StyledJoinButton onClick={handleOnLoginBtn}>비회원 접속</StyledJoinButton>
+        </StyledLoginBox>
+        <StyledBannerBox>
+          <StyledBannerLink to='/'>
+            <Image src='../images/dmu.png' alt='wait' />
+          </StyledBannerLink>
+        </StyledBannerBox>
+      </Wrap>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+    </Container>
+  );
+};
+
+export default Login;

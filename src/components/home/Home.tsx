@@ -7,44 +7,10 @@
 
 import styled from 'styled-components';
 
-// icos
+// icon
 import { ImArrowRight } from "react-icons/im";
 
-function Home() {
-  return (
-    <Container>
-      <StyledFirstBox>
-        <StyledFirstText>
-          <H1>컴퓨터공학부 커뮤니티 COMMA</H1>
-        </StyledFirstText>
-      </StyledFirstBox>
-      <StyledSecondBox>
-        <StyledSecondLeftBox>
-          <StyledSecondLeftText>
-            <p>불편했던 신청서</p>
-            <p>이제 그만 작성하세요</p>
-          </StyledSecondLeftText>
-          <StyledSecondImg src='./images/application.png' />
-        </StyledSecondLeftBox>
-        <ImArrowRight size='50px' color='#FE2E2E' />
-        <StyledSecondRightBox>
-          <StyledSecondImg src='./images/application-mobile.png' />
-          <StyledSecondRightText>
-            <p>COMMA에서 실습재료를 신청해 보세요</p>
-            <p>온라인으로 재료를 확인하고,</p>
-            <p>필요한 부품을 쉽게 신청할 수 있어요</p>
-          </StyledSecondRightText>
-        </StyledSecondRightBox>
-      </StyledSecondBox>
-      <StyledThirdBox>
-        공지사항 모아보기
-      </StyledThirdBox>
-    </Container>
-  );
-};
-
-export default Home;
-
+// CSS
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -101,10 +67,15 @@ const StyledSecondLeftText = styled.div`
   margin-bottom: 50px;
 `;
 
+const StyledParagraph = styled.p<{ $fontSize?: string }>`
+  margin: 0;
+  padding: 0;
+  font-size: ${(props) => props.$fontSize || '16px'};
+`;
+
 const StyledSecondImg = styled.img`
   width: 450px;
   height: 700px;
-  /* box-shadow: 2px 4px 30px rgba(0, 0, 0, 0.22); */
 `
 
 const StyledSecondRightBox = styled.div`
@@ -132,3 +103,37 @@ const StyledThirdBox = styled.div`
   background-color:#f9fafb;
 `;
 
+function Home() {
+  return (
+    <Container>
+      <StyledFirstBox>
+        <StyledFirstText>
+          <H1>컴퓨터공학부 커뮤니티 COMMA</H1>
+        </StyledFirstText>
+      </StyledFirstBox>
+      <StyledSecondBox>
+        <StyledSecondLeftBox>
+          <StyledSecondLeftText>
+            <StyledParagraph $fontSize="35px">불편했던 신청서</StyledParagraph>
+            <StyledParagraph $fontSize="35px">이제 그만 작성하세요</StyledParagraph>
+          </StyledSecondLeftText>
+          <StyledSecondImg src='./images/application.png' />
+        </StyledSecondLeftBox>
+        <ImArrowRight size='50px' color='#FE2E2E' />
+        <StyledSecondRightBox>
+          <StyledSecondImg src='./images/application-mobile.png' />
+          <StyledSecondRightText>
+            <StyledParagraph $fontSize="23px">COMMA에서 실습재료를 신청해 보세요</StyledParagraph>
+            <StyledParagraph $fontSize="23px">온라인으로 재료를 확인하고,</StyledParagraph>
+            <StyledParagraph $fontSize="23px">필요한 부품을 쉽게 신청할 수 있어요</StyledParagraph>
+          </StyledSecondRightText>
+        </StyledSecondRightBox>
+      </StyledSecondBox>
+      <StyledThirdBox>
+        공지사항 모아보기
+      </StyledThirdBox>
+    </Container>
+  );
+};
+
+export default Home;

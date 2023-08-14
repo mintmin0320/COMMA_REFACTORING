@@ -5,6 +5,11 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+// CSS
+const StyledProgress = styled.div`
+  height: 2px;
+`;
+
 const ScrollProgressBar = () => {
   const [progress, setProgress] = useState<number>(0);
 
@@ -37,12 +42,9 @@ const ScrollProgressBar = () => {
 
   return (
     <StyledProgress
-      style={{ width: `${progress}%`, background: `${setProgressColor(progress)}` }} />
+      style={{ width: `${progress}%`, background: `${setProgressColor(progress)}` }}
+    />
   );
 };
 
 export default ScrollProgressBar;
-
-const StyledProgress = styled.div`
-  height: 2px;
-`;

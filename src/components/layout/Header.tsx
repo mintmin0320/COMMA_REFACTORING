@@ -1,44 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+
 import ScrollProgressBar from '../common/ScrollProgressBar';
 
-function Header() {
-  return (
-    <Container>
-      <HeaderWrap>
-        <StyledLogoBox to='/'>
-          <StyledLogoImg src='./images/blue_bg.svg' />
-          <StyledLogoTitle>
-            COMMA
-          </StyledLogoTitle>
-        </StyledLogoBox>
-        <StyledMenuList>
-          <StyledMenuLinkBox
-            to={'/notice'}
-            style={({ isActive }) => ({
-              color: isActive ? '#fff' : '#000',
-              backgroundColor: isActive ? '#0064ff' : '#fff',
-            })}
-          >
-            공지사항
-          </StyledMenuLinkBox>
-          <StyledMenuLinkBox
-            to={'/product'}
-            style={({ isActive }) => ({
-              color: isActive ? '#fff' : '#000',
-              backgroundColor: isActive ? '#0064ff' : '#fff',
-            })}
-          >상품 목록</StyledMenuLinkBox>
-          <StyledMenuLinkBox to={'/'}>메뉴3</StyledMenuLinkBox>
-          <StyledMenuLinkBox to={'/'}>메뉴4</StyledMenuLinkBox>
-        </StyledMenuList>
-      </HeaderWrap>
-      <ScrollProgressBar />
-    </Container>
-  );
-};
-
-export default Header;
+// CSS
 
 const Container = styled.div`
   width: 100%;
@@ -53,7 +18,7 @@ const Container = styled.div`
   z-index: 1;
 `;
 
-const HeaderWrap = styled.div`
+const StyledHeaderWrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -106,3 +71,41 @@ const StyledMenuLinkBox = styled(NavLink)`
     background-color : #F2F2F2;
   }
 `;
+
+function Header() {
+  return (
+    <Container>
+      <StyledHeaderWrap>
+        <StyledLogoBox to='/'>
+          <StyledLogoImg src='./images/blue_bg.svg' />
+          <StyledLogoTitle>
+            COMMA
+          </StyledLogoTitle>
+        </StyledLogoBox>
+        <StyledMenuList>
+          <StyledMenuLinkBox
+            to={'/notice'}
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#000',
+              backgroundColor: isActive ? '#0064ff' : '#fff',
+            })}
+          >
+            공지사항
+          </StyledMenuLinkBox>
+          <StyledMenuLinkBox
+            to={'/product'}
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#000',
+              backgroundColor: isActive ? '#0064ff' : '#fff',
+            })}
+          >상품 목록</StyledMenuLinkBox>
+          <StyledMenuLinkBox to={'/'}>메뉴3</StyledMenuLinkBox>
+          <StyledMenuLinkBox to={'/'}>메뉴4</StyledMenuLinkBox>
+        </StyledMenuList>
+      </StyledHeaderWrap>
+      <ScrollProgressBar />
+    </Container>
+  );
+};
+
+export default Header;

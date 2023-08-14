@@ -8,6 +8,19 @@ import Footer from '../../components/layout/Footer';
 import ScrollTopBtn from '../../components/common/ScrollTopBtn';
 import ScrollProgressBar from '../../components/common/ScrollProgressBar';
 
+// CSS
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const StyledHomeBox = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
 function HomePage() {
   return (
     <Container>
@@ -23,20 +36,3 @@ function HomePage() {
 };
 
 export default HomePage;
-
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
-
-const StyledHomeBox = styled.div`
-  width: 100%;
-  display: flex;
-  
-`;
-
-
-
-

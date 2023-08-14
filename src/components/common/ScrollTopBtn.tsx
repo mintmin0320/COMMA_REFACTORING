@@ -4,6 +4,32 @@ import styled from 'styled-components';
 // icon
 import { ImArrowUp2 } from "react-icons/im";
 
+// CSS
+const StyledTopBtn = styled.div`
+  position: fixed; 
+  bottom: 40px; 
+  right: 40px;
+  width: 50px; 
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  border: 0 none;
+  background: #0064ff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: -0.06em;
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active { 
+    outline: 0 none; 
+  }; 
+`;
+
 const ScrollTopBtn = () => {
   const [ScrollY, setScrollY] = useState<number>(0);
 
@@ -29,42 +55,10 @@ const ScrollTopBtn = () => {
   });
 
   return (
-    <Container>
-      <button
-        className='topBtn'
-        onClick={handleOnTopBtn}
-      >
-        <ImArrowUp2 size='30px' />
-      </button>
-    </Container>
+    <StyledTopBtn onClick={handleOnTopBtn}>
+      <ImArrowUp2 size='30px' />
+    </StyledTopBtn>
   );
 };
 
 export default ScrollTopBtn;
-
-const Container = styled.div`
-  .topBtn {
-    position: fixed; 
-    bottom: 40px; 
-    right: 40px;
-    width: 50px; 
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100%;
-    border: 0 none;
-    background: #0064ff;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: -0.06em;
-    cursor: pointer;
-  };
-
-  .topBtn:hover,
-  .topBtn:focus,
-  .topBtn:active { 
-    outline: 0 none; 
-  } 
-`;

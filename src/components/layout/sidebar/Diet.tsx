@@ -1,27 +1,6 @@
 import { styled } from 'styled-components';
 
-function Diet() {
-  return (
-    <Container>
-      <StyledDateBox>
-        2023-08-07
-      </StyledDateBox>
-      <StyledDivisionBox>
-      </StyledDivisionBox>
-      <StyledMenuBox>
-        <StyledMenu>- 백미밥</StyledMenu>
-        <StyledMenu>- 닭가슴살순살튀김</StyledMenu>
-        <StyledMenu>- 메추리알조림</StyledMenu>
-        <StyledMenu>- 두부시금치무침</StyledMenu>
-        <StyledMenu>- 배추김치</StyledMenu>
-        <StyledMenu>- 두부스팸김치전골</StyledMenu>
-      </StyledMenuBox>
-    </Container>
-  );
-};
-
-export default Diet;
-
+// CSS
 const Container = styled.div`
   width: 80%;
   height: 160px;
@@ -61,3 +40,25 @@ const StyledMenu = styled.p`
   display: flex;
   padding-top: 2px;
 `;
+
+function Diet() {
+  return (
+    <Container>
+      <StyledDateBox>
+        2023-08-07
+      </StyledDateBox>
+      <StyledDivisionBox>
+      </StyledDivisionBox>
+      <StyledMenuBox>
+        <StyledMenu>- 백미밥</StyledMenu>
+        <StyledMenu>- 닭가슴살순살튀김</StyledMenu>
+        <StyledMenu>- 메추리알조림</StyledMenu>
+        <StyledMenu>- 두부시금치무침</StyledMenu>
+        <StyledMenu>- 배추김치</StyledMenu>
+        <StyledMenu>- 두부스팸김치전골</StyledMenu>
+      </StyledMenuBox>
+    </Container>
+  );
+};
+
+export default Diet;

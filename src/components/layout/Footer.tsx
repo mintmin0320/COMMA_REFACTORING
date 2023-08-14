@@ -1,17 +1,6 @@
 import { styled } from 'styled-components';
 
-function Footer() {
-  return (
-    <Container>
-      <Wrap>
-        footer
-      </Wrap>
-    </Container>
-  );
-};
-
-export default Footer;
-
+// CSS
 const Container = styled.div`
   width: 100%;
   height: 120px;
@@ -19,8 +8,21 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Wrap = styled.div`
+const FooterWrap = styled.div`
   width: 98%;
   height: 100%;
   display: flex;
 `;
+
+function Footer() {
+  return (
+    <Container>
+      <FooterWrap>
+        footer
+      </FooterWrap>
+    </Container>
+  );
+};
+
+export default Footer;
+

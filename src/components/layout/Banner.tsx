@@ -1,4 +1,10 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+
+// CSS
+const Container = styled.div`
+  width: 100%;
+  height: 200px;
+`;
 
 function Banner() {
   return (
@@ -8,7 +14,3 @@ function Banner() {
 
 export default Banner;
 
-const Container = styled.div`
-  width: 100%;
-  height: 200px;
-`
