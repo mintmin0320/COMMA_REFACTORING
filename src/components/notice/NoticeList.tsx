@@ -1,41 +1,8 @@
-import { Fragment } from 'react';
 import styled from 'styled-components';
 
-import data from './data.json';
+import noticeData from './noticeData.json';
 
-interface TitleProps {
-  $title?: string;
-}
-
-function Notice() {
-  return (
-    <Fragment>
-      {
-        data.map((list) => {
-          return (
-            <StyledNoticeInfo>
-              <StyledNoticeTitle >
-                <StyledNoticeInfoText $title='title'>{list.title}</StyledNoticeInfoText>
-              </StyledNoticeTitle>
-              <StyledNoticeWriter>
-                <StyledNoticeInfoText >{list.writer}</StyledNoticeInfoText>
-              </StyledNoticeWriter>
-              <StyledNoticeDate>
-                <StyledNoticeInfoText>{list.create_date}</StyledNoticeInfoText>
-              </StyledNoticeDate>
-              <StyledNoticeFile>
-                <StyledNoticeInfoText>{list.file}</StyledNoticeInfoText>
-              </StyledNoticeFile>
-            </StyledNoticeInfo>
-          )
-        })
-      }
-    </Fragment>
-  );
-};
-
-export default Notice;
-
+// CSS
 const StyledNoticeInfo = styled.div`
   width: 100%;
   height: 8.5%;
@@ -43,7 +10,7 @@ const StyledNoticeInfo = styled.div`
   border-bottom: solid 1px #d8d8d8;
 `;
 
-const StyledNoticeInfoText = styled.div<TitleProps>`
+const StyledNoticeInfoText = styled.div<{ $title?: string }>`
   width: 95%;
   height: 100%;
   display: flex;
@@ -83,3 +50,32 @@ const StyledNoticeFile = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+function Notice() {
+  return (
+    <>
+      {
+        noticeData.map((list) => {
+          return (
+            <StyledNoticeInfo key={list.noticeId}>
+              <StyledNoticeTitle >
+                <StyledNoticeInfoText $title='title'>{list.noticeTitle}</StyledNoticeInfoText>
+              </StyledNoticeTitle>
+              <StyledNoticeWriter>
+                <StyledNoticeInfoText >{list.writer}</StyledNoticeInfoText>
+              </StyledNoticeWriter>
+              <StyledNoticeDate>
+                <StyledNoticeInfoText>{list.create_date}</StyledNoticeInfoText>
+              </StyledNoticeDate>
+              <StyledNoticeFile>
+                <StyledNoticeInfoText>{list.noticeFile}</StyledNoticeInfoText>
+              </StyledNoticeFile>
+            </StyledNoticeInfo>
+          )
+        })
+      }
+    </>
+  );
+};
+
+export default Notice;
