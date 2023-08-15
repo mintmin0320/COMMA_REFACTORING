@@ -1,4 +1,9 @@
-import { styled } from 'styled-components';
+/*
+  날짜 주석은 테스트 및 배포 시 해제
+*/
+
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 // CSS
 const Container = styled.div`
@@ -42,10 +47,38 @@ const StyledMenu = styled.p`
 `;
 
 function Diet() {
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDate(new Date());
+    }, 120000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+  const formatDate = (date: Date) => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    };
+    let formattedDate = date.toLocaleDateString('ko-KR', options);
+
+    /*
+      endsWith()
+      - 특정 문자열이 지정된 문자 또는 문자열로 끝나는지 확인하는 문자열 메서드
+      - 불리언 값을 반환
+    */
+    return formattedDate.endsWith('.') ? formattedDate.slice(0, -1) : formattedDate;
+  };
+
   return (
     <Container>
       <StyledDateBox>
-        2023-08-07
+        2023. 08. 14
       </StyledDateBox>
       <StyledDivisionBox>
       </StyledDivisionBox>
