@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 
 import ProductItemData from './ProductData.json';
+import ProductDetail from './ProductDetail';
 
 interface ProductInfo {
   itemId: number,
@@ -17,7 +19,7 @@ const StyledProductList = styled.div`
   /* height: 100px; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 35px 15px;
+  gap: 35px 20px;
   place-items: center;
 
   @media screen and (min-width: 1500px) {
@@ -30,6 +32,7 @@ const StyledProductItem = styled.div`
   height: 350px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `;
 
 const StyledProductImgBox = styled.div`
@@ -56,16 +59,22 @@ const StyledProductCategory = styled.div`
 
 const StyledProductCount = styled.div`
   width: 100%;
-  margin-top: 12px;
+  margin-top: 10px;
 `;
 
-function ProductList() {
+const ProductList = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <StyledProductList>
+      <ProductDetail isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {
         ProductItemData.map((item: ProductInfo) => {
           return (
-            <StyledProductItem key={item.itemId}>
+            <StyledProductItem
+              key={item.itemId}
+              onClick={() => setIsOpen(true)}
+            >
               <StyledProductImgBox>
                 <StyledProductImg src={item.itemImg} />
                 <StyledProductTitle>
@@ -84,6 +93,7 @@ function ProductList() {
           )
         })
       }
+      <button >Open Modal</button>
     </StyledProductList>
   );
 };
