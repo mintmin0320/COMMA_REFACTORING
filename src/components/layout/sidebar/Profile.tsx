@@ -63,7 +63,7 @@ const StyledNavButton = styled.button`
   align-items: center;
 `;
 
-function Profile() {
+const Profile = () => {
   return (
     <ProfileWrap>
       <StyledProfileBox>

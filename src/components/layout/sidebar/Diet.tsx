@@ -46,7 +46,7 @@ const StyledMenu = styled.p`
   padding-top: 2px;
 `;
 
-function Diet() {
+const Diet = () => {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {

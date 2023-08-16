@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 // CSS
 const StyledProgress = styled.div`
-  height: 2px;
+  height: 2.5px;
 `;
 
 const ScrollProgressBar = () => {

@@ -21,7 +21,7 @@ const StyledHomeBox = styled.div`
   display: flex;
 `;
 
-function HomePage() {
+const HomePage = () => {
   return (
     <Container>
       <Header />

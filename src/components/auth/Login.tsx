@@ -164,7 +164,7 @@ const StyleIdDomain = styled.div`
   font-size: 15px;
 `;
 
-function Login() {
+const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {

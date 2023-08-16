@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import ScrollProgressBar from '../common/ScrollProgressBar';
 
 // CSS
-
 const Container = styled.div`
   width: 100%;
   height: 65px;
@@ -72,7 +71,7 @@ const StyledMenuLinkBox = styled(NavLink)`
   }
 `;
 
-function Header() {
+const Header = () => {
   return (
     <Container>
       <StyledHeaderWrap>
@@ -98,8 +97,18 @@ function Header() {
               color: isActive ? '#fff' : '#000',
               backgroundColor: isActive ? '#0064ff' : '#fff',
             })}
-          >상품 목록</StyledMenuLinkBox>
-          <StyledMenuLinkBox to={'/'}>메뉴3</StyledMenuLinkBox>
+          >
+            상품
+          </StyledMenuLinkBox>
+          <StyledMenuLinkBox
+            to={'/community'}
+            style={({ isActive }) => ({
+              color: isActive ? '#fff' : '#000',
+              backgroundColor: isActive ? '#0064ff' : '#fff',
+            })}
+          >
+            커뮤니티
+          </StyledMenuLinkBox>
           <StyledMenuLinkBox to={'/'}>메뉴4</StyledMenuLinkBox>
         </StyledMenuList>
       </StyledHeaderWrap>

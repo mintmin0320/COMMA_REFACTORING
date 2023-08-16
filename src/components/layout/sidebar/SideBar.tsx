@@ -24,11 +24,11 @@ const StyledDietTitle = styled.h1`
   margin-bottom: 10px;
 `;
 
-function SideBar() {
+const SideBar = () => {
   return (
     <Container>
       <Profile />
-      <StyledDietTitle>오늘의 식단</StyledDietTitle>
+      <StyledDietTitle>오늘의 식단🍴</StyledDietTitle>
       <Diet />
     </Container>
   );

@@ -51,7 +51,7 @@ const StyledNoticeFile = styled.div`
   align-items: center;
 `;
 
-function Notice() {
+const Notice = () => {
   return (
     <>
       {

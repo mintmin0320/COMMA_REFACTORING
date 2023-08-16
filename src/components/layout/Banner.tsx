@@ -6,7 +6,7 @@ const Container = styled.div`
   height: 200px;
 `;
 
-function Banner() {
+const Banner = () => {
   return (
     <Container>Banner</Container>
   );

@@ -30,7 +30,7 @@ const StyledProductWrap = styled.div`
   /* background-color: #fff; */
 `;
 
-function Product() {
+const Product = () => {
   const { ref, inView } = useInView();
 
   useEffect(() => {

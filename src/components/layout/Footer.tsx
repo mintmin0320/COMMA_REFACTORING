@@ -14,7 +14,7 @@ const FooterWrap = styled.div`
   display: flex;
 `;
 
-function Footer() {
+const Footer = () => {
   return (
     <Container>
       <FooterWrap>

@@ -20,7 +20,7 @@ const StyledInput = styled.input<InputProps>`
   font-size: 15px;
 `;
 
-function Input({ children, name, value, width, height, placeholder, onChange, onSubmit }: InputProps) {
+const Input = ({ children, name, value, width, height, placeholder, onChange, onSubmit }: InputProps) => {
   const onEnterSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!onSubmit || e.nativeEvent.isComposing) return;
     if (e.key === "Enter") {

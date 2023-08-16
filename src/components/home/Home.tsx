@@ -103,7 +103,7 @@ const StyledThirdBox = styled.div`
   background-color:#f9fafb;
 `;
 
-function Home() {
+const Home = () => {
   return (
     <Container>
       <StyledFirstBox>

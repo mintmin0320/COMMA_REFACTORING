@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import LoginPage from '../pages/auth/LoginPage';
 import JoinPage from '../pages/auth/JoinPage';
 
-export default function AuthRoute() {
+const AuthRoute = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
@@ -12,3 +12,5 @@ export default function AuthRoute() {
     </Routes>
   );
 };
+
+export default AuthRoute;

@@ -22,7 +22,7 @@ const StyledNoticeBox = styled.div`
   margin-top: 25px;
 `;
 
-function ProductPage() {
+const ProductPage = () => {
   return (
     <Container>
       <Header />

@@ -2,8 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import { HomeRoute, AuthRoute, NoticeRoute, ProductRoute } from './index'
 
-
-export default function MainRoute() {
+const MainRoute = () => {
   return (
     <Routes>
       <Route
@@ -41,3 +40,5 @@ export default function MainRoute() {
     </Routes>
   );
 };
+
+export default MainRoute;
