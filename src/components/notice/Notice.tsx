@@ -1,12 +1,12 @@
 /**
   공지사항 리스트
-  - 분류 버튼 분류작성 필요
   - 리스트 상세페이지 제작 필요
  */
 
 import styled from 'styled-components';
 
 import NoticeList from './NoticeList';
+import NoticeClassification from './NoticeClassification';
 
 // CSS
 const Container = styled.div`
@@ -27,23 +27,6 @@ const NoticeWrap = styled.div`
   align-items: center;
   border-radius: 8px;
   background-color: #fff;
-`;
-
-const StyledClassificationBox = styled.div`
-  width: 96%;
-  height: 8%;
-  display: flex;
-  border-bottom: solid 2px #d8d8d8;
-`;
-
-const StyledClassificationBtn = styled.div`
-  height: 50px;
-  font-size: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 28px;
-  border-bottom: solid 2px #0064ff;
 `;
 
 const StyledNoticeListBox = styled.div`
@@ -112,6 +95,7 @@ const StyledSearchInput = styled.input`
   width: 35%;
   height: 40%;
   margin-right: 8px;
+  border: solid 1px #d8d8d8;
 `;
 
 const StyledSearchBtn = styled.button`
@@ -122,16 +106,11 @@ const StyledSearchBtn = styled.button`
   align-items: center;
 `;
 
-function Notice() {
+const Notice = () => {
   return (
     <Container>
       <NoticeWrap>
-        <StyledClassificationBox>
-          <StyledClassificationBtn>대학공지</StyledClassificationBtn>
-          <StyledClassificationBtn>소프트웨어공학</StyledClassificationBtn>
-          <StyledClassificationBtn>정보공학</StyledClassificationBtn>
-          <StyledClassificationBtn>인공지능</StyledClassificationBtn>
-        </StyledClassificationBox>
+        <NoticeClassification />
         <StyledNoticeListBox>
           <StyledNoticeListInfo>
             <StyledNoticeListTitle>제목</StyledNoticeListTitle>
