@@ -23,15 +23,18 @@ const StyledCarouselImg = styled.img`
   /* object-fit: contain; */
 `;
 
-function ProductCarousel() {
+const ProductCarousel = () => {
   return (
     <StyledCarouselBox>
       <Carousel
-        showArrows={true}
+        showArrows={false}
         infiniteLoop={true}
         showThumbs={false}
         showStatus={false}
-        interval={8000}
+        showIndicators={false}
+        interval={10000}
+        transitionTime={1500}
+        autoPlay={true}
       >
         <StyledCarouselList>
           <StyledCarouselImg src='./images/product1.jpg' />

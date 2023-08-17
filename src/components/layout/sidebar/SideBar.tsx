@@ -28,7 +28,7 @@ const SideBar = () => {
   return (
     <Container>
       <Profile />
-      <StyledDietTitle>오늘의 식단🍴</StyledDietTitle>
+      <StyledDietTitle>오늘의 식단</StyledDietTitle>
       <Diet />
     </Container>
   );
