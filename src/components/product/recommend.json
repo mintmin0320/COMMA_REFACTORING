@@ -1,0 +1,23 @@
+[
+  {
+    "recommendId": 1,
+    "recommendTitle": "지진 감지 센서",
+    "recommendCategory": "센서",
+    "recommendImg": "./images/arduino5.jpg",
+    "recommendCount": 2
+  },
+  {
+    "recommendId": 2,
+    "recommendTitle": "마더보드",
+    "recommendCategory": "보드",
+    "recommendImg": "./images/arduino3.jpg",
+    "recommendCount": 3
+  },
+  {
+    "recommendId": 3,
+    "recommendTitle": "미니 바퀴",
+    "recommendCategory": "기타",
+    "recommendImg": "./images/arduino1.jpg",
+    "recommendCount": 1
+  }
+]

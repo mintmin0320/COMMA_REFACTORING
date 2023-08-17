@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
-import ProductItemData from './ProductData.json';
 import ProductDetail from './ProductDetail';
 
+// dummy-data
+import productItemData from './productData.json';
+
 interface ProductInfo {
-  itemId: number,
-  itemTitle: string,
-  itemCategory: string,
-  itemImg: string,
-  postView: number,
-  itemCount: number
+  produceId: number,
+  produceTitle: string,
+  produceCategory: string,
+  produceImg: string,
+  produceCount: number
 };
 
 // CSS
@@ -69,23 +70,23 @@ const ProductList = () => {
     <StyledProductList>
       <ProductDetail isOpen={isOpen} onClose={() => setIsOpen(false)} />
       {
-        ProductItemData.map((item: ProductInfo) => {
+        productItemData.map((item: ProductInfo) => {
           return (
             <StyledProductItem
-              key={item.itemId}
+              key={item.produceId}
               onClick={() => setIsOpen(true)}
             >
               <StyledProductImgBox>
-                <StyledProductImg src={item.itemImg} />
+                <StyledProductImg src={item.produceImg} />
                 <StyledProductTitle>
-                  {item.itemTitle}
+                  {item.produceTitle}
                 </StyledProductTitle>
                 <StyledProductCategory>
-                  {item.itemCategory}
+                  {item.produceCategory}
                 </StyledProductCategory>
                 <StyledProductCount>
                   {
-                    item.itemCount === 0 ? '품 절' : `${item.itemCount}EA`
+                    item.produceCount === 0 ? '품 절' : `${item.produceCount}EA`
                   }
                 </StyledProductCount>
               </StyledProductImgBox>

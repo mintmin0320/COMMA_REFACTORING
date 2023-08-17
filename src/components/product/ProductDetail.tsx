@@ -6,6 +6,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import RecommendedProducts from './RecommendedProducts';
+
 // icon
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
@@ -30,8 +32,7 @@ const StyledDetailModalBox = styled.div`
 
 const StyledModalContent = styled.div`
   width: 70%;
-  height: 70%;
-  /* padding: 20px; */
+  height: 75%;
   background: #fff;
   border-radius: 10px;
 `;
@@ -123,16 +124,40 @@ const StyledProductIcon = styled.div`
   &:hover {
     border-radius: 8px;
     background-color: #f2f2f2;
-  }
+  };
 `;
 
 const StyledProductBottom = styled.div`
-  width: 95%;
+  width: 100%;
   height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: red;
+  background-color: #f2f2f2;
+`;
+
+const StyledProductCommentTitle = styled.div`
+  width: 90%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledProductCommentBox = styled.div`
+  width: 90%;
+  height: 75%;
+  border: solid 1px #d8d8d8;
+  background-color: #fff;
+  overflow-y: scroll;
+`;
+
+const StyledProductComment = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px #d8d8d8;
+  font-size: 15px;
 `;
 
 const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
@@ -168,29 +193,32 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
                 남은 수량 : 2 EA
               </StyledProductCount>
               <StyledProductIconBox>
-                <StyledProductIcon>
+                <StyledProductIcon onClick={() => setIsLikeVisible(!isLikeVisible)}>
                   {
-                    !isLikeVisible ?
-                      <AiOutlineHeart onClick={() => setIsLikeVisible(!isLikeVisible)} />
-                      :
-                      <AiFillHeart color='#FF0000' onClick={() => setIsLikeVisible(!isLikeVisible)} />
+                    !isLikeVisible ? <AiOutlineHeart /> : <AiFillHeart />
                   }
                 </StyledProductIcon>
-                <StyledProductIcon>
+                <StyledProductIcon onClick={() => setIsCartVisible(!isCartVisible)}>
                   {
-                    !isCartVisible ?
-                      <AiOutlineShoppingCart onClick={() => setIsCartVisible(!isCartVisible)} />
-                      :
-                      <BsFillCartCheckFill onClick={() => setIsCartVisible(!isCartVisible)} />
+                    !isCartVisible ? <AiOutlineShoppingCart /> : <BsFillCartCheckFill />
                   }
                 </StyledProductIcon>
               </StyledProductIconBox>
             </StyledProductInfo>
             <StyledProductBottom>
-
+              <StyledProductCommentTitle>
+                상품평
+              </StyledProductCommentTitle>
+              <StyledProductCommentBox>
+                <StyledProductComment>좋네요??</StyledProductComment>
+                <StyledProductComment>과제 필수 사용</StyledProductComment>
+                <StyledProductComment>재고 언제 들어오나요?</StyledProductComment>
+                <StyledProductComment>최고!</StyledProductComment>
+              </StyledProductCommentBox>
             </StyledProductBottom>
           </StyledProductInfoBox>
         </StyledModalTopBox>
+        <RecommendedProducts />
       </StyledModalContent>
     </StyledDetailModalBox>
   );
