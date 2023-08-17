@@ -6,7 +6,7 @@
 
 <br/>
 
-## 주요 리팩토링 사항
+## ⭐️ 주요 리팩토링 사항
 - JS -> TS로 전환
 - 더미 데이터를 작성해 서버 없이 구동
 - Airbnb 컨벤션 준수 <a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a>
@@ -14,16 +14,14 @@
 
 <br/>
 <br/>
-<br/>
 
-## 기술 스택
+## 📚 기술 스택
 <div>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"/>
-</div>
-<div>
-  <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
-  <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white"/> 
+  <code><img width="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/></code>
+	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/></code>
+ 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/></code>
+  <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1631622784/noticon/zwush4y3u0mgamlck9bq.png" alt="React Query" title="React Query"/></code>
+  <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png" alt="React Query" title="React Query"/></code>
 </div>
 
 <br/>
