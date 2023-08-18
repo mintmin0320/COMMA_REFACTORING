@@ -1,6 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 
-import { HomeRoute, AuthRoute, NoticeRoute, ProductRoute } from './index'
+import {
+  HomeRoute,
+  AuthRoute,
+  NoticeRoute,
+  ProductRoute,
+  CommunityRoute
+} from './index'
 
 const MainRoute = () => {
   return (
@@ -34,6 +40,14 @@ const MainRoute = () => {
         element={
           // <PrivateRoute>
           <ProductRoute />
+          // </PrivateRoute>
+        }
+      />
+      <Route
+        path="/community/*"
+        element={
+          // <PrivateRoute>
+          <CommunityRoute />
           // </PrivateRoute>
         }
       />
