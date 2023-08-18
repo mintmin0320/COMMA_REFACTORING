@@ -30,7 +30,7 @@ const StyledProductList = styled.div`
 
 const StyledProductItem = styled.div`
   width: 100%;
-  height: 350px;
+  height: 335px;
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -94,7 +94,6 @@ const ProductList = () => {
           )
         })
       }
-      <button >Open Modal</button>
     </StyledProductList>
   );
 };

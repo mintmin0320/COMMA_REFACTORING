@@ -18,7 +18,7 @@ const Container = styled.div`
 `;
 
 const StyledHeaderWrap = styled.div`
-  width: 100%;
+  width: 80%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -58,7 +58,7 @@ const StyledMenuList = styled.div`
 `;
 
 const StyledMenuLinkBox = styled(NavLink)`
-  width: 15%;
+  width: 18%;
   height: 55%;
   display: flex;
   justify-content: center;
