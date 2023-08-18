@@ -11,17 +11,17 @@ const StyledClassificationBox = styled.div`
   width: 96%;
   height: 45px;
   display: flex;
-  border-bottom: solid 2px #d8d8d8;
+  border-bottom: solid 1px #d8d8d8;
 `;
 
 const StyledClassificationItem = styled.div<{ $isSelected?: boolean }>`
-  height: 45px;
+  height: 44px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 28px;
   cursor: pointer;
-  border-bottom: solid 2px ${({ $isSelected }) => ($isSelected ? '#0064ff' : '#d8d8d8')};
+  border-bottom: ${({ $isSelected }) => ($isSelected ? 'solid 2px #0064ff' : 'solid 0px')};
   font-weight: ${({ $isSelected }) => ($isSelected ? 'bolder' : '0')};
   font-size: ${({ $isSelected }) => ($isSelected ? '18px' : '15px')};
 `;
