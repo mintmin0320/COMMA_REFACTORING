@@ -166,12 +166,12 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
 
   if (!isOpen) {
     return null;
-  };
+  }
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (e.target === e.currentTarget) {
       onClose();
-    };
+    }
   };
 
   return (

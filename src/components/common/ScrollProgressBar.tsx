@@ -31,13 +31,15 @@ const ScrollProgressBar = () => {
   const setProgressColor = (progress: number) => {
     if (progress <= 40) {
       return '#2E9AFE';
-    };
+    }
 
     if (progress <= 75) {
       return '#0064ff';
-    } else {
+    }
+
+    if (progress > 75) {
       return '#0101DF';
-    };
+    }
   };
 
   return (
