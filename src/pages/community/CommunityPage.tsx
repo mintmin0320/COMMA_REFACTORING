@@ -9,6 +9,7 @@ import ScrollProgressBar from '../../components/common/ScrollProgressBar';
 // CSS
 const Container = styled.div`
   width: 100%;
+  height: 90vmax;
   display: flex;
   flex-direction: column;
   background-color:#f9fafb;
@@ -16,6 +17,7 @@ const Container = styled.div`
 
 const StyledCommunityBox = styled.div`
   width: 100%;
+  height: 90%;
   display: flex;
   justify-content: center;
   margin-top: 25px;
