@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import BestPost from './BestPost';
 
 // CSS
 const Container = styled.div`
@@ -9,17 +10,6 @@ const Container = styled.div`
   /* border: solid 1px #d8d8d8; */
   /* background-color: #fff; */
   border-radius: 8px;
-`;
-
-const StyledCommunityBestPostBox = styled.div`
-  width: 100%;
-  height: 170px;
-  display: flex;
-  border: solid 1px #d8d8d8;
-  background-color: #fff;
-  background-color: green;
-  border-radius: 8px;
-  flex-direction: column;
 `;
 
 const StyledCommunityPostBox = styled.div`
@@ -37,8 +27,7 @@ const StyledCommunityPostBox = styled.div`
 const Community = () => {
   return (
     <Container>
-      <StyledCommunityBestPostBox>
-      </StyledCommunityBestPostBox>
+      <BestPost />
       <StyledCommunityPostBox>
         dd
       </StyledCommunityPostBox>
