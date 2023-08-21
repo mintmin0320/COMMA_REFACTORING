@@ -2,6 +2,15 @@ import styled from 'styled-components';
 
 import noticeData from './noticeData.json';
 
+interface NoticeInfo {
+  noticeId: number;
+  noticeTitle: string;
+  writer: string;
+  create_date: string;
+  noticeView: number;
+  noticeFile: number;
+}
+
 // CSS
 const StyledNoticeInfo = styled.div`
   width: 100%;
@@ -56,7 +65,7 @@ const Notice = () => {
   return (
     <>
       {
-        noticeData.map((list) => {
+        noticeData.map((list: NoticeInfo) => {
           return (
             <StyledNoticeInfo key={list.noticeId}>
               <StyledNoticeTitle >
