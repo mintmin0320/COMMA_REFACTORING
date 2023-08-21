@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-// components, util
+// common, util
 import Input from '../common/Input';
 import { setItem } from '../utils/localStorage';
 
