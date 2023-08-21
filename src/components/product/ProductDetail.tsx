@@ -15,7 +15,7 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-};
+}
 
 // CSS
 const StyledDetailModalBox = styled.div`
@@ -28,13 +28,14 @@ const StyledDetailModalBox = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.7);
-`;
+  `;
 
 const StyledModalContent = styled.div`
   width: 70%;
   height: 75%;
   background: #fff;
   border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
 `;
 
 const StyledModalTopBox = styled.div`
@@ -124,7 +125,7 @@ const StyledProductIcon = styled.div`
   &:hover {
     border-radius: 8px;
     background-color: #f2f2f2;
-  };
+  }
 `;
 
 const StyledProductBottom = styled.div`

@@ -16,12 +16,12 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 
 // 추천 상품 정보
 interface RecommendInfo {
-  recommendId: number,
-  recommendTitle: string,
-  recommendCategory: string,
-  recommendImg: string,
-  recommendCount: number
-};
+  recommendId: number;
+  recommendTitle: string;
+  recommendCategory: string;
+  recommendImg: string;
+  recommendCount: number;
+}
 
 // CSS
 const StyledProductRecommendWrap = styled.div`

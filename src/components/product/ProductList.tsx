@@ -7,17 +7,17 @@ import ProductDetail from './ProductDetail';
 import productItemData from './productData.json';
 
 interface ProductInfo {
-  produceId: number,
-  produceTitle: string,
-  produceCategory: string,
-  produceImg: string,
-  produceCount: number
-};
+  produceId: number;
+  produceTitle: string;
+  produceCategory: string;
+  produceImg: string;
+  produceCount: number;
+}
 
 // CSS
 const StyledProductList = styled.div`
   width: 100%;
-  /* height: 100px; */
+  /* height: 100%; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 35px 20px;
@@ -34,6 +34,7 @@ const StyledProductItem = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
 `;
 
 const StyledProductImgBox = styled.div`
