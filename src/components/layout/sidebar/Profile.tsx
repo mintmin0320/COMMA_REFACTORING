@@ -14,6 +14,7 @@ const ProfileWrap = styled.div`
   align-items: center;
   justify-content: center;
   border: solid 1px #d8d8d8;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #fff;
 `;

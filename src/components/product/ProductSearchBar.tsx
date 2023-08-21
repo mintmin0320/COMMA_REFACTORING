@@ -25,7 +25,7 @@ const StyledSearchBox = styled.div`
   border: solid 1px #d8d8d8;
   border-radius: 30px;
   background-color: #fff;
-
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledSearchInput = styled.input`
