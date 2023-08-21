@@ -1,36 +1,30 @@
 import styled from 'styled-components';
+
 import BestPost from './BestPost';
+import PostList from './PostList';
+import ProductSearchBar from '../product/ProductSearchBar';
+import PostCategory from './PostCategory';
+import PostPagination from './PostPagination';
 
 // CSS
 const Container = styled.div`
   width: 55%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: solid 1px #d8d8d8; */
-  /* background-color: #fff; */
   border-radius: 8px;
-`;
-
-const StyledCommunityPostBox = styled.div`
-  width: 100%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  border: solid 1px #d8d8d8;
-  /* background-color: #fff; */
-  background-color: red;
-  border-radius: 8px;
-  margin-top: 20px;
+  /* background-color: red; */
 `;
 
 const Community = () => {
   return (
     <Container>
       <BestPost />
-      <StyledCommunityPostBox>
-        dd
-      </StyledCommunityPostBox>
+      <ProductSearchBar />
+      <PostCategory />
+      <PostList />
+      <PostPagination />
     </Container>
   );
 };
