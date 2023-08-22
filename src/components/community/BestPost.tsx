@@ -68,10 +68,11 @@ const StyledBestPostTitle = styled.div`
   margin-right: 15px;
 `;
 
-const StyledBestPostLikeCnt = styled.div`
+const StyledBestPostLikeCount = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  font-size: 14px;
 `;
 
 const BestPost = () => {
@@ -86,9 +87,9 @@ const BestPost = () => {
                 <StyledBestPostTitle>
                   {item.postTitle}
                 </StyledBestPostTitle>
-                <StyledBestPostLikeCnt>
-                  <AiFillHeart color='#FF0000' /> {item.postLikeCount}
-                </StyledBestPostLikeCnt>
+                <StyledBestPostLikeCount>
+                  <AiFillHeart color='#FF0000' size='18px' /> {item.postLikeCount}
+                </StyledBestPostLikeCount>
               </StyledBestPost>
             )
           })

@@ -1,4 +1,3 @@
-
 import { Routes, Route } from "react-router-dom";
 
 import CommunityPage from '../pages/community/CommunityPage';

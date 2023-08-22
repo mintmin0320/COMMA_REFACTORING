@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import MainRoute from './routes/MainRote';
 
@@ -6,9 +6,9 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <MainRoute />
-    </Router>
+    </BrowserRouter>
   );
 };
 

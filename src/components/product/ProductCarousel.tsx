@@ -19,6 +19,7 @@ const StyledCarouselList = styled.div`
 
 const StyledCarouselImg = styled.img`
   height: 280px;
+  border-radius: 8px;
   /* overflow: hidden; */
   /* object-fit: contain; */
 `;
