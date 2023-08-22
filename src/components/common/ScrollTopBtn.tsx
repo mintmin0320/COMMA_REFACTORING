@@ -27,7 +27,7 @@ const StyledTopBtn = styled.div`
   &:focus,
   &:active { 
     outline: 0 none; 
-  }; 
+  }
 `;
 
 const ScrollTopBtn = () => {

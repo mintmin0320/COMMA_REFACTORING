@@ -13,7 +13,7 @@ const Container = styled.div`
 
   @media screen and (max-width: 1500px) {
     width: 28%;
-  };
+  }
 `;
 
 const StyledDietTitle = styled.h1`

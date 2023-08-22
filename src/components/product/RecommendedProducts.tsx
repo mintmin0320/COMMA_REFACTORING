@@ -60,7 +60,7 @@ const StyledProductRecommendRefresh = styled.div`
 
   &:hover {
     background-color: #e6e6e6;
-  };
+  }
 `;
 
 const StyledProductRecommendBox = styled.div`
@@ -81,7 +81,7 @@ const StyledProductRecommendItem = styled.div`
 
   @media screen and (min-width: 1500px) {
     width: 410px;
-  };
+  }
 `;
 
 const StyledProductRecommendImg = styled.img`

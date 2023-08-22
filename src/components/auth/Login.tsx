@@ -143,7 +143,7 @@ const StyledBannerBox = styled.div`
   img {
     width: 40%;
     height: 80%;
-  };
+  }
 `;
 
 const StyledBannerLink = styled(Link)`

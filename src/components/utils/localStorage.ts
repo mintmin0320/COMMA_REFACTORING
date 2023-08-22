@@ -7,7 +7,7 @@ export const getItem = (key: string, defaultValue: null) => {
     alert(error);
 
     return defaultValue;
-  };
+  }
 };
 
 export const setItem = (key: string, value: string) => {
@@ -15,5 +15,5 @@ export const setItem = (key: string, value: string) => {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (error) {
     throw new Error('Problem saving value to localStorage');
-  };
+  }
 };

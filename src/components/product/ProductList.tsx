@@ -25,7 +25,7 @@ const StyledProductList = styled.div`
 
   @media screen and (min-width: 1500px) {
     grid-template-columns: repeat(4, 1fr);
-  };
+  }
 `;
 
 const StyledProductItem = styled.div`
