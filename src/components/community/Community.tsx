@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import BestPost from './BestPost';
 import PostList from './PostList';
-import ProductSearchBar from '../product/ProductSearchBar';
+import SearchBar from '../common/SearchBar';
 import PostCategory from './PostCategory';
 import PostPagination from './PostPagination';
 
@@ -21,7 +21,7 @@ const Community = () => {
   return (
     <Container>
       <BestPost />
-      <ProductSearchBar />
+      <SearchBar />
       <PostCategory />
       <PostList />
       <PostPagination />

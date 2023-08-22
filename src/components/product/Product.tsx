@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import ProductList from './ProductList';
 import ProductCategory from './ProductCategory';
 import ProductCarousel from './ProductCarousel';
-import ProductSearchBar from './ProductSearchBar';
+import SearchBar from '../common/SearchBar';
 
 // library-CSS
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -45,7 +45,7 @@ const Product = () => {
       <StyledProductWrap>
         <ProductCategory />
         <ProductCarousel />
-        <ProductSearchBar />
+        <SearchBar />
         <ProductList />
         <div ref={ref}>
           <h1>loading</h1>

@@ -52,7 +52,7 @@ const StyledSearchCorner = styled.div<{ $corner?: string }>`
   border-radius: ${({ $corner }) => ($corner === 'left' ? '30px 0 0 30px' : '0 30px 30px 0')};
 `;
 
-const ProductSearchBar = () => {
+const SearchBar = () => {
   return (
     <StyledSearchWrap>
       <StyledSearchBox>
@@ -70,4 +70,4 @@ const ProductSearchBar = () => {
   );
 };
 
-export default ProductSearchBar;
+export default SearchBar;
