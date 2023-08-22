@@ -4,8 +4,9 @@ import {
   HomeRoute,
   AuthRoute,
   NoticeRoute,
-  ProductRoute,
-  CommunityRoute
+  CommunityRoute,
+  BasketRoute,
+  ProductRoute
 } from './index'
 
 const MainRoute = () => {
@@ -48,6 +49,14 @@ const MainRoute = () => {
         element={
           // <PrivateRoute>
           <CommunityRoute />
+          // </PrivateRoute>
+        }
+      />
+      <Route
+        path="/basket/*"
+        element={
+          // <PrivateRoute>
+          <BasketRoute />
           // </PrivateRoute>
         }
       />

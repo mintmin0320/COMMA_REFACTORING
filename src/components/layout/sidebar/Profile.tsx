@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { BsFillBasketFill, BsFillChatDotsFill } from "react-icons/bs";
 import { BiSolidUser } from "react-icons/bi";
 import { RiLogoutBoxRFill } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 
 // CSS
 const ProfileWrap = styled.div`
@@ -48,20 +49,22 @@ const StyledProfile = styled.img`
   border-radius: 50%;
 `;
 
-const StyledButtonBox = styled.div`
+const StyledNavBox = styled.div`
   width: 60%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const StyledNavButton = styled.button`
-  width: 100%;
+const StyledNavLink = styled(Link) <{ $right?: boolean }>`
+  width: 25%;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-right: solid ${({ $right }) => (!$right ? '2px #d8d8d8' : '0px')};
+  text-decoration: none;
+  color: inherit;
 `;
 
 const Profile = () => {
@@ -72,20 +75,20 @@ const Profile = () => {
           <StyledProfile src='./images/mintmin.jpg' alt='' />
         </StyledProfileFrame>
       </StyledProfileBox>
-      <StyledButtonBox>
-        <StyledNavButton>
+      <StyledNavBox>
+        <StyledNavLink to='/' >
           <BiSolidUser size='20px' />
-        </StyledNavButton>
-        <StyledNavButton>
+        </StyledNavLink>
+        <StyledNavLink to='/'>
           <RiLogoutBoxRFill size='20px' />
-        </StyledNavButton>
-        <StyledNavButton>
+        </StyledNavLink>
+        <StyledNavLink to='/basket'>
           <BsFillBasketFill size='20px' />
-        </StyledNavButton>
-        <StyledNavButton>
+        </StyledNavLink>
+        <StyledNavLink to='/' $right={true}>
           <BsFillChatDotsFill size='20px' />
-        </StyledNavButton>
-      </StyledButtonBox>
+        </StyledNavLink>
+      </StyledNavBox>
     </ProfileWrap>
   );
 };
