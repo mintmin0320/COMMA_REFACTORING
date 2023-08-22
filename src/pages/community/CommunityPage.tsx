@@ -9,10 +9,14 @@ import ScrollProgressBar from '../../components/common/ScrollProgressBar';
 // CSS
 const Container = styled.div`
   width: 100%;
-  height: 120vmax;
+  height: 125vmax;
   display: flex;
   flex-direction: column;
   background-color:#f9fafb;
+
+  @media screen and (min-width: 1500px) {
+    height: 95vmax;
+  }
 `;
 
 const StyledCommunityBox = styled.div`
