@@ -6,6 +6,9 @@
 import styled from 'styled-components';
 import { useState } from 'react';
 
+// types
+import { RecommendInfo } from '../../types/product';
+
 // dummy-data
 import recommendData from './recommend.json';
 
@@ -14,14 +17,6 @@ import { FiRefreshCcw } from "react-icons/fi";
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 
-// 추천 상품 정보
-interface RecommendInfo {
-  recommendId: number;
-  recommendTitle: string;
-  recommendCategory: string;
-  recommendImg: string;
-  recommendCount: number;
-}
 
 // CSS
 const StyledProductRecommendWrap = styled.div`

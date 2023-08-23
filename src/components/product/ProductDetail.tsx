@@ -1,21 +1,14 @@
-/*
-  상품 상세페이지 모달
-  
-*/
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import RecommendedProducts from './RecommendedProducts';
 
+// types
+import { ModalProps } from '../../types/product';
+
 // icon
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
-
-interface ModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
 // CSS
 const StyledDetailModalBox = styled.div`

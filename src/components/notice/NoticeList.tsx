@@ -2,14 +2,8 @@ import styled from 'styled-components';
 
 import noticeData from './noticeData.json';
 
-interface NoticeInfo {
-  noticeId: number;
-  noticeTitle: string;
-  writer: string;
-  create_date: string;
-  noticeView: number;
-  noticeFile: number;
-}
+// types 
+import { NoticeInfo } from './../../types/notice/index';
 
 // CSS
 const StyledNoticeInfo = styled.div`

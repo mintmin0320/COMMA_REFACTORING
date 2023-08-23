@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
+// types
+import { PostInfo } from '../../types/community';
+
 // icon, dummy-data
 import { AiFillHeart } from 'react-icons/ai';
 
 import postData from './postData.json';
-
-interface PostInfo {
-  postId: number;
-  postTitle: string;
-  postLikeCount: number;
-  postCategory: '자유게시판' | 'Q&A' | '팀원 모집';
-  writer: string; // 이 부분을 추가합니다.
-}
 
 // CSS
 const StyledCommunityPostList = styled.div`

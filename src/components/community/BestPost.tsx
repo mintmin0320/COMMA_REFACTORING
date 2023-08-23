@@ -5,16 +5,13 @@
 
 import styled from 'styled-components';
 
+// types
+import { BestPostInfo } from './../../types/community'
+
 // icon, dummy-data
 import { AiFillHeart } from 'react-icons/ai';
 
 import bestPostData from './bestPostData.json';
-
-interface BestPostInfo {
-  postId: number;
-  postTitle: string;
-  postLikeCount: number;
-}
 
 // CSS
 const StyledBestPostBox = styled.div`

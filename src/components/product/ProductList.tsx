@@ -3,16 +3,13 @@ import { useState } from 'react';
 
 import ProductDetail from './ProductDetail';
 
+// types
+import { ProductInfo } from '../../types/product';
+
 // dummy-data
 import productItemData from './productData.json';
 
-interface ProductInfo {
-  produceId: number;
-  produceTitle: string;
-  produceCategory: string;
-  produceImg: string;
-  produceCount: number;
-}
+
 
 // CSS
 const StyledProductList = styled.div`
