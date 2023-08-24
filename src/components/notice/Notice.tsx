@@ -1,7 +1,7 @@
-/**
+/*
   공지사항 리스트
   - 리스트 상세페이지 제작 필요
- */
+*/
 
 import styled from 'styled-components';
 
