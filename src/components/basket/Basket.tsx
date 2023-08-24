@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-type SelectedState = {
-  graduationProject: boolean;
-  iotProgramming: boolean;
-};
+// types
+import { SelectedState } from '../../types/basket';
+
+// icon
+import { BsFillTrash3Fill } from "react-icons/bs";
 
 // CSS
 const StyledBasketForm = styled.form`
@@ -130,11 +131,78 @@ const StyledBasketList = styled.div`
 const StyledBasketItem = styled.div`
   width: 100%;
   height: 120px;
+  display: flex;
   background-color: #fff;
   border: solid 1px #d8d8d8;
   border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
   margin-top: 25px;
+`;
+
+const StyledBasketItemImgBox = styled.div`
+  width: 33%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 0 0 8px;
+`;
+
+const StyledBasketItemImg = styled.img`
+  width: 85%;
+  height: 80%;
+  border-radius: 8px;
+`;
+
+const StyledBasketItemInfoBox = styled.div`
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 8px 8px 0;
+`;
+
+const StyledBasketItemTitle = styled.div`
+  width: 90%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+const StyledBasketItemCategory = styled.div`
+  width: 90%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  color: #A4A4A4;
+  font-size: 13px;
+`;
+
+const StyledBasketItemButtonBox = styled.div`
+  width: 90%;
+  height: 40%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+const StyledBasketItemButton = styled.button`
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #d8d8d8;
+  }
 `;
 
 const StyledBasketBottomOrderBox = styled.div`
@@ -161,6 +229,7 @@ const StyledBasketOrderButton = styled.button`
   font-size: 20px;
   border: solid 1px #d8d8d8;
   border-radius: 8px;
+  cursor: pointer;
 `;
 
 const Basket = () => {
@@ -171,7 +240,7 @@ const Basket = () => {
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
-    setSelected(prevState => ({
+    setSelected((prevState: SelectedState) => ({
       ...prevState,
       [name]: checked
     }));
@@ -202,7 +271,6 @@ const Basket = () => {
               전체 선택
             </StyledCourseCheckboxLabel>
           </StyledSelectActionsWrap>
-
         </StyledLeftBox>
         <StyledRightBox>
           <StyledCourseCheckboxBox>
@@ -241,23 +309,26 @@ const Basket = () => {
         </StyledRightBox>
       </StyledBasketTopBox>
       <StyledBasketList>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
-        <StyledBasketItem></StyledBasketItem>
+        <StyledBasketItem>
+          <input
+            type="checkbox"
+            name="graduationProject"
+            checked={selected.graduationProject}
+            onChange={handleCheckboxChange}
+          />
+          <StyledBasketItemImgBox>
+            <StyledBasketItemImg src='./images/arduino1.jpg' />
+          </StyledBasketItemImgBox>
+          <StyledBasketItemInfoBox>
+            <StyledBasketItemTitle>지진 감지 센서</StyledBasketItemTitle>
+            <StyledBasketItemCategory>센서</StyledBasketItemCategory>
+            <StyledBasketItemButtonBox>
+              <StyledBasketItemButton type='button'>
+                <BsFillTrash3Fill size='20px' />
+              </StyledBasketItemButton>
+            </StyledBasketItemButtonBox>
+          </StyledBasketItemInfoBox>
+        </StyledBasketItem>
       </StyledBasketList>
       <StyledBasketBottomOrderBox>
         <StyledBasketOrderButton>
