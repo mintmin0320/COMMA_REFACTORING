@@ -6,6 +6,7 @@ import {
   NoticeRoute,
   CommunityRoute,
   BasketRoute,
+  ProfileRoute,
   ProductRoute
 } from './index'
 
@@ -57,6 +58,14 @@ const MainRoute = () => {
         element={
           // <PrivateRoute>
           <BasketRoute />
+          // </PrivateRoute>
+        }
+      />
+      <Route
+        path="/profile/*"
+        element={
+          // <PrivateRoute>
+          <ProfileRoute />
           // </PrivateRoute>
         }
       />
