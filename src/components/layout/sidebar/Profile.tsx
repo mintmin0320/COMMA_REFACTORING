@@ -76,7 +76,7 @@ const Profile = () => {
         </StyledProfileFrame>
       </StyledProfileBox>
       <StyledNavBox>
-        <StyledNavLink to='/' >
+        <StyledNavLink to='/profile' >
           <BiSolidUser size='20px' />
         </StyledNavLink>
         <StyledNavLink to='/'>
