@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import OrderStatus from './OrderStatus';
+import ProfileTabs from './ProfileTabs';
 
 // CSS
 const Container = styled.div`
@@ -57,7 +57,7 @@ const StyledUserInfoTitleBox = styled.div`
 
 const StyledUserInfoTitle = styled.div`
   width: 100%;
-  height: 20%;
+  height: 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,77 +89,66 @@ const UserInfo = () => {
           <StyledUserInfoBox>
             <StyledUserInfoTitleBox>
               <StyledUserInfoTitle>
-                sd
+                이메일
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                이름
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                전화번호
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
-              </StyledUserInfoTitle>
-              <StyledUserInfoTitle>
-                sd
+                등급
               </StyledUserInfoTitle>
             </StyledUserInfoTitleBox>
             <StyledUserInfoDataBox>
               <StyledUserInfoTitle>
-                sd
+                mintmin0320@gmail.com
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                박하민
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                01012345678
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
-              </StyledUserInfoTitle>
-              <StyledUserInfoTitle>
-                sd
+                근로
               </StyledUserInfoTitle>
             </StyledUserInfoDataBox>
           </StyledUserInfoBox>
           <StyledUserInfoBox>
             <StyledUserInfoTitleBox>
               <StyledUserInfoTitle>
-                sd
+                학번
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                학과
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                분반
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
-              </StyledUserInfoTitle>
-              <StyledUserInfoTitle>
-
+                학적
               </StyledUserInfoTitle>
             </StyledUserInfoTitleBox>
             <StyledUserInfoDataBox>
               <StyledUserInfoTitle>
-                sd
+                20181234
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                컴퓨터소프트웨어공학과
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
+                YA
               </StyledUserInfoTitle>
               <StyledUserInfoTitle>
-                sd
-              </StyledUserInfoTitle>
-              <StyledUserInfoTitle>
+                졸업
               </StyledUserInfoTitle>
             </StyledUserInfoDataBox>
           </StyledUserInfoBox>
         </StyledUserTopBox>
       </StyledTopBox>
-      <OrderStatus />
+      <ProfileTabs />
     </Container>
   );
 };
