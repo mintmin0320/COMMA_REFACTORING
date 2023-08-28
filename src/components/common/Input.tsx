@@ -1,16 +1,8 @@
 import React, { memo } from "react";
 import styled from "styled-components";
 
-interface InputProps {
-  children?: React.ReactNode;
-  name?: string;
-  value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onSubmit?: () => void;
-  width?: string;
-  height?: string;
-  placeholder?: string;
-}
+// types
+import { InputProps } from '../../types/common';
 
 const StyledInput = styled.input<InputProps>`
   display: inline-block;
