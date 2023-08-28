@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import Header from '../../components/layout/Header'
-import SideBar from '../../components/layout/sidebar/SideBar';
+import Header from '../../components/common/layout/Header'
+import SideBar from '../../components/common/layout/sidebar/SideBar';
 import Basket from '../../components/basket/Basket';
 
 // CSS

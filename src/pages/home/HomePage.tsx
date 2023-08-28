@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 // layout
 import Home from '../../components/home/Home';
-import Header from '../../components/layout/Header';
-import Footer from '../../components/layout/Footer';
+import Header from '../../components/common/layout/Header';
+import Footer from '../../components/common/layout/Footer';
 
 import ScrollTopBtn from '../../components/common/ScrollTopBtn';
 import ScrollProgressBar from '../../components/common/ScrollProgressBar';

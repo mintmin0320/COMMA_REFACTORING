@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-// icon
+// icons
 import { BsFillBasketFill, BsFillChatDotsFill } from "react-icons/bs";
 import { BiSolidUser } from "react-icons/bi";
 import { RiLogoutBoxRFill } from "react-icons/ri";
