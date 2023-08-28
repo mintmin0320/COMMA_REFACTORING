@@ -1,0 +1,109 @@
+[
+  {
+    "orderId": 1,
+    "orderDate": "2023.08.01",
+    "orderList": [
+      {
+        "productId": 1,
+        "productTitle": "자이로 센서",
+        "productCount": 2
+      },
+      {
+        "productId": 1,
+        "productTitle": "지진감지 센서",
+        "productCount": 2
+      }
+    ],
+    "orderStatus": "대기"
+  },
+  {
+    "orderId": 2,
+    "orderDate": "2023.08.01",
+    "orderList": [
+      {
+        "productId": 1,
+        "productTitle": "자이로 센서",
+        "productCount": 2
+      },
+      {
+        "productId": 1,
+        "productTitle": "지진감지 센서",
+        "productCount": 2
+      }
+    ],
+    "orderStatus": "대기"
+  },
+  {
+    "orderId": 3,
+    "orderDate": "2023.08.01",
+    "orderList": [
+      {
+        "productId": 1,
+        "productTitle": "자이로 센서",
+        "productCount": 2
+      },
+      {
+        "productId": 1,
+        "productTitle": "지진감지 센서",
+        "productCount": 2
+      },
+      {
+        "productId": 1,
+        "productTitle": "지진감지 센서",
+        "productCount": 2
+      }
+    ],
+    "orderStatus": "거절"
+  },
+  {
+    "orderId": 4,
+    "orderDate": "2023.08.01",
+    "orderList": [
+      {
+        "productId": 1,
+        "productTitle": "자이로 센서",
+        "productCount": 2
+      }
+    ],
+    "orderStatus": "거절"
+  },
+  {
+    "orderId": 5,
+    "orderDate": "2023.08.01",
+    "orderList": [
+      {
+        "productId": 1,
+        "productTitle": "자이로 센서",
+        "productCount": 2
+      },
+      {
+        "productId": 1,
+        "productTitle": "지진감지 센서",
+        "productCount": 2
+      },
+      {
+        "productId": 1,
+        "productTitle": "지진감지 센서",
+        "productCount": 2
+      }
+    ],
+    "orderStatus": "승인"
+  },
+  {
+    "orderId": 6,
+    "orderDate": "2023.08.01",
+    "orderList": [
+      {
+        "productId": 1,
+        "productTitle": "자이로 센서",
+        "productCount": 2
+      },
+      {
+        "productId": 1,
+        "productTitle": "지진감지 센서",
+        "productCount": 2
+      }
+    ],
+    "orderStatus": "승인"
+  }
+]
