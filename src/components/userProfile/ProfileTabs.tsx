@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import Withdrawal from './Withdrawal';
 import PasswordChangeForm from './PasswordChangeForm';
 import ProfileImgChangeForm from './ProfileImgChangeForm';
+import OrderStatusPanel from './OrderStatusPanel';
 
 // CSS
 const StyledProfileTabsBox = styled.div`
@@ -105,7 +106,7 @@ const ProfileTabs = () => {
       <StyledTabContentViewBox>
         {
           selectedTab === '주문현황'
-            ? <PasswordChangeForm />
+            ? <OrderStatusPanel />
             :
             selectedTab === '프로필 사진 변경'
               ? <ProfileImgChangeForm />
