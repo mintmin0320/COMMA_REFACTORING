@@ -11,6 +11,7 @@ import styled from 'styled-components';
 
 import Withdrawal from './Withdrawal';
 import PasswordChangeForm from './PasswordChangeForm';
+import ProfileImgChangeForm from './ProfileImgChangeForm';
 
 // CSS
 const StyledProfileTabsBox = styled.div`
@@ -49,6 +50,9 @@ const StyledBlankContainer = styled.div`
 const StyledTabContentViewBox = styled.div`
   width: 100%;
   height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: solid 1px #d8d8d8;
   border-top: none;
 `;
@@ -104,7 +108,7 @@ const ProfileTabs = () => {
             ? <PasswordChangeForm />
             :
             selectedTab === '프로필 사진 변경'
-              ? <PasswordChangeForm />
+              ? <ProfileImgChangeForm />
               :
               selectedTab === '비밀번호 변경'
                 ? <PasswordChangeForm />
