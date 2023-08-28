@@ -16,11 +16,12 @@ const StyledPasswordInputBox = styled.div`
 `;
 
 const StyledPasswordLabel = styled.label`
-  width: 500px;
+  width: 450px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: solid 1px #d8d8d8;
 `;
 
 const StyledPasswordInput = styled.input`
@@ -54,7 +55,7 @@ const StyledWithdrawalButton = styled.button`
   align-items: center;
   border: none;
   border-radius: 8px;
-  border: solid 1px #f2f2f2;
+  border: solid 1px silver;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   font-size: 16px;
   font-weight: bold;

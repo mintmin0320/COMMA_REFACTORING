@@ -1,6 +1,6 @@
 /*
   비밀번호 변경 컴포넌트
-  - 회원탈퇴와 공통되는 label, input 컴포넌트 모듈화 필요
+  - 회원탈퇴와 공통되는 style-component 컴포넌트 모듈화 필요
 */
 
 import { useState } from 'react';
@@ -43,6 +43,7 @@ const StyledPasswordCheckButton = styled.button`
   justify-content: center;
   align-items: center;
   margin-left: 8px;
+  border: solid 1px silver;
 `;
 
 const PasswordChangeForm = () => {

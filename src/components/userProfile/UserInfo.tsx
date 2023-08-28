@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import ProfileTabs from './ProfileTabs';
 
 // CSS
@@ -73,12 +74,6 @@ const StyledUserInfoDataBox = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
-const StyledBottomBox = styled.div`
-  width: 95%;
-  height: 55%;
-`;
-
 
 const UserInfo = () => {
   return (

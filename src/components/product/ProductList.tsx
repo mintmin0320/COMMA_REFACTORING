@@ -9,8 +9,6 @@ import { ProductInfo } from '../../types/product';
 // dummy-data
 import productItemData from './productData.json';
 
-
-
 // CSS
 const StyledProductList = styled.div`
   width: 100%;
