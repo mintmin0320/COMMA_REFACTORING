@@ -3,7 +3,7 @@
   - 주문현황
   - 프로필 변경
   - 비밀번호 변경
-  -  회원탈퇴 
+  - 회원탈퇴 
 */
 
 import { useState } from 'react';
@@ -29,7 +29,7 @@ const StyledTabsContainer = styled.div`
   align-items: flex-end;
 `;
 
-const StyledTab = styled.div`
+const StyledTab = styled.div<{ $isSelected: boolean }>`
   width: 20%;
   height: 40px;
   display: flex;
@@ -37,7 +37,8 @@ const StyledTab = styled.div`
   align-items: center;
   border: solid 1px #d8d8d8;
   border-radius: 8px 8px 0 0;
-  border-bottom: solid 1px #d8d8d8;
+  border-bottom: ${({ $isSelected }) => ($isSelected ? 'none' : 'solid 1px #d8d8d8')};
+  background-color: ${({ $isSelected }) => ($isSelected ? 'transparent' : '#f2f2f2')};
   font-size: 15px;
   cursor: pointer;
 `;
@@ -59,63 +60,40 @@ const StyledTabContentViewBox = styled.div`
 `;
 
 const ProfileTabs = () => {
-  const [selectedTab, setSelectedTab] = useState<string>('주문현황');
+  const profileItems = ['주문현황', '프로필 사진', '비밀번호 변경', '회원탈퇴'];
+  const [selectedTab, setSelectedTab] = useState<string>(profileItems[0]);
+
+  const renderTabContent = () => {
+    switch (selectedTab) {
+      case '주문현황':
+        return <OrderStatusPanel />;
+      case '프로필 사진':
+        return <ProfileImgChangeForm />;
+      case '비밀번호 변경':
+        return <PasswordChangeForm />;
+      case '회원탈퇴':
+        return <Withdrawal />;
+      default:
+        return null;
+    };
+  };
 
   return (
     <StyledProfileTabsBox>
       <StyledTabsContainer>
-        <StyledTab
-          onClick={() => setSelectedTab('주문현황')}
-          style={{
-            backgroundColor: selectedTab === '주문현황' ? 'transparent' : '#f2f2f2',
-            borderBottom: selectedTab === '주문현황' ? 'none' : 'solid 1px #d8d8d8'
-          }}
-        >
-          주문현황
-        </StyledTab>
-        <StyledTab
-          onClick={() => setSelectedTab('프로필 사진 변경')}
-          style={{
-            /* transparent -> 투명한 색상을 나타내는 키워드 */
-            backgroundColor: selectedTab === '프로필 사진 변경' ? 'transparent' : '#f2f2f2',
-            borderBottom: selectedTab === '프로필 사진 변경' ? 'none' : 'solid 1px #d8d8d8'
-          }}
-        >
-          프로필 사진 변경
-        </StyledTab>
-        <StyledTab
-          onClick={() => setSelectedTab('비밀번호 변경')}
-          style={{
-            backgroundColor: selectedTab === '비밀번호 변경' ? 'transparent' : '#f2f2f2',
-            borderBottom: selectedTab === '비밀번호 변경' ? 'none' : 'solid 1px #d8d8d8'
-          }}
-        >
-          비밀번호 변경
-        </StyledTab>
-        <StyledTab
-          onClick={() => setSelectedTab('회원탈퇴')}
-          style={{
-            backgroundColor: selectedTab === '회원탈퇴' ? 'transparent' : '#f2f2f2',
-            borderBottom: selectedTab === '회원탈퇴' ? 'none' : 'solid 1px #d8d8d8'
-          }}
-        >
-          회원탈퇴
-        </StyledTab>
+        {profileItems.map((item) => (
+          <StyledTab
+            key={item}
+            onClick={() => setSelectedTab(item)}
+            $isSelected={selectedTab === item}
+          >
+            {item}
+          </StyledTab>
+        ))}
         <StyledBlankContainer />
       </StyledTabsContainer>
       <StyledTabContentViewBox>
-        {
-          selectedTab === '주문현황'
-            ? <OrderStatusPanel />
-            :
-            selectedTab === '프로필 사진 변경'
-              ? <ProfileImgChangeForm />
-              :
-              selectedTab === '비밀번호 변경'
-                ? <PasswordChangeForm />
-                :
-                <Withdrawal />
-        }
+        {renderTabContent()}
       </StyledTabContentViewBox>
     </StyledProfileTabsBox>
   );

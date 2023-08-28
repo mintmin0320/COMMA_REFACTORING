@@ -68,62 +68,30 @@ const UserInfo = () => {
       <StyledUserTopBox>
         <StyledUserInfoContainer>
           <StyledUserInfoTitleBox>
-            <StyledUserInfoTitle>
-              이메일
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              이름
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              전화번호
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              등급
-            </StyledUserInfoTitle>
+            <StyledUserInfoTitle>이메일</StyledUserInfoTitle>
+            <StyledUserInfoTitle>이름</StyledUserInfoTitle>
+            <StyledUserInfoTitle>전화번호</StyledUserInfoTitle>
+            <StyledUserInfoTitle>등급</StyledUserInfoTitle>
           </StyledUserInfoTitleBox>
           <StyledUserInfoDataBox>
-            <StyledUserInfoTitle>
-              mintmin0320@gmail.com
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              박하민
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              01012345678
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              근로
-            </StyledUserInfoTitle>
+            <StyledUserInfoTitle>mintmin0320@gmail.com</StyledUserInfoTitle>
+            <StyledUserInfoTitle>박하민</StyledUserInfoTitle>
+            <StyledUserInfoTitle>01012345678</StyledUserInfoTitle>
+            <StyledUserInfoTitle>근로</StyledUserInfoTitle>
           </StyledUserInfoDataBox>
         </StyledUserInfoContainer>
         <StyledUserInfoContainer>
           <StyledUserInfoTitleBox>
-            <StyledUserInfoTitle>
-              학번
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              학과
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              분반
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              학적
-            </StyledUserInfoTitle>
+            <StyledUserInfoTitle>학번</StyledUserInfoTitle>
+            <StyledUserInfoTitle>학과</StyledUserInfoTitle>
+            <StyledUserInfoTitle>분반</StyledUserInfoTitle>
+            <StyledUserInfoTitle>학적</StyledUserInfoTitle>
           </StyledUserInfoTitleBox>
           <StyledUserInfoDataBox>
-            <StyledUserInfoTitle>
-              20181234
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              컴퓨터소프트웨어공학과
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              YA
-            </StyledUserInfoTitle>
-            <StyledUserInfoTitle>
-              졸업
-            </StyledUserInfoTitle>
+            <StyledUserInfoTitle>20181234</StyledUserInfoTitle>
+            <StyledUserInfoTitle>컴퓨터소프트웨어공학과</StyledUserInfoTitle>
+            <StyledUserInfoTitle>YA</StyledUserInfoTitle>
+            <StyledUserInfoTitle>졸업</StyledUserInfoTitle>
           </StyledUserInfoDataBox>
         </StyledUserInfoContainer>
       </StyledUserTopBox>
