@@ -1,2 +1,2 @@
 export * from './input.types';
-export * from './menuItem.type';
+export * from './menuItem.types';
