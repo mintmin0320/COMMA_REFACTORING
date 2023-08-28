@@ -10,6 +10,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import Withdrawal from './Withdrawal';
+import PasswordChangeForm from './PasswordChangeForm';
 
 // CSS
 const StyledProfileTabsBox = styled.div`
@@ -99,11 +100,17 @@ const ProfileTabs = () => {
       </StyledTabsContainer>
       <StyledTabContentViewBox>
         {
-          selectedTab === '회원탈퇴'
-            ? <Withdrawal />
-            : ''
+          selectedTab === '주문현황'
+            ? <PasswordChangeForm />
+            :
+            selectedTab === '프로필 사진 변경'
+              ? <PasswordChangeForm />
+              :
+              selectedTab === '비밀번호 변경'
+                ? <PasswordChangeForm />
+                :
+                <Withdrawal />
         }
-
       </StyledTabContentViewBox>
     </StyledProfileTabsBox>
   );
