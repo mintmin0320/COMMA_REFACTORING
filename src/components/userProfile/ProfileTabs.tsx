@@ -9,6 +9,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+import Withdrawal from './Withdrawal';
+
 // CSS
 const StyledProfileTabsBox = styled.div`
   width: 95%;
@@ -96,6 +98,11 @@ const ProfileTabs = () => {
         <StyledBlankContainer />
       </StyledTabsContainer>
       <StyledTabContentViewBox>
+        {
+          selectedTab === '회원탈퇴'
+            ? <Withdrawal />
+            : ''
+        }
 
       </StyledTabContentViewBox>
     </StyledProfileTabsBox>
