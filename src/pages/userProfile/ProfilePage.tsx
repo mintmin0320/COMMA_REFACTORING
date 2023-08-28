@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import Header from '../../components/layout/Header'
 import SideBar from '../../components/layout/sidebar/SideBar';
-import UserInfo from '../../components/userProfile/UserInfo';
+import Profile from '../../components/userProfile/Profile';
 
 // CSS
 const Container = styled.div`
@@ -27,7 +27,7 @@ const ProfilePage = () => {
       <Header />
       <StyledProfileBox>
         <SideBar />
-        <UserInfo />
+        <Profile />
       </StyledProfileBox>
     </Container>
   );
