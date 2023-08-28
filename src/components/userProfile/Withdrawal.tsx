@@ -63,7 +63,6 @@ const StyledWithdrawalButton = styled.button`
 `;
 
 const Withdrawal = () => {
-  const [password, setPassword] = useState<string | null>(null);
   const [checkPw, setCheckPw] = useState<boolean>(false);
 
   return (

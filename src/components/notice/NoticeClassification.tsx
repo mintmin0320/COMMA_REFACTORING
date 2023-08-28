@@ -32,19 +32,15 @@ const NoticeClassification = () => {
 
   return (
     <StyledClassificationBox>
-      {
-        noticeItem.map((item: string, index: number) => {
-          return (
-            <StyledClassificationItem
-              key={item}
-              onClick={() => setSelectedItem(index)}
-              $isSelected={selectedItem === index}
-            >
-              {item}
-            </StyledClassificationItem>
-          )
-        })
-      }
+      {noticeItem.map((item: string, index: number) => (
+        <StyledClassificationItem
+          key={item}
+          onClick={() => setSelectedItem(index)}
+          $isSelected={selectedItem === index}
+        >
+          {item}
+        </StyledClassificationItem>
+      ))}
     </StyledClassificationBox>
   );
 };

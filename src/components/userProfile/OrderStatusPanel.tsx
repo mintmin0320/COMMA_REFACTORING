@@ -111,25 +111,21 @@ const OrderStatusPanel = () => {
         </StyledCancelOrderInfo>
       </StyledInfoBox>
       <StyledOrderStatusListBox>
-        {
-          typedOrderData.map((list: OrderInfo) => {
-            return (
-              <StyledOrderData>
-                <StyledDateInfo>{list.orderDate}</StyledDateInfo>
-                <StyledOrderListInfo>상세보기</StyledOrderListInfo>
-                <StyledStatusInfo>{list.orderStatus}</StyledStatusInfo>
-                <StyledCancelOrderInfo>
-                  {
-                    list.orderStatus === '대기' &&
-                    <StyledCancelButton>
-                      주문 취소
-                    </StyledCancelButton>
-                  }
-                </StyledCancelOrderInfo>
-              </StyledOrderData>
-            )
-          })
-        }
+        {typedOrderData.map((list: OrderInfo) => (
+          <StyledOrderData key={list.orderId}>
+            <StyledDateInfo>{list.orderDate}</StyledDateInfo>
+            <StyledOrderListInfo>상세보기</StyledOrderListInfo>
+            <StyledStatusInfo>{list.orderStatus}</StyledStatusInfo>
+            <StyledCancelOrderInfo>
+              {
+                list.orderStatus === '대기' &&
+                <StyledCancelButton>
+                  주문 취소
+                </StyledCancelButton>
+              }
+            </StyledCancelOrderInfo>
+          </StyledOrderData>
+        ))}
       </StyledOrderStatusListBox>
     </StyledOrderStatusBox>
   );

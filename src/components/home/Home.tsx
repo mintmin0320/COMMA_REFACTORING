@@ -129,9 +129,7 @@ const Home = () => {
           </StyledSecondRightText>
         </StyledSecondRightBox>
       </StyledSecondBox>
-      <StyledThirdBox>
-        공지사항 모아보기
-      </StyledThirdBox>
+      <StyledThirdBox>공지사항 모아보기</StyledThirdBox>
     </Container>
   );
 };

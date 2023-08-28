@@ -12,7 +12,6 @@ import productItemData from './productData.json';
 // CSS
 const StyledProductList = styled.div`
   width: 100%;
-  /* height: 100%; */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 35px 20px;
@@ -65,31 +64,23 @@ const ProductList = () => {
   return (
     <StyledProductList>
       <ProductDetail isOpen={isOpen} onClose={() => setIsOpen(false)} />
-      {
-        productItemData.map((item: ProductInfo) => {
-          return (
-            <StyledProductItem
-              key={item.produceId}
-              onClick={() => setIsOpen(true)}
-            >
-              <StyledProductImgBox>
-                <StyledProductImg src={item.produceImg} />
-                <StyledProductTitle>
-                  {item.produceTitle}
-                </StyledProductTitle>
-                <StyledProductCategory>
-                  {item.produceCategory}
-                </StyledProductCategory>
-                <StyledProductCount>
-                  {
-                    item.produceCount === 0 ? '품 절' : `${item.produceCount}EA`
-                  }
-                </StyledProductCount>
-              </StyledProductImgBox>
-            </StyledProductItem>
-          )
-        })
-      }
+      {productItemData.map((item: ProductInfo) => (
+        <StyledProductItem
+          key={item.produceId}
+          onClick={() => setIsOpen(true)}
+        >
+          <StyledProductImgBox>
+            <StyledProductImg src={item.produceImg} />
+            <StyledProductTitle>{item.produceTitle}</StyledProductTitle>
+            <StyledProductCategory>{item.produceCategory}</StyledProductCategory>
+            <StyledProductCount>
+              {
+                item.produceCount === 0 ? '품 절' : `${item.produceCount}EA`
+              }
+            </StyledProductCount>
+          </StyledProductImgBox>
+        </StyledProductItem>
+      ))}
     </StyledProductList>
   );
 };

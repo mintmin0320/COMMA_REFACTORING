@@ -8,7 +8,7 @@ import styled from 'styled-components';
 // types
 import { BestPostInfo } from './../../types/community'
 
-// icon, dummy-data
+// icons, dummy-data
 import { AiFillHeart } from 'react-icons/ai';
 
 import bestPostData from './bestPostData.json';
@@ -77,20 +77,15 @@ const BestPost = () => {
     <StyledBestPostBox>
       <StyledBestPostTextBox>🔥 인기글</StyledBestPostTextBox>
       <StyledBestPostList>
-        {
-          bestPostData.map((item: BestPostInfo) => {
-            return (
-              <StyledBestPost key={item.postId}>
-                <StyledBestPostTitle>
-                  {item.postTitle}
-                </StyledBestPostTitle>
-                <StyledBestPostLikeCount>
-                  <AiFillHeart color='#FF0000' size='18px' /> {item.postLikeCount}
-                </StyledBestPostLikeCount>
-              </StyledBestPost>
-            )
-          })
-        }
+        {bestPostData.map((item: BestPostInfo) => (
+          <StyledBestPost key={item.postId}>
+            <StyledBestPostTitle>{item.postTitle}</StyledBestPostTitle>
+            <StyledBestPostLikeCount>
+              <AiFillHeart color='#FF0000' size='18px' />
+              {item.postLikeCount}
+            </StyledBestPostLikeCount>
+          </StyledBestPost>
+        ))}
       </StyledBestPostList>
     </StyledBestPostBox>
   );

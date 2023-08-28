@@ -6,7 +6,7 @@ import RecommendedProducts from './RecommendedProducts';
 // types
 import { ModalProps } from '../../types/product';
 
-// icon
+// icons
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 
@@ -177,15 +177,9 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
           </StyledProductImgBox>
           <StyledProductInfoBox>
             <StyledProductInfo>
-              <StyledProductTitle>
-                자이로 센서
-              </StyledProductTitle>
-              <StyledProductCategory>
-                센서
-              </StyledProductCategory>
-              <StyledProductCount>
-                남은 수량 : 2 EA
-              </StyledProductCount>
+              <StyledProductTitle>자이로 센서</StyledProductTitle>
+              <StyledProductCategory>센서</StyledProductCategory>
+              <StyledProductCount>남은 수량 : 2 EA</StyledProductCount>
               <StyledProductIconBox>
                 <StyledProductIcon onClick={() => setIsLikeVisible(!isLikeVisible)}>
                   {
@@ -200,9 +194,7 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
               </StyledProductIconBox>
             </StyledProductInfo>
             <StyledProductBottom>
-              <StyledProductCommentTitle>
-                상품평
-              </StyledProductCommentTitle>
+              <StyledProductCommentTitle>상품평</StyledProductCommentTitle>
               <StyledProductCommentBox>
                 <StyledProductComment>좋네요??</StyledProductComment>
                 <StyledProductComment>과제 필수 사용</StyledProductComment>

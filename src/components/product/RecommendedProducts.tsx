@@ -12,11 +12,10 @@ import { RecommendInfo } from '../../types/product';
 // dummy-data
 import recommendData from './recommend.json';
 
-// icon
+// icons
 import { FiRefreshCcw } from "react-icons/fi";
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
-
 
 // CSS
 const StyledProductRecommendWrap = styled.div`
@@ -149,40 +148,36 @@ const RecommendedProducts = () => {
         </StyledProductRecommendRefresh>
       </StyledProductRecommendTop>
       <StyledProductRecommendBox>
-        {
-          recommendData.map((item: RecommendInfo) => {
-            return (
-              <StyledProductRecommendItem key={item.recommendId}>
-                <StyledProductRecommendImg src={item.recommendImg} />
-                <StyledProductRecommendInfoBox>
-                  <StyledProductRecommendTitle>{item.recommendTitle}</StyledProductRecommendTitle>
-                  <StyledProductRecommendCategory>{item.recommendCategory}</StyledProductRecommendCategory>
-                  <StyledProductRecommendCount>{item.recommendCount} EA</StyledProductRecommendCount>
-                  <StyledProductRecommendIconBox>
-                    <StyledProductRecommendIcon
-                      onClick={() => {
-                        setIsLikeVisible((prev) => ({ ...prev, [item.recommendId]: !prev[item.recommendId] }));
-                      }}
-                    >
-                      {
-                        !isLikeVisible[item.recommendId] ? <AiOutlineHeart /> : <AiFillHeart />
-                      }
-                    </StyledProductRecommendIcon>
-                    <StyledProductRecommendIcon
-                      onClick={() => {
-                        setIsCartVisible((prev) => ({ ...prev, [item.recommendId]: !prev[item.recommendId] }));
-                      }}
-                    >
-                      {
-                        !isCartVisible[item.recommendId] ? <AiOutlineShoppingCart /> : <BsFillCartCheckFill />
-                      }
-                    </StyledProductRecommendIcon>
-                  </StyledProductRecommendIconBox>
-                </StyledProductRecommendInfoBox>
-              </StyledProductRecommendItem>
-            )
-          })
-        }
+        {recommendData.map((item: RecommendInfo) => (
+          <StyledProductRecommendItem key={item.recommendId}>
+            <StyledProductRecommendImg src={item.recommendImg} />
+            <StyledProductRecommendInfoBox>
+              <StyledProductRecommendTitle>{item.recommendTitle}</StyledProductRecommendTitle>
+              <StyledProductRecommendCategory>{item.recommendCategory}</StyledProductRecommendCategory>
+              <StyledProductRecommendCount>{item.recommendCount} EA</StyledProductRecommendCount>
+              <StyledProductRecommendIconBox>
+                <StyledProductRecommendIcon
+                  onClick={() => {
+                    setIsLikeVisible((prev) => ({ ...prev, [item.recommendId]: !prev[item.recommendId] }));
+                  }}
+                >
+                  {
+                    !isLikeVisible[item.recommendId] ? <AiOutlineHeart /> : <AiFillHeart />
+                  }
+                </StyledProductRecommendIcon>
+                <StyledProductRecommendIcon
+                  onClick={() => {
+                    setIsCartVisible((prev) => ({ ...prev, [item.recommendId]: !prev[item.recommendId] }));
+                  }}
+                >
+                  {
+                    !isCartVisible[item.recommendId] ? <AiOutlineShoppingCart /> : <BsFillCartCheckFill />
+                  }
+                </StyledProductRecommendIcon>
+              </StyledProductRecommendIconBox>
+            </StyledProductRecommendInfoBox>
+          </StyledProductRecommendItem>
+        ))}
       </StyledProductRecommendBox>
     </StyledProductRecommendWrap>
   );

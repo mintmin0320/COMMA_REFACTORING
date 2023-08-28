@@ -12,7 +12,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import Input from '../common/Input';
 import { setItem } from '../utils/localStorage';
 
-// library-CSS, icon
+// library-CSS, icons
 import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
 import 'react-toastify/dist/ReactToastify.css';
 

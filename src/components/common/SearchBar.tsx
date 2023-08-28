@@ -6,7 +6,7 @@
 
 import styled from 'styled-components';
 
-// icon
+// icons
 import { FcSearch } from "react-icons/fc";
 import { MdOutlineKeyboardVoice } from "react-icons/md";
 
