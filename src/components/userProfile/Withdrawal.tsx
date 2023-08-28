@@ -70,7 +70,7 @@ const Withdrawal = () => {
     <StyledWithdrawalBox>
       <StyledPasswordInputBox>
         <StyledPasswordLabel htmlFor='pw-input'>
-          비밀번호 &nbsp;
+          비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;
           <StyledPasswordInput id='pw-input' />
           <StyledPasswordCheckButton>확인</StyledPasswordCheckButton>
         </StyledPasswordLabel>
