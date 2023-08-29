@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 // CSS
-/* 변경 필요 */
-const StyledWithdrawalBox = styled.div`
+const StyledImgChangeContainer = styled.div`
   width: 70%;
   height: 70%;
   display: flex;
@@ -11,7 +10,7 @@ const StyledWithdrawalBox = styled.div`
   border-radius: 8px;
 `;
 
-const StyledRightPreviewImgBox = styled.div`
+const StyledRightBox = styled.div`
   width: 40%;
   display: flex;
   justify-content: center;
@@ -38,7 +37,7 @@ const StyledPreviewImg = styled.img`
   border-radius: 50%;
 `;
 
-const StyledRightButtonBox = styled.div`
+const StyledChangeButtonBox = styled.div`
   width: 60%;
   height: 100%;
   display: flex;
@@ -47,7 +46,7 @@ const StyledRightButtonBox = styled.div`
   align-items: center;
 `;
 
-const StyledRightButton = styled.button`
+const StyledChangeButton = styled.button`
   width: 150px;
   height: 50px;
   display: flex;
@@ -61,17 +60,17 @@ const StyledRightButton = styled.button`
 
 const ProfileImgChangeForm = () => {
   return (
-    <StyledWithdrawalBox>
-      <StyledRightPreviewImgBox>
+    <StyledImgChangeContainer>
+      <StyledRightBox>
         <StyledPreviewImgBox>
           <StyledPreviewImg src='./images/mintmin.jpg' />
         </StyledPreviewImgBox>
-      </StyledRightPreviewImgBox>
-      <StyledRightButtonBox>
-        <StyledRightButton>사진 업로드</StyledRightButton>
-        <StyledRightButton>사진 삭제</StyledRightButton>
-      </StyledRightButtonBox>
-    </StyledWithdrawalBox>
+      </StyledRightBox>
+      <StyledChangeButtonBox>
+        <StyledChangeButton>사진 업로드</StyledChangeButton>
+        <StyledChangeButton>사진 삭제</StyledChangeButton>
+      </StyledChangeButtonBox>
+    </StyledImgChangeContainer>
   );
 };
 

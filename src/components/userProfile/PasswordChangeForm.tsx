@@ -6,12 +6,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-// CSS
-const StyledWithdrawalBox = styled.div`
-  width: 100%;
-  height: 100%;
-`;
+// styles
+import { Container } from '../styles/CommonStyles';
 
+// CSS
 const StyledPasswordInputBox = styled.div`
   width: 100%;
   height: 50%;
@@ -50,7 +48,7 @@ const PasswordChangeForm = () => {
   const [checkPW, setCheckPW] = useState<boolean>(false);
 
   return (
-    <StyledWithdrawalBox>
+    <Container>
       <StyledPasswordInputBox>
         <StyledPasswordLabel htmlFor='pw-input' style={{ borderBottom: 'none' }}>
           기존 비밀번호 &nbsp;
@@ -63,7 +61,7 @@ const PasswordChangeForm = () => {
           <StyledPasswordCheckButton disabled={!checkPW}>확인</StyledPasswordCheckButton>
         </StyledPasswordLabel>
       </StyledPasswordInputBox>
-    </StyledWithdrawalBox>
+    </Container>
   );
 };
 

@@ -1,22 +1,13 @@
 import styled from 'styled-components';
 
+// styles
+import { StyledModalContainer } from '../styles/CommonStyles';
+
 // types
 import { ModalProps } from '../../types/product';
 
 // CSS
-const StyledDetailModalBox = styled.div`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
-`;
-
-const StyledModalContent = styled.div`
+const StyledModalWrap = styled.div`
   width: 35%;
   height: 70%;
   display: flex;
@@ -40,7 +31,7 @@ const StyledModalText = styled.h1`
   font-size: 35px;
 `;
 
-const StyledModalContainer = styled.div`
+const StyledModalContent = styled.div`
   width: 85%;
   height: calc(95% - 120px);
   display: flex;
@@ -59,7 +50,7 @@ const StyledOrderInfoBox = styled.div`
   border-bottom: solid 1px #d8d8d8;
 `;
 
-const StyledOrderTitleInfo = styled.div`
+const StyledOrderTitle = styled.div`
   width: 70%;
   height: 100%;
   display: flex;
@@ -69,7 +60,7 @@ const StyledOrderTitleInfo = styled.div`
   border-right: solid 1px #d8d8d8;
 `;
 
-const StyledOrderCountInfo = styled.div`
+const StyledOrderCount = styled.div`
   width: 30%;
   height: 100%;
   display: flex;
@@ -91,7 +82,7 @@ const StyledOrderListBox = styled.div`
   }
 `;
 
-const StyledOrderList = styled.div`
+const StyledOrderItem = styled.div`
   width: 100%;
   height: 70px;
   display: flex;
@@ -112,27 +103,27 @@ const OrderDetail = ({ isOpen, onClose, orderList }: ModalProps) => {
   };
 
   return (
-    <StyledDetailModalBox onClick={handleOverlayClick}>
-      <StyledModalContent>
+    <StyledModalContainer onClick={handleOverlayClick}>
+      <StyledModalWrap>
         <StyledModalTextBox>
           <StyledModalText>주문내역</StyledModalText>
         </StyledModalTextBox>
-        <StyledModalContainer>
+        <StyledModalContent>
           <StyledOrderInfoBox>
-            <StyledOrderTitleInfo>상품명</StyledOrderTitleInfo>
-            <StyledOrderCountInfo>수량</StyledOrderCountInfo>
+            <StyledOrderTitle>상품명</StyledOrderTitle>
+            <StyledOrderCount>수량</StyledOrderCount>
           </StyledOrderInfoBox>
           <StyledOrderListBox>
             {orderList?.map((list) => (
-              <StyledOrderList key={list.productId}>
-                <StyledOrderTitleInfo>{list.productTitle}</StyledOrderTitleInfo>
-                <StyledOrderCountInfo>{list.productCount} EA</StyledOrderCountInfo>
-              </StyledOrderList>
+              <StyledOrderItem key={list.productId}>
+                <StyledOrderTitle>{list.productTitle}</StyledOrderTitle>
+                <StyledOrderCount>{list.productCount} EA</StyledOrderCount>
+              </StyledOrderItem>
             ))}
           </StyledOrderListBox>
-        </StyledModalContainer>
-      </StyledModalContent>
-    </StyledDetailModalBox>
+        </StyledModalContent>
+      </StyledModalWrap>
+    </StyledModalContainer>
   );
 };
 

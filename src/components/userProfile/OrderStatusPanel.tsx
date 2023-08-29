@@ -10,7 +10,7 @@ import { OrderInfo, ModalOrderProps } from '../../types/profile';
 import orderListData from './orderListData.json';
 
 // CSS
-const StyledOrderStatusBox = styled.div`
+const StyledOrderStatusContainer = styled.div`
   width: 75%;
   height: 80%;
   border: solid 1px #d8d8d8;
@@ -92,7 +92,7 @@ const StyledOrderStatusListBox = styled.div`
   }
 `;
 
-const StyledOrderData = styled.div`
+const StyledOrderItem = styled.div`
   width: 100%;
   height: 60px;
   display: flex;
@@ -107,7 +107,7 @@ const OrderStatusPanel = () => {
   const typedOrderData: OrderInfo[] = orderListData as OrderInfo[];
 
   return (
-    <StyledOrderStatusBox>
+    <StyledOrderStatusContainer>
       <OrderDetail
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
@@ -123,7 +123,7 @@ const OrderStatusPanel = () => {
       </StyledInfoBox>
       <StyledOrderStatusListBox>
         {typedOrderData.map((list: OrderInfo) => (
-          <StyledOrderData key={list.orderId}>
+          <StyledOrderItem key={list.orderId}>
             <StyledDateInfo>{list.orderDate}</StyledDateInfo>
             <StyledOrderListInfo
               onClick={() => {
@@ -142,10 +142,10 @@ const OrderStatusPanel = () => {
                 </StyledCancelButton>
               }
             </StyledCancelOrderInfo>
-          </StyledOrderData>
+          </StyledOrderItem>
         ))}
       </StyledOrderStatusListBox>
-    </StyledOrderStatusBox>
+    </StyledOrderStatusContainer>
   );
 };
 

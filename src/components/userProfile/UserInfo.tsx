@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const StyledUserInfoBox = styled.div`
   width: 95%;
   height: 45%;
-  border-bottom: solid 1px #000;
 `;
 
 const StyledUserInfoText = styled.div`

@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-// CSS
-const StyledWithdrawalBox = styled.div`
-  width: 100%;
-  height: 100%;
-`;
+// styles
+import { Container } from '../styles/CommonStyles';
 
+// CSS
 const StyledPasswordInputBox = styled.div`
   width: 100%;
   height: 50%;
@@ -15,7 +13,7 @@ const StyledPasswordInputBox = styled.div`
   align-items: flex-end;
 `;
 
-const StyledPasswordLabel = styled.label`
+const StyledInputLabel = styled.label`
   width: 450px;
   height: 40px;
   display: flex;
@@ -66,20 +64,20 @@ const Withdrawal = () => {
   const [checkPw, setCheckPw] = useState<boolean>(false);
 
   return (
-    <StyledWithdrawalBox>
+    <Container>
       <StyledPasswordInputBox>
-        <StyledPasswordLabel htmlFor='pw-input'>
+        <StyledInputLabel htmlFor='pw-input'>
           비밀번호 &nbsp;&nbsp;&nbsp;&nbsp;
           <StyledPasswordInput id='pw-input' />
           <StyledPasswordCheckButton>확인</StyledPasswordCheckButton>
-        </StyledPasswordLabel>
+        </StyledInputLabel>
       </StyledPasswordInputBox>
       <StyledWithdrawalButtonBox>
         <StyledWithdrawalButton disabled={!checkPw}>
           회원탈퇴
         </StyledWithdrawalButton>
       </StyledWithdrawalButtonBox>
-    </StyledWithdrawalBox>
+    </Container>
   );
 };
 

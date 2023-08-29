@@ -3,6 +3,9 @@ import styled from 'styled-components';
 
 import RecommendedProducts from './RecommendedProducts';
 
+// styles
+import { StyledModalContainer } from '../styles/CommonStyles';
+
 // types
 import { ModalProps } from '../../types/product';
 
@@ -11,19 +14,7 @@ import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/
 import { BsFillCartCheckFill } from "react-icons/bs";
 
 // CSS
-const StyledDetailModalBox = styled.div`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
-  `;
-
-const StyledModalContent = styled.div`
+const StyledModalWrap = styled.div`
   width: 70%;
   height: 75%;
   background: #fff;
@@ -169,8 +160,8 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
   };
 
   return (
-    <StyledDetailModalBox onClick={handleOverlayClick}>
-      <StyledModalContent>
+    <StyledModalContainer onClick={handleOverlayClick}>
+      <StyledModalWrap>
         <StyledModalTopBox>
           <StyledProductImgBox>
             <StyledProductImg src='./images/arduino4.jpg' />
@@ -205,8 +196,8 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
           </StyledProductInfoBox>
         </StyledModalTopBox>
         <RecommendedProducts />
-      </StyledModalContent>
-    </StyledDetailModalBox>
+      </StyledModalWrap>
+    </StyledModalContainer>
   );
 };
 
