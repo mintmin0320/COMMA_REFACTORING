@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
+import OrderDetail from './OrderDetail';
+
 // types
-import { OrderInfo } from '../../types/profile';
+import { OrderInfo, ModalOrderProps } from '../../types/profile';
 
 // dummy-data
 import orderListData from './orderListData.json';
@@ -39,6 +42,7 @@ const StyledOrderListInfo = styled.div`
   align-items: center;
   border-right: solid 1px #d8d8d8;
   font-size: 14px;
+  cursor: pointer;
 `;
 
 const StyledStatusInfo = styled.div`
@@ -98,10 +102,17 @@ const StyledOrderData = styled.div`
 `;
 
 const OrderStatusPanel = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [orderList, setOrderList] = useState<ModalOrderProps[]>([]);
   const typedOrderData: OrderInfo[] = orderListData as OrderInfo[];
 
   return (
     <StyledOrderStatusBox>
+      <OrderDetail
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        orderList={orderList}
+      />
       <StyledInfoBox>
         <StyledDateInfo>신청 날짜</StyledDateInfo>
         <StyledOrderListInfo>주문 목록</StyledOrderListInfo>
@@ -114,7 +125,14 @@ const OrderStatusPanel = () => {
         {typedOrderData.map((list: OrderInfo) => (
           <StyledOrderData key={list.orderId}>
             <StyledDateInfo>{list.orderDate}</StyledDateInfo>
-            <StyledOrderListInfo>상세보기</StyledOrderListInfo>
+            <StyledOrderListInfo
+              onClick={() => {
+                setIsOpen(true);
+                setOrderList(list.orderList);
+              }}
+            >
+              상세보기
+            </StyledOrderListInfo>
             <StyledStatusInfo>{list.orderStatus}</StyledStatusInfo>
             <StyledCancelOrderInfo>
               {
