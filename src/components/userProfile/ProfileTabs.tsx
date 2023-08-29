@@ -9,20 +9,22 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import Withdrawal from './Withdrawal';
-import PasswordChangeForm from './PasswordChangeForm';
-import ProfileImgChangeForm from './ProfileImgChangeForm';
-import OrderStatusPanel from './OrderStatusPanel';
+import {
+  Withdrawal,
+  PasswordChangeForm,
+  ProfileImgChangeForm,
+  OrderStatusPanel
+} from './index'
 
 // CSS
-const StyledProfileTabsBox = styled.div`
+const StyledTabsContainer = styled.div`
   width: 95%;
   height: 55%;
   display: flex;
   flex-direction: column;
 `;
 
-const StyledTabsContainer = styled.div`
+const StyledProfileTabsBox = styled.div`
   width: 100%;
   height: 55px;
   display: flex;
@@ -43,7 +45,7 @@ const StyledTab = styled.div<{ $isSelected: boolean }>`
   cursor: pointer;
 `;
 
-const StyledBlankContainer = styled.div`
+const StyledBlankBox = styled.div`
   width: 20%;
   height: 45px;
   border-bottom: solid 1px #d8d8d8;
@@ -75,12 +77,12 @@ const ProfileTabs = () => {
         return <Withdrawal />;
       default:
         return null;
-    };
+    }
   };
 
   return (
-    <StyledProfileTabsBox>
-      <StyledTabsContainer>
+    <StyledTabsContainer>
+      <StyledProfileTabsBox>
         {profileItems.map((item) => (
           <StyledTab
             key={item}
@@ -90,12 +92,12 @@ const ProfileTabs = () => {
             {item}
           </StyledTab>
         ))}
-        <StyledBlankContainer />
-      </StyledTabsContainer>
+        <StyledBlankBox />
+      </StyledProfileTabsBox>
       <StyledTabContentViewBox>
         {renderTabContent()}
       </StyledTabContentViewBox>
-    </StyledProfileTabsBox>
+    </StyledTabsContainer>
   );
 };
 
