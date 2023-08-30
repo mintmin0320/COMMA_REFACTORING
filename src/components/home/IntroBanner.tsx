@@ -13,7 +13,7 @@ const StyledFirstBox = styled.div`
   background-color:#fafafa;
   opacity: 0;  // 초기값
   animation: fadeIn 4s ease forwards;
-  margin-top: -65px;
+  margin-top: -55px;
 
   @keyframes fadeIn {
     to {
@@ -25,6 +25,7 @@ const StyledFirstBox = styled.div`
 const StyledAdditionalText = styled.div`
   font-size: 60px;
   font-weight: bolder;
+  font-family: 'ADLaMDisplay', sans-serif;
   color: #fff;
   margin-bottom: 40px;
 `;
