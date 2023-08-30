@@ -42,11 +42,9 @@ const StyledCommaBannerBox = styled.div`
   width: 45%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
-  font-weight: 600;
-  color: #979FA6;
 `;
 
 const StyledCommaNoticeImg = styled.img`
@@ -58,6 +56,14 @@ const StyledAdditionalText = styled.div`
   font-size: 55px;
   font-weight: bold;
   color: #fff;
+`;
+
+const StyledInfoText = styled.div`
+  height: 60px;
+  font-size: 32px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  color: #979FA6;
 `;
 
 const NoticeBanner = () => {
@@ -73,7 +79,8 @@ const NoticeBanner = () => {
       </StyledAdditionalText>
       <StyledBottomBox>
         <StyledCommaBannerBox>
-          COMMA에서는 한눈에 확인할 수 있어요
+          <StyledInfoText>공지사항을 모아보면</StyledInfoText>
+          <StyledInfoText>한눈에 확인할 수 있어요</StyledInfoText>
         </StyledCommaBannerBox>
         <StyledCommaNoticeImg src='./images/comma-notice.png' />
       </StyledBottomBox>

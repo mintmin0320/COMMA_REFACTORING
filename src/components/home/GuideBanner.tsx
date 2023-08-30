@@ -28,14 +28,14 @@ const StyledLeftText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  font-size: 35px;
-  font-weight: bold;
 `;
 
 const StyledParagraph = styled.p<{ $fontSize?: string }>`
   margin: 0;
   padding: 0;
-  font-size: ${(props) => props.$fontSize || '16px'};
+  font-family: 'ADLaMDisplay', sans-serif;
+  font-size: ${(props) => props.$fontSize};
+  font-weight: 600;
 `;
 
 const StyledGuideImg = styled.img`
@@ -58,8 +58,6 @@ const StyledRightText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  font-size: 23px;
-  font-weight: 600;
 `;
 
 const GuideBanner = () => {

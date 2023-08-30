@@ -40,6 +40,7 @@ const StyledBasketTitle = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  font-family: 'ADLaMDisplay', sans-serif;
   font-weight: bold;
   border-bottom: solid 1px #d8d8d8;
   border-radius: 8px 0 0 0;

@@ -34,6 +34,7 @@ const StyledInfo = styled.div`
   justify-content: space-evenly;
   align-items: center;
   font-weight: bolder;
+  font-family: 'ADLaMDisplay', sans-serif;
 `;
 
 const Footer = () => {

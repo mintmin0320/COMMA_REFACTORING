@@ -12,7 +12,7 @@ import { HeaderProps } from '../../../types/common';
 // CSS
 const Container = styled.div<{ backgroundColor: string, borderBottom: string }>`
   width: 100%;
-  height: 65px;
+  height: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,12 +37,11 @@ const StyledLogoBox = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
 `;
 
 const StyledLogoImg = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 `;
 
 const StyledLogoTitle = styled.div`
@@ -50,8 +49,10 @@ const StyledLogoTitle = styled.div`
   height: 45px;
   display: flex;
   align-items: center;
-  font-size: 25px;
+  color: #000;
+  font-size: 20px;
   font-weight: 600;
+  font-family: 'Roboto', sans-serif;
   margin-left: 8px;
 `;
 
@@ -70,7 +71,7 @@ const StyledMenuLinkBox = styled(Link)`
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  color: #000;
+  color: #585858;
   font-weight: 400;
 `;
 
