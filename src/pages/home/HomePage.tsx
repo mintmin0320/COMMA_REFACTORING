@@ -1,12 +1,11 @@
-import styled from 'styled-components'
+import { useState } from 'react';
+import styled from 'styled-components';
 
 // layout
 import Home from '../../components/home/Home';
 import Header from '../../components/common/layout/Header';
 import Footer from '../../components/common/layout/Footer';
-
 import ScrollTopBtn from '../../components/common/ScrollTopBtn';
-import ScrollProgressBar from '../../components/common/ScrollProgressBar';
 
 // CSS
 const Container = styled.div`
@@ -22,10 +21,11 @@ const StyledHomeBox = styled.div`
 `;
 
 const HomePage = () => {
+  const [isHomePage, setIsHomePage] = useState<boolean>(true);
+
   return (
     <Container>
-      <Header />
-      <ScrollProgressBar />
+      <Header isHomePage={isHomePage} />
       <StyledHomeBox>
         <Home />
       </StyledHomeBox>

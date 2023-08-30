@@ -1,23 +1,26 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { debounce } from 'lodash';
 
 import ScrollProgressBar from '../ScrollProgressBar';
 
 //types
 import { MenuItem } from '../../../types/common';
+import { HeaderProps } from '../../../types/common';
 
 // CSS
-const Container = styled.div`
+const Container = styled.div<{ backgroundColor: string, borderBottom: string }>`
   width: 100%;
   height: 65px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: solid 1px #D8D8D8;
-  background-color: #fff;
+  border-bottom: ${props => props.borderBottom};
+  background-color: ${props => props.backgroundColor};
   position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 1000;
 `;
 
 const StyledHeaderWrap = styled.div`
@@ -48,7 +51,7 @@ const StyledLogoTitle = styled.div`
   display: flex;
   align-items: center;
   font-size: 25px;
-  font-weight: bolder;
+  font-weight: 600;
   margin-left: 8px;
 `;
 
@@ -68,13 +71,14 @@ const StyledMenuLinkBox = styled(Link)`
   align-items: center;
   border-radius: 12px;
   color: #000;
-
-  &:hover{  
-    background-color : #F2F2F2;
-  }
+  font-weight: 400;
 `;
 
-const Header = () => {
+const Header = ({ isHomePage = false }: HeaderProps) => {
+  const [backgroundColor, setBackgroundColor] = useState<string>('transparent');
+  const [borderBottom, setBorderBottom] = useState<string>('none');
+  const [showProgressBar, setShowProgressBar] = useState<boolean>(false);
+
   const headerItem: MenuItem[] = [
     { name: '공지사항', path: '/notice' },
     { name: '상품', path: '/product' },
@@ -82,8 +86,39 @@ const Header = () => {
     { name: '메뉴4', path: '/' },
   ];
 
+  useEffect(() => {
+    if (!isHomePage) {
+      setBackgroundColor('#fff');
+      setBorderBottom('solid 1px #D8D8D8');
+    }
+
+    const handleScroll = debounce(() => {
+      if (window.scrollY > 25) {
+        setBackgroundColor('#fff');
+        setBorderBottom('solid 1px #D8D8D8');
+        setShowProgressBar(!isHomePage);
+      } else {
+        if (isHomePage) {
+          setBackgroundColor('transparent');
+          setBorderBottom('none');
+          setShowProgressBar(false);
+        } else {
+          setBackgroundColor('#fff');
+          setBorderBottom('solid 1px #D8D8D8');
+          setShowProgressBar(true);
+        }
+      }
+    }, 100);
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isHomePage]);
+
   return (
-    <Container>
+    <Container backgroundColor={backgroundColor} borderBottom={borderBottom}>
       <StyledHeaderWrap>
         <StyledLogoBox to='/'>
           <StyledLogoImg src='./images/blue_bg.svg' />
@@ -102,7 +137,7 @@ const Header = () => {
           ))}
         </StyledMenuList>
       </StyledHeaderWrap>
-      <ScrollProgressBar />
+      {isHomePage ? null : showProgressBar && <ScrollProgressBar />}
     </Container>
   );
 };
