@@ -3,27 +3,18 @@ import styled from 'styled-components';
 
 import RecommendedProducts from './RecommendedProducts';
 
+// styles
+import { StyledModalContainer } from '../styles/CommonStyles';
+
 // types
 import { ModalProps } from '../../types/product';
 
-// icon
+// icons
 import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 
 // CSS
-const StyledDetailModalBox = styled.div`
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.7);
-  `;
-
-const StyledModalContent = styled.div`
+const StyledModalWrap = styled.div`
   width: 70%;
   height: 75%;
   background: #fff;
@@ -169,23 +160,17 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
   };
 
   return (
-    <StyledDetailModalBox onClick={handleOverlayClick}>
-      <StyledModalContent>
+    <StyledModalContainer onClick={handleOverlayClick}>
+      <StyledModalWrap>
         <StyledModalTopBox>
           <StyledProductImgBox>
             <StyledProductImg src='./images/arduino4.jpg' />
           </StyledProductImgBox>
           <StyledProductInfoBox>
             <StyledProductInfo>
-              <StyledProductTitle>
-                자이로 센서
-              </StyledProductTitle>
-              <StyledProductCategory>
-                센서
-              </StyledProductCategory>
-              <StyledProductCount>
-                남은 수량 : 2 EA
-              </StyledProductCount>
+              <StyledProductTitle>자이로 센서</StyledProductTitle>
+              <StyledProductCategory>센서</StyledProductCategory>
+              <StyledProductCount>남은 수량 : 2 EA</StyledProductCount>
               <StyledProductIconBox>
                 <StyledProductIcon onClick={() => setIsLikeVisible(!isLikeVisible)}>
                   {
@@ -200,9 +185,7 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
               </StyledProductIconBox>
             </StyledProductInfo>
             <StyledProductBottom>
-              <StyledProductCommentTitle>
-                상품평
-              </StyledProductCommentTitle>
+              <StyledProductCommentTitle>상품평</StyledProductCommentTitle>
               <StyledProductCommentBox>
                 <StyledProductComment>좋네요??</StyledProductComment>
                 <StyledProductComment>과제 필수 사용</StyledProductComment>
@@ -213,8 +196,8 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
           </StyledProductInfoBox>
         </StyledModalTopBox>
         <RecommendedProducts />
-      </StyledModalContent>
-    </StyledDetailModalBox>
+      </StyledModalWrap>
+    </StyledModalContainer>
   );
 };
 

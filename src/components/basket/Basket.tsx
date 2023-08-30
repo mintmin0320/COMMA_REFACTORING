@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // types
 import { SelectedState } from '../../types/basket';
 
-// icon
+// icons
 import { BsFillTrash3Fill } from "react-icons/bs";
 
 // CSS
@@ -40,6 +40,7 @@ const StyledBasketTitle = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  font-family: 'ADLaMDisplay', sans-serif;
   font-weight: bold;
   border-bottom: solid 1px #d8d8d8;
   border-radius: 8px 0 0 0;
@@ -274,9 +275,7 @@ const Basket = () => {
         </StyledLeftBox>
         <StyledRightBox>
           <StyledCourseCheckboxBox>
-            <StyledCourseCheckboxTitle>
-              과목
-            </StyledCourseCheckboxTitle>
+            <StyledCourseCheckboxTitle>과목</StyledCourseCheckboxTitle>
             <StyledCourseCheckbox>
               <StyledCourseCheckboxLabel>
                 <input
@@ -299,9 +298,7 @@ const Basket = () => {
             </StyledCourseCheckbox>
           </StyledCourseCheckboxBox>
           <StyledApplicationPurposeBox>
-            <StyledApplicationPurposeTitle>
-              활동 계획
-            </StyledApplicationPurposeTitle>
+            <StyledApplicationPurposeTitle>활동 계획</StyledApplicationPurposeTitle>
             <StyledApplicationPurposeTextarea
               placeholder='활동 계획을 간단하게 적어주세요.'
             />

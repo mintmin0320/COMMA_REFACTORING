@@ -1,19 +1,19 @@
 [
   {
     "noticeId": 1,
-    "noticeTitle": "2023학년도 2학기 수강신청 안내",
-    "writer": "박재선",
-    "create_date": "2023.08.07",
+    "noticeTitle": "[컴정] 2023학년도 2학기 학점교류 수강 안내",
+    "writer": "김지원",
+    "create_date": "2023.08.29",
     "noticeView": 815,
-    "noticeFile": 2
+    "noticeFile": 1
   },
   {
     "noticeId": 2,
-    "noticeTitle": "2023학년도 1학기 2차 강의평가 시행 안내",
-    "writer": "박재선",
-    "create_date": "2023.06.07",
+    "noticeTitle": "[컴소] 2023-2 컴퓨터소프트웨어공학과 타학과 수강신청 안내(8/22)",
+    "writer": "오준영",
+    "create_date": "2023.08.22",
     "noticeView": 815,
-    "noticeFile": 0
+    "noticeFile": 2
   },
   {
     "noticeId": 3,
@@ -25,7 +25,7 @@
   },
   {
     "noticeId": 4,
-    "noticeTitle": "2023학년도 하계 계절학기 수강 신청 안내",
+    "noticeTitle": "[대학]2023학년도 하계 계절학기 수강 신청 안내",
     "writer": "박재선",
     "create_date": "2023.06.01",
     "noticeView": 815,

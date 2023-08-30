@@ -1,7 +1,3 @@
-/*
-  useMemo or useCallback 등등 사용 고려
-*/
-
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 

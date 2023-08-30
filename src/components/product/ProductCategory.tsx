@@ -37,19 +37,15 @@ const ProductCategory = () => {
 
   return (
     <StyledProductCategoryBox>
-      {
-        menuItem.map((item: string, index: number) => {
-          return (
-            <StyledProductCategoryItem
-              key={item}
-              onClick={() => setSelectedItem(index)}
-              $isSelected={selectedItem === index}
-            >
-              {item}
-            </StyledProductCategoryItem>
-          )
-        })
-      }
+      {menuItem.map((item: string, index: number) => (
+        <StyledProductCategoryItem
+          key={item}
+          onClick={() => setSelectedItem(index)}
+          $isSelected={selectedItem === index}
+        >
+          {item}
+        </StyledProductCategoryItem>
+      ))}
     </StyledProductCategoryBox>
   );
 };

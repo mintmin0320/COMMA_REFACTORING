@@ -78,9 +78,7 @@ const Diet = () => {
 
   return (
     <Container>
-      <StyledDateBox>
-        2023. 08. 14
-      </StyledDateBox>
+      <StyledDateBox>2023. 08. 14</StyledDateBox>
       <StyledDivisionBox>
       </StyledDivisionBox>
       <StyledMenuBox>

@@ -58,26 +58,22 @@ const StyledNoticeFile = styled.div`
 const Notice = () => {
   return (
     <>
-      {
-        noticeData.map((list: NoticeInfo) => {
-          return (
-            <StyledNoticeInfo key={list.noticeId}>
-              <StyledNoticeTitle >
-                <StyledNoticeInfoText $title='title'>{list.noticeTitle}</StyledNoticeInfoText>
-              </StyledNoticeTitle>
-              <StyledNoticeWriter>
-                <StyledNoticeInfoText >{list.writer}</StyledNoticeInfoText>
-              </StyledNoticeWriter>
-              <StyledNoticeDate>
-                <StyledNoticeInfoText>{list.create_date}</StyledNoticeInfoText>
-              </StyledNoticeDate>
-              <StyledNoticeFile>
-                <StyledNoticeInfoText>{list.noticeFile}</StyledNoticeInfoText>
-              </StyledNoticeFile>
-            </StyledNoticeInfo>
-          )
-        })
-      }
+      {noticeData.map((list: NoticeInfo) => (
+        <StyledNoticeInfo key={list.noticeId}>
+          <StyledNoticeTitle >
+            <StyledNoticeInfoText $title='title'>{list.noticeTitle}</StyledNoticeInfoText>
+          </StyledNoticeTitle>
+          <StyledNoticeWriter>
+            <StyledNoticeInfoText >{list.writer}</StyledNoticeInfoText>
+          </StyledNoticeWriter>
+          <StyledNoticeDate>
+            <StyledNoticeInfoText>{list.create_date}</StyledNoticeInfoText>
+          </StyledNoticeDate>
+          <StyledNoticeFile>
+            <StyledNoticeInfoText>{list.noticeFile}</StyledNoticeInfoText>
+          </StyledNoticeFile>
+        </StyledNoticeInfo>
+      ))}
     </>
   );
 };

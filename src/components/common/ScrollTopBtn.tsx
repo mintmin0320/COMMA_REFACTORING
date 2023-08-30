@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-// icon
+// icons
 import { ImArrowUp2 } from "react-icons/im";
 
 // CSS

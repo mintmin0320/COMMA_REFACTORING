@@ -6,6 +6,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+// types
+import { MenuItem } from '../../types/common';
+
 // CSS
 const StyledPostCategoryBox = styled.div`
   width: 100%;
@@ -43,34 +46,29 @@ const StyledPostCategoryItem = styled.div<{ $isSelected?: boolean }>`
 `;
 
 const PostCategory = () => {
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     { name: '전체', path: '/' },
     { name: 'Q&A', path: '/qa' },
     { name: '자유게시판', path: '/freeboard' },
     { name: '팀원 모집', path: '/recruitment' },
   ];
-  // default 전체 선택
   const [selectedItem, setSelectedItem] = useState<number>(0);
 
   return (
     <StyledPostCategoryBox>
-      {
-        menuItems.map((item, index) => {
-          return (
-            <StyledLink
-              key={item.name}
-              to={item.path}
-              onClick={() => setSelectedItem(index)}
-            >
-              <StyledPostCategoryItem
-                $isSelected={selectedItem === index}
-              >
-                {item.name}
-              </StyledPostCategoryItem>
-            </StyledLink>
-          )
-        })
-      }
+      {menuItems.map((item, index) => (
+        <StyledLink
+          key={item.name}
+          to={item.path}
+          onClick={() => setSelectedItem(index)}
+        >
+          <StyledPostCategoryItem
+            $isSelected={selectedItem === index}
+          >
+            {item.name}
+          </StyledPostCategoryItem>
+        </StyledLink>
+      ))}
     </StyledPostCategoryBox>
   );
 };

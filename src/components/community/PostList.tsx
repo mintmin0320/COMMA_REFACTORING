@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // types
 import { PostInfo } from '../../types/community';
 
-// icon, dummy-data
+// icons, dummy-data
 import { AiFillHeart } from 'react-icons/ai';
 
 import postData from './postData.json';
@@ -14,8 +14,6 @@ const StyledCommunityPostList = styled.div`
   height: 73%;
   display: flex;
   flex-direction: column;
-  /* border: solid 1px #d8d8d8; */
-  /* border-radius: 8px; */
 `;
 
 const StyledCommunityPost = styled.div`
@@ -76,23 +74,19 @@ const PostList = () => {
 
   return (
     <StyledCommunityPostList>
-      {
-        typedPostData.map((item: PostInfo) => {
-          return (
-            <StyledCommunityPost key={item.postId}>
-              <StyledPostTitle>{item.postTitle}</StyledPostTitle>
-              <StyledPostCategory>{item.postCategory}</StyledPostCategory>
-              <StyledPostBottomBox>
-                <StyledPostLikeCount>
-                  <AiFillHeart color="#FF0000" size='18px' />
-                  {item.postLikeCount}
-                </StyledPostLikeCount>
-                <StyledPostCreateDate>2023.04.20</StyledPostCreateDate>
-              </StyledPostBottomBox>
-            </StyledCommunityPost>
-          )
-        })
-      }
+      {typedPostData.map((item: PostInfo) => (
+        <StyledCommunityPost key={item.postId}>
+          <StyledPostTitle>{item.postTitle}</StyledPostTitle>
+          <StyledPostCategory>{item.postCategory}</StyledPostCategory>
+          <StyledPostBottomBox>
+            <StyledPostLikeCount>
+              <AiFillHeart color="#FF0000" size='18px' />
+              {item.postLikeCount}
+            </StyledPostLikeCount>
+            <StyledPostCreateDate>2023.04.20</StyledPostCreateDate>
+          </StyledPostBottomBox>
+        </StyledCommunityPost>
+      ))}
     </StyledCommunityPostList>
   );
 };
