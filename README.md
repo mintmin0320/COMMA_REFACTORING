@@ -6,9 +6,10 @@
 
 <br/>
 
-## ⭐️ 주요 리팩토링 사항
+## ⭐️ 주요 리팩토링 목표
 - JS -> TS로 전환
-- 더미 데이터를 작성해 서버 없이 구동
+- 이미지 최적화
+- 디자인 개선 및 누락 기능 추가
 - Airbnb 컨벤션 준수 <a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a>
 - 프로젝트 배포
 
@@ -20,7 +21,6 @@
   <code><img width="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/></code>
 	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/></code>
  	<code><img width="50" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/></code>
-  <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1631622784/noticon/zwush4y3u0mgamlck9bq.png" alt="React Query" title="React Query"/></code>
   <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png" alt="React Query" title="React Query"/></code>
 </div>
 
@@ -41,3 +41,4 @@
 |style|코드 스타일 혹은 포맷 등에 관한 커밋|
 |refactor|코드 리팩토링에 대한 커밋|
 |test|테스트 코드 수정에 대한 커밋|
+|merge|브랜치 병합에 대한 커밋|
