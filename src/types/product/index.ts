@@ -1,2 +1,2 @@
 export * from './detail.types';
-export * from './productList.types'
+export * from './productList.types';
