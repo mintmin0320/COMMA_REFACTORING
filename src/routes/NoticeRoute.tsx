@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import NoticePage from '../pages/notice/NoticePage';
+import NoticeDetailPage from '../pages/notice/NoticeDetailPage';
 
 const NoticeRoute = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const NoticeRoute = () => {
   return (
     <Routes>
       <Route path="/" element={<NoticePage />} />
+      <Route path='/:id' element={<NoticeDetailPage />} />
     </Routes>
   );
 };
