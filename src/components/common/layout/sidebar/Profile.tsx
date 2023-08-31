@@ -72,7 +72,7 @@ const Profile = () => {
     <ProfileWrap>
       <StyledProfileBox>
         <StyledProfileFrame>
-          <StyledProfile src='./images/mintmin.jpg' alt='' />
+          <StyledProfile src='../images/mintmin.jpg' alt='' />
         </StyledProfileFrame>
       </StyledProfileBox>
       <StyledNavBox>

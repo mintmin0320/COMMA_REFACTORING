@@ -122,7 +122,7 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
     <Container $backgroundColor={backgroundColor} $borderBottom={borderBottom}>
       <StyledHeaderWrap>
         <StyledLogoBox to='/'>
-          <StyledLogoImg src='./images/blue_bg.svg' />
+          <StyledLogoImg src='../images/blue_bg.svg' />
           <StyledLogoTitle>
             COMMA
           </StyledLogoTitle>
