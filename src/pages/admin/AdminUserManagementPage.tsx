@@ -5,7 +5,7 @@ import AdminSideBar from '../../components/common/layout/sidebar/AdminSideBar';
 
 // CSS
 const Container = styled.div`
-  width: 350px;
+  width: 100%;
   height: 100vh;
   display: flex;
 `;

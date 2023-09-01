@@ -9,7 +9,7 @@ import { MenuItem, CustomNavLinkProps } from '../../../../types/common';
 
 // CSS
 const Container = styled.div`
-  width: 100%;
+  width: 350px;
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,9 @@ const StyledMenuBox = styled.div`
 `;
 
 /*
-  StyledMenu는 NavLink 컴포넌트에 스타일을 추가하되, NavLink의 원래 프로퍼티와 CustomNavLinkProps에 정의된 activeClassName 프로퍼티까지 모두 사용할 수 있는 새로운 컴포넌트를 생성
+  StyledMenu는 NavLink 컴포넌트에 스타일을 추가하되,
+  NavLink의 원래 프로퍼티와 CustomNavLinkProps에
+  정의된 activeClassName 프로퍼티까지 모두 사용할 수 있는 새로운 컴포넌트를 생성
  */
 const StyledMenu = styled(NavLink as React.FC<CustomNavLinkProps>)`
   width: 100%;
