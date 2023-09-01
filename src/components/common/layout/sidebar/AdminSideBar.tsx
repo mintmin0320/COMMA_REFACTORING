@@ -10,7 +10,7 @@ import { MenuItem, CustomNavLinkProps } from '../../../../types/common';
 // CSS
 const Container = styled.div`
   width: 350px;
-  min-height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   border-right: solid 1px #d8d8d8;
@@ -57,9 +57,9 @@ const StyledMenu = styled(NavLink as React.FC<CustomNavLinkProps>)`
 
 const AdminSideBar = () => {
   const menuItems: MenuItem[] = [
-    { name: '회원목록', path: '/admin/' },
+    { name: '회원목록', path: '/admin/user-info' },
     { name: '주문목록', path: '/admin/order-list' },
-    { name: '상품추가', path: '/add-product' },
+    { name: '상품추가', path: '/admin/add-product' },
   ];
 
   return (
