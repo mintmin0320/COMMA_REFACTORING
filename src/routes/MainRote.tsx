@@ -7,7 +7,8 @@ import {
   CommunityRoute,
   BasketRoute,
   ProfileRoute,
-  ProductRoute
+  ProductRoute,
+  AdminRoute
 } from './index'
 
 const MainRoute = () => {
@@ -66,6 +67,14 @@ const MainRoute = () => {
         element={
           // <PrivateRoute>
           <ProfileRoute />
+          // </PrivateRoute>
+        }
+      />
+      <Route
+        path="/admin/*"
+        element={
+          // <PrivateRoute>
+          <AdminRoute />
           // </PrivateRoute>
         }
       />
