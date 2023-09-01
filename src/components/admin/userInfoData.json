@@ -1,0 +1,122 @@
+[
+  {
+    "userId": 1,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "박하민",
+    "userPhoneNum": "01012345678",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터소프트웨어공학",
+    "userGrade": "3",
+    "userClass": "YA",
+    "userTier": "근로학생"
+  },
+  {
+    "userId": 2,
+    "userEmail": "hamin0320@gmail.com",
+    "userName": "민트민",
+    "userPhoneNum": "01096325874",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터정보공학과",
+    "userGrade": "4",
+    "userClass": "JK",
+    "userTier": "학생"
+  },
+  {
+    "userId": 3,
+    "userEmail": "abcde@gmail.com",
+    "userName": "박진국",
+    "userPhoneNum": "01074125896",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "인공지능학과",
+    "userGrade": "1",
+    "userClass": "YB",
+    "userTier": "학생"
+  },
+  {
+    "userId": 4,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "오트밀",
+    "userPhoneNum": "01078964123",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "인공지능학과",
+    "userGrade": "2",
+    "userClass": "PA",
+    "userTier": "학생"
+  },
+  {
+    "userId": 5,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "박수왕",
+    "userPhoneNum": "01012345678",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터소프트웨어공학",
+    "userGrade": "3",
+    "userClass": "YC",
+    "userTier": "학생"
+  },
+  {
+    "userId": 6,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "박하민",
+    "userPhoneNum": "0106649202",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터소프트웨어공학",
+    "userGrade": "3",
+    "userClass": "YA",
+    "userTier": "근로학생"
+  },
+  {
+    "userId": 7,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "박하민",
+    "userPhoneNum": "0106649202",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터소프트웨어공학",
+    "userGrade": "3",
+    "userClass": "YA",
+    "userTier": "근로학생"
+  },
+  {
+    "userId": 8,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "박하민",
+    "userPhoneNum": "0106649202",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터소프트웨어공학",
+    "userGrade": "3",
+    "userClass": "YA",
+    "userTier": "근로학생"
+  },
+  {
+    "userId": 9,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "박하민",
+    "userPhoneNum": "0106649202",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터소프트웨어공학",
+    "userGrade": "3",
+    "userClass": "YA",
+    "userTier": "근로학생"
+  },
+  {
+    "userId": 10,
+    "userEmail": "mintmin0320@gmail.com",
+    "userName": "박하민",
+    "userPhoneNum": "0106649202",
+    "userStudentNum": "20181836",
+    "userStatus": "재학",
+    "userMajor": "컴퓨터소프트웨어공학",
+    "userGrade": "3",
+    "userClass": "YA",
+    "userTier": "근로학생"
+  }
+]
