@@ -13,7 +13,7 @@ const AdminRoute = () => {
 
   return (
     <Routes>
-      <Route path="/login" element={<AdminPage />} />
+      <Route path="/" element={<AdminPage />} />
     </Routes>
   );
 };
