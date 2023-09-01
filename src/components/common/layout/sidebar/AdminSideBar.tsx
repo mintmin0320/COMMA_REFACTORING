@@ -1,9 +1,11 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 // common-style
 import { StyledLogoImg, StyledLogoTitle } from '../../../styles/CommonStyles';
+
+// types
+import { MenuItem, CustomNavLinkProps } from '../../../../types/common';
 
 // CSS
 const Container = styled.div`
@@ -28,24 +30,35 @@ const StyledMenuBox = styled.div`
   border-top: solid 1px #d8d8d8;
 `;
 
-const StyledMenu = styled.div<{ $isSelected?: boolean }>`
+/*
+  StyledMenu는 NavLink 컴포넌트에 스타일을 추가하되, NavLink의 원래 프로퍼티와 CustomNavLinkProps에 정의된 activeClassName 프로퍼티까지 모두 사용할 수 있는 새로운 컴포넌트를 생성
+ */
+const StyledMenu = styled(NavLink as React.FC<CustomNavLinkProps>)`
   width: 100%;
   height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 18px;
   font-family: 'ADLaMDisplay', sans-serif;
-  font-weight: 600;
-  background-color: ${({ $isSelected }) => ($isSelected ? ' #0064ff' : '#f2f2f2')};
-  color: ${({ $isSelected }) => ($isSelected ? ' #fff' : '#000')};
+  font-weight: 700;
+  color: #000;
+  background-color: #f2f2f2;
   border-bottom: solid 1px #d8d8d8;
   cursor: pointer;
+  
+  &.active {
+    background-color: #0064ff;
+    color: #fff;
+  }
 `;
 
 const AdminSideBar = () => {
-  const noticeItem: string[] = ['회원목록', '주문목록', '상품추가'];
-  const [selectedItem, setSelectedItem] = useState<number>(0);
+  const menuItems: MenuItem[] = [
+    { name: '회원목록', path: '/admin/' },
+    { name: '주문목록', path: '/admin/order-list' },
+    { name: '상품추가', path: '/add-product' },
+  ];
 
   return (
     <Container>
@@ -54,13 +67,13 @@ const AdminSideBar = () => {
         <StyledLogoTitle>COMMA</StyledLogoTitle>
       </StyledLogoBox>
       <StyledMenuBox>
-        {noticeItem.map((item: string, index: number) => (
+        {menuItems.map((item: MenuItem, index: number) => (
           <StyledMenu
-            key={item}
-            onClick={() => setSelectedItem(index)}
-            $isSelected={selectedItem === index}
+            key={item.name}
+            to={item.path}
+            activeClassName="active"
           >
-            {item}
+            {item.name}
           </StyledMenu>
         ))}
       </StyledMenuBox>

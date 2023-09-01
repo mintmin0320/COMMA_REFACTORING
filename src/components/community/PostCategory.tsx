@@ -56,7 +56,7 @@ const PostCategory = () => {
 
   return (
     <StyledPostCategoryBox>
-      {menuItems.map((item, index) => (
+      {menuItems.map((item: MenuItem, index: number) => (
         <StyledLink
           key={item.name}
           to={item.path}
