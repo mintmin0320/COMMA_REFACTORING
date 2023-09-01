@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import AdminPage from '../pages/admin/AdminPage';
+import AdminUserManagementPage from '../pages/admin/AdminUserManagementPage';
+import AdminOrderManagementPage from '../pages/admin/AdminOrderManagementPage';
 
 const AdminRoute = () => {
   const location = useLocation();
@@ -13,7 +14,8 @@ const AdminRoute = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<AdminPage />} />
+      <Route path="/" element={<AdminUserManagementPage />} />
+      <Route path="/order-list" element={<AdminOrderManagementPage />} />
     </Routes>
   );
 };
