@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Admin from '../../components/admin/Admin';
+import AdminUserManagement from '../../components/admin/AdminUserManagement';
 import AdminSideBar from '../../components/common/layout/sidebar/AdminSideBar';
 
 // CSS
@@ -10,13 +10,13 @@ const Container = styled.div`
   display: flex;
 `;
 
-function AdminPage() {
+const AdminUserManagementPage = () => {
   return (
     <Container>
       <AdminSideBar />
-      <Admin />
+      <AdminUserManagement />
     </Container>
   );
 };
 
-export default AdminPage
+export default AdminUserManagementPage
