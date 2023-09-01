@@ -82,7 +82,7 @@ const Profile = () => {
           <BiSolidUser size='20px' />
         </StyledNavLink>
         {isAdmin && (
-          <StyledNavLink to='/admin'>
+          <StyledNavLink to='/admin/user-info'>
             <BsFillGearFill size='20px' />
           </StyledNavLink>
         )}
