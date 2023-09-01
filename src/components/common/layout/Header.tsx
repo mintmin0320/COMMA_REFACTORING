@@ -9,9 +9,6 @@ import ScrollProgressBar from '../ScrollProgressBar';
 import { MenuItem } from '../../../types/common';
 import { HeaderProps } from '../../../types/common';
 
-// common-style
-import { StyledLogoImg, StyledLogoTitle } from '../../styles/CommonStyles';
-
 // CSS
 const Container = styled.div<{ $backgroundColor: string, $borderBottom: string }>`
   width: 100%;
@@ -40,6 +37,23 @@ const StyledLogoBox = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const StyledLogoImg = styled.img`
+  width: 25px;
+  height: 25px;
+`;
+
+const StyledLogoTitle = styled.div`
+  width: 30%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 8px;
 `;
 
 const StyledMenuList = styled.div`

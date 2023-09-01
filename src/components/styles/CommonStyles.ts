@@ -18,3 +18,22 @@ export const StyledModalContainer = styled.div`
   justify-content: center;
   background: rgba(0, 0, 0, 0.7);
 `;
+
+/* 로고 이미지 */
+export const StyledLogoImg = styled.img`
+  width: 25px;
+  height: 25px;
+`;
+
+/* 로고 제목 텍스트 */
+export const StyledLogoTitle = styled.div`
+  width: 30%;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  margin-left: 8px;
+`;
