@@ -1,3 +1,4 @@
+import AdminOrderManagement from '../../components/admin/AdminOrderManagement';
 import AdminSideBar from '../../components/common/layout/sidebar/AdminSideBar'
 
 // styles
@@ -7,6 +8,7 @@ const AdminOrderManagementPage = () => {
   return (
     <Container>
       <AdminSideBar />
+      <AdminOrderManagement />
     </Container>
   );
 };
