@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
+// types
+import { OrderListInfo } from '../../types/admin';
+
 // dummy-data
 import orderListData from './orderListData.json';
 
 // CSS 
 const StyledOrderListWrap = styled.div`
   width: 100%;
-  height: calc(100% - 50px);
+  height: calc(100% - 60px);
   overflow-y: scroll;
   display: grid;
   justify-items: center;
@@ -14,6 +17,10 @@ const StyledOrderListWrap = styled.div`
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  @media screen and (min-width: 1500px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `;
 
@@ -46,7 +53,7 @@ const StyledOrderDate = styled.div`
 `;
 
 const StyledOrderCourse = styled.div`
-  width: 98%;
+  width: 96%;
   height: 50px;
   display: flex;
   align-items: center;
@@ -55,16 +62,18 @@ const StyledOrderCourse = styled.div`
 `;
 
 const StyledOrderPurpose = styled.div`
-  width: 98%;
+  width: 96%;
   height: 90px;
-  border-radius: 0 0 8px 8px;
 `;
 
 const AdminOrderList = () => {
   return (
     <StyledOrderListWrap>
-      {orderListData.map((item) => (
-        <StyledOrderList>
+      {orderListData.map((item: OrderListInfo) => (
+        <StyledOrderList
+          key={item.orderId}
+          onClick={() => alert('주문목록을 선택하면 하단에 상세정보가 표시됩니다.')}
+        >
           <StyledOrderDate>{item.orderApplicationDate}</StyledOrderDate>
           <StyledOrderCourse>{item.orderCourse}</StyledOrderCourse>
           <StyledOrderPurpose>{item.orderPurpose}</StyledOrderPurpose>
