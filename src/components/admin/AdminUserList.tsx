@@ -6,6 +6,7 @@ import userInfoData from './userInfoData.json';
 const StyledUserInfoListWrap = styled.div`
   width: 100%;
   height: calc(100% - 101px);
+  background-color: #fff;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -17,6 +18,7 @@ const StyledUserInfoBox = styled.div`
   width: 100%;
   height: 120px;
   display: grid;
+  place-items: center;
   grid-template-columns: repeat(5, 1fr);
   border-bottom: solid 1px #d8d8d8;
 `;
@@ -29,11 +31,13 @@ const StyledUserInfo = styled.div`
 `;
 
 const StyledBanUserButton = styled.button`
-  height: 100%;
+  width: 65px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
 `;
 

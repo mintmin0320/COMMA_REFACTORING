@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import AdminUserList from './AdminUserList';
 
+// CSS
 const StyledAdminUserInfoContainer = styled.div`
   width: calc(100% - 350px);
   height: 100%;

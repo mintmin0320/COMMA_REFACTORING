@@ -1,13 +1,7 @@
-import styled from 'styled-components';
-
 import AdminSideBar from '../../components/common/layout/sidebar/AdminSideBar';
 
-// CSS
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-`;
+// styles
+import { Container } from '../../components/styles/AdminPageStyles';
 
 const AdminAddProductPage = () => {
   return (
