@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { StyledLogoImg, StyledLogoTitle } from '../../../styles/CommonStyles';
 
 // types
-import { MenuItem, CustomNavLinkProps } from '../../../../types/common';
+import { MenuItem } from '../../../../types/common';
 
 // CSS
 const Container = styled.div`
@@ -30,12 +30,7 @@ const StyledMenuBox = styled.div`
   border-top: solid 1px #d8d8d8;
 `;
 
-/*
-  StyledMenu는 NavLink 컴포넌트에 스타일을 추가하되,
-  NavLink의 원래 프로퍼티와 CustomNavLinkProps에
-  정의된 activeClassName 프로퍼티까지 모두 사용할 수 있는 새로운 컴포넌트를 생성
- */
-const StyledMenu = styled(NavLink as React.FC<CustomNavLinkProps>)`
+const StyledMenu = styled(NavLink)`
   width: 100%;
   height: 120px;
   display: flex;
@@ -48,18 +43,13 @@ const StyledMenu = styled(NavLink as React.FC<CustomNavLinkProps>)`
   background-color: #f2f2f2;
   border-bottom: solid 1px #d8d8d8;
   cursor: pointer;
-  
-  &.active {
-    background-color: #0064ff;
-    color: #fff;
-  }
 `;
 
 const AdminSideBar = () => {
   const menuItems: MenuItem[] = [
     { name: '회원목록', path: '/admin/user-info' },
     { name: '주문목록', path: '/admin/order-list' },
-    { name: '상품관리', path: '/admin/add-product' },
+    { name: '상품관리', path: '/admin/product-management' },
   ];
 
   return (
@@ -73,7 +63,10 @@ const AdminSideBar = () => {
           <StyledMenu
             key={item.name}
             to={item.path}
-            activeClassName="active"
+            style={({ isActive }) => ({
+              color: isActive ? 'white' : '#0064ff',
+              backgroundColor: isActive ? '#0064ff' : 'white',
+            })}
           >
             {item.name}
           </StyledMenu>
