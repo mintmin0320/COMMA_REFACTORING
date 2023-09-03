@@ -59,7 +59,7 @@ const AdminSideBar = () => {
   const menuItems: MenuItem[] = [
     { name: '회원목록', path: '/admin/user-info' },
     { name: '주문목록', path: '/admin/order-list' },
-    { name: '상품추가', path: '/admin/add-product' },
+    { name: '상품관리', path: '/admin/add-product' },
   ];
 
   return (

@@ -1,14 +1,17 @@
+
+import AdminProductForm from '../../components/admin/AdminProductForm';
 import AdminSideBar from '../../components/common/layout/sidebar/AdminSideBar';
 
 // styles
 import { Container } from '../../components/styles/AdminPageStyles';
 
-const AdminAddProductPage = () => {
+const AdminProductFormPage = () => {
   return (
     <Container>
       <AdminSideBar />
+      <AdminProductForm />
     </Container>
   );
 };
 
-export default AdminAddProductPage;
+export default AdminProductFormPage;

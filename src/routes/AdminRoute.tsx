@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 import AdminUserManagementPage from '../pages/admin/AdminUserManagementPage';
 import AdminOrderManagementPage from '../pages/admin/AdminOrderManagementPage';
-import AdminAddProductPage from '../pages/admin/AdminAddProductPage';
+import AdminProductFormPage from '../pages/admin/AdminProductFormPage';
 
 const AdminRoute = () => {
   const location = useLocation();
@@ -17,7 +17,7 @@ const AdminRoute = () => {
     <Routes>
       <Route path="/user-info" element={<AdminUserManagementPage />} />
       <Route path="/order-list" element={<AdminOrderManagementPage />} />
-      <Route path="/add-product" element={<AdminAddProductPage />} />
+      <Route path="/add-product" element={<AdminProductFormPage />} />
     </Routes>
   );
 };
