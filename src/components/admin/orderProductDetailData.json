@@ -1,0 +1,32 @@
+[
+  {
+    "productId": 1,
+    "productName": "초음파 센서",
+    "orderCount": 3,
+    "orderAvailableQuantity": 20
+  },
+  {
+    "productId": 2,
+    "productName": "미니 바퀴",
+    "orderCount": 2,
+    "orderAvailableQuantity": 25
+  },
+  {
+    "productId": 3,
+    "productName": "마더보드",
+    "orderCount": 5,
+    "orderAvailableQuantity": 30
+  },
+  {
+    "productId": 4,
+    "productName": "미니 조명",
+    "orderCount": 1,
+    "orderAvailableQuantity": 10
+  },
+  {
+    "productId": 5,
+    "productName": "스피커",
+    "orderCount": 1,
+    "orderAvailableQuantity": 5
+  }
+]
