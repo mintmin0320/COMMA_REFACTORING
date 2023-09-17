@@ -8,7 +8,7 @@ const AuthRoute = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const pageTitle = location.pathname === '/auth' ? '인증 - COMMA' : 'COMMA';
+    const pageTitle = location.pathname === '/auth/login' ? '로그인 - COMMA' : '회원가입 - COMMA';
     document.title = pageTitle;
   }, [location]);
 

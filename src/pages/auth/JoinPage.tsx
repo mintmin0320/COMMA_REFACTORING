@@ -1,7 +1,8 @@
+import Join from '../../components/auth/Join';
 
 const JoinPage = () => {
   return (
-    <div>JoinPage</div>
+    <Join />
   );
 };
 
