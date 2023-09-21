@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 // styles
 const LogoBox = styled.div`
-  width: 50%;
+  width: 40%;
   height: 100%;
   display: flex;
   justify-content: center;

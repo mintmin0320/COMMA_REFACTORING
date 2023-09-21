@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 import InputField from '../InputField';
@@ -8,27 +8,38 @@ import { JoinState } from '../../../types/auth';
 
 // styles
 const StyledJoinForm = styled.form`
-  width: 50%;
+  width: 60%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
   background-color: #fff;
   border: solid 1px #d8d8d8;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
-const StyledJoinFormInputFieldBox = styled.div`
-  width: 75%;
-  height: 55px;
+const StyledDataInputBox = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
 `;
 
-const EmailCheckBtnBox = styled.div`
+const StyledLeftFormBox = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40px;
+  justify-content: space-around;
+`;
+
+const StyledJoinFormInputFieldBox = styled.div`
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: flex-end;
+
+`;
+
+const StyledEmailCheckBtnBox = styled.div`
   width: 55px;
   height: 38px;
   margin-left: 20px;
@@ -47,15 +58,42 @@ const StyledEmailCheckBtn = styled.button`
   font-weight: bolder;
 `;
 
+// 학과, 학년, 학적 선택
+const StyledRightFormBox = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+const StyledTextLabel = styled.label`
+  width: 60%;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  `;
+
+const StyledSelect = styled.select`
+  width: 100%;
+  height: 41px;
+  border: solid 1px #d8d8d8;
+  border-radius: 8px;
+  margin-top: 5px;
+`;
+
 const StyledSubmitBtn = styled.button`
   width: 55%;
-  height: 35px;
+  height: 55px;
   background-color: #0064ff;
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: bolder;
+  cursor: pointer;
 `;
 
 const JoinForm = () => {
@@ -66,7 +104,27 @@ const JoinForm = () => {
     name: ' ',
     telNum: ' ',
     studentNum: ' ',
+    major: ' ',
+    classGroup: ' ',
+    classOptions: [],
+    academicStatus: ' ',
   });
+
+  useEffect(() => {
+    switch (form.major) {
+      case "소프트웨어공학과":
+        setForm({ ...form, classOptions: ["1", "2", "3", "4"] });
+        break;
+      case "정보공학과":
+        setForm({ ...form, classOptions: ["1", "2", "3"] });
+        break;
+      case "인공지능소프트웨어학과":
+        setForm({ ...form, classOptions: ["1", "2"] });
+        break;
+      default:
+        setForm({ ...form, classOptions: [] });
+    }
+  }, [form.major]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -74,34 +132,93 @@ const JoinForm = () => {
       ...prevState,
       [name]: value
     }));
-
-    console.log(form)
   };
 
   return (
     <StyledJoinForm>
-      <StyledJoinFormInputFieldBox>
-        <InputField width='100%' height='40px' label="이메일" name="email" value={form.email || undefined} onChange={handleChange} />
-        <EmailCheckBtnBox>
-          <StyledEmailCheckBtn type='button'>
-            인증
-          </StyledEmailCheckBtn>
-        </EmailCheckBtnBox>
-      </StyledJoinFormInputFieldBox>
-      <StyledJoinFormInputFieldBox>
-        <InputField width='100%' height='40px' label="인증코드" name="authNum" value={form.authNum || undefined} onChange={handleChange} />
-        <EmailCheckBtnBox>
-          <StyledEmailCheckBtn type='button'>
-            확인
-          </StyledEmailCheckBtn>
-        </EmailCheckBtnBox>
-      </StyledJoinFormInputFieldBox>
-      <InputField width='75%' height='40px' label="비밀번호" name="password" value={form.password || undefined} onChange={handleChange} />
-      <InputField width='75%' height='40px' label="이름" name="name" value={form.name || undefined} onChange={handleChange} />
-      <InputField width='75%' height='40px' label="전화번호" name="telNum" value={form.telNum || undefined} placeholder='"-" 없이 입력해 주세요.' onChange={handleChange} />
-      <InputField width='75%' height='40px' label="학번" name="studentNum" value={form.studentNum || undefined} placeholder='학번을 입력해 주세요.' onChange={handleChange} />
-      <StyledSubmitBtn>회원가입</StyledSubmitBtn>
-    </StyledJoinForm>
+      <StyledDataInputBox>
+        <StyledLeftFormBox>
+          <StyledJoinFormInputFieldBox>
+            <InputField width='100%' height='40px' label="이메일" name="email" value={form.email || undefined} onChange={handleChange} />
+            <StyledEmailCheckBtnBox>
+              <StyledEmailCheckBtn type='button'>
+                인증
+              </StyledEmailCheckBtn>
+            </StyledEmailCheckBtnBox>
+          </StyledJoinFormInputFieldBox>
+          <StyledJoinFormInputFieldBox>
+            <InputField width='100%' height='40px' label="인증코드" name="authNum" value={form.authNum || undefined} onChange={handleChange} />
+            <StyledEmailCheckBtnBox>
+              <StyledEmailCheckBtn type='button'>
+                확인
+              </StyledEmailCheckBtn>
+            </StyledEmailCheckBtnBox>
+          </StyledJoinFormInputFieldBox>
+          <InputField width='100%' height='40px' label="비밀번호" name="password" value={form.password || undefined} onChange={handleChange} />
+          <InputField width='100%' height='40px' label="이름" name="name" value={form.name || undefined} onChange={handleChange} />
+          <InputField width='100%' height='40px' label="전화번호" name="telNum" value={form.telNum || undefined} placeholder='"-" 없이 입력해 주세요.' onChange={handleChange} />
+        </StyledLeftFormBox>
+        <StyledRightFormBox>
+          <InputField width='100%' height='40px' label="학번" name="studentNum" value={form.studentNum || undefined} placeholder='학번을 입력해 주세요.' onChange={handleChange} />
+          <StyledTextLabel>
+            학과
+            <StyledSelect
+              value={form.major || ""}
+              onChange={(e) => {
+                setForm({
+                  ...form,
+                  major: e.target.value,
+                  classGroup: null,
+                });
+              }}
+            >
+              <option value=' ' disabled>
+                선택
+              </option>
+              <option value="소프트웨어공학과">소프트웨어공학과</option>
+              <option value="정보공학과">정보공학과</option>
+              <option value="인공지능소프트웨어학과">인공지능소프트웨어학과</option>
+            </StyledSelect>
+          </StyledTextLabel>
+          <StyledTextLabel>
+            학년
+            <StyledSelect
+              value={form.classGroup || ""}
+              onChange={(e) => setForm({ ...form, classGroup: e.target.value })}
+              disabled={!form.major}
+            >
+              <option value=' ' disabled>
+                선택
+              </option>
+              {form.classOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </StyledSelect>
+          </StyledTextLabel>
+          <StyledTextLabel>
+            학적
+            <StyledSelect
+              value={form.academicStatus || ""}
+              onChange={(e) => {
+                setForm({ ...form, academicStatus: e.target.value });
+              }}
+            >
+              <option value=' ' disabled>
+                선택
+              </option>
+              <option value="재학">재학</option>
+              <option value="휴학">휴학</option>
+              <option value="졸업">졸업</option>
+            </StyledSelect>
+          </StyledTextLabel>
+
+
+          <StyledSubmitBtn>회원가입</StyledSubmitBtn>
+        </StyledRightFormBox>
+      </StyledDataInputBox>
+    </StyledJoinForm >
   );
 };
 

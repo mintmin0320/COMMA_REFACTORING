@@ -5,4 +5,8 @@ export interface JoinState {
   name: string | null;
   telNum: string | null;
   studentNum: string | null;
+  major: string;
+  classGroup: string | null;
+  classOptions: string[];
+  academicStatus: string | null;
 }

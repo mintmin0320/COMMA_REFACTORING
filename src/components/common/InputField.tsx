@@ -6,12 +6,11 @@ import { InputFieldProps, InputProps } from '../../types/common';
 
 // styles
 const StyledTextLabel = styled.label<InputProps>`
-  width: 55%;
+  width: 60%;
   height: 55px;
   display: flex;
   flex-direction: column;
   font-size: 15px;
-  /* margin-left: 30px; */
 
   & > input{
     border: solid 1px #d8d8d8;
