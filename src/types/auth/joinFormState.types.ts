@@ -10,3 +10,5 @@ export interface JoinState {
   classOptions: string[];
   academicStatus: string | null;
 }
+
+export type MajorKeys = 'software' | 'information' | 'ai';

@@ -3,8 +3,8 @@ import { styled } from 'styled-components';
 
 import InputField from '../InputField';
 
-// apis
-import { JoinState } from '../../../types/auth';
+// types
+import { JoinState, MajorKeys } from '../../../types/auth';
 
 // styles
 const StyledJoinForm = styled.form`
@@ -110,19 +110,26 @@ const JoinForm = () => {
     academicStatus: ' ',
   });
 
+  const majorMap: Record<MajorKeys, () => void> = {
+    software: () => {
+      setForm({ ...form, classOptions: ["1", "2", "3", "4"] });
+    },
+    information: () => {
+      setForm({ ...form, classOptions: ["1", "2", "3"] });
+    },
+    ai: () => {
+      setForm({ ...form, classOptions: ["1", "2"] });
+    },
+  };
+
+  // 타입 가드
+  const isMajorKey = (key: string): key is MajorKeys => {
+    return key in majorMap;
+  }
+
   useEffect(() => {
-    switch (form.major) {
-      case "소프트웨어공학과":
-        setForm({ ...form, classOptions: ["1", "2", "3", "4"] });
-        break;
-      case "정보공학과":
-        setForm({ ...form, classOptions: ["1", "2", "3"] });
-        break;
-      case "인공지능소프트웨어학과":
-        setForm({ ...form, classOptions: ["1", "2"] });
-        break;
-      default:
-        setForm({ ...form, classOptions: [] });
+    if (isMajorKey(form.major)) {
+      majorMap[form.major]();
     }
   }, [form.major]);
 
@@ -163,7 +170,7 @@ const JoinForm = () => {
           <StyledTextLabel>
             학과
             <StyledSelect
-              value={form.major || ""}
+              value={form.major || ' '}
               onChange={(e) => {
                 setForm({
                   ...form,
@@ -175,15 +182,15 @@ const JoinForm = () => {
               <option value=' ' disabled>
                 선택
               </option>
-              <option value="소프트웨어공학과">소프트웨어공학과</option>
-              <option value="정보공학과">정보공학과</option>
-              <option value="인공지능소프트웨어학과">인공지능소프트웨어학과</option>
+              <option value="software">소프트웨어공학과</option>
+              <option value="information">정보공학과</option>
+              <option value="ai">인공지능소프트웨어학과</option>
             </StyledSelect>
           </StyledTextLabel>
           <StyledTextLabel>
             학년
             <StyledSelect
-              value={form.classGroup || ""}
+              value={form.classGroup || ' '}
               onChange={(e) => setForm({ ...form, classGroup: e.target.value })}
               disabled={!form.major}
             >
@@ -213,8 +220,6 @@ const JoinForm = () => {
               <option value="졸업">졸업</option>
             </StyledSelect>
           </StyledTextLabel>
-
-
           <StyledSubmitBtn>회원가입</StyledSubmitBtn>
         </StyledRightFormBox>
       </StyledDataInputBox>
