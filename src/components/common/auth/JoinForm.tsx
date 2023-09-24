@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
+import { useState } from 'react';
+import styled from 'styled-components';
+import { useMutation } from 'react-query';
 
 import InputField from '../InputField';
 
+// apis
+import { fetchSignUp, fetchEmailAuthCode, fetchVerifyAuthCode } from '../../../apis/auth';
+
 // types
-import { JoinState, MajorKeys } from '../../../types/auth';
+import { JoinState } from '../../../types/auth';
 
 // styles
 const StyledJoinForm = styled.form`
@@ -56,6 +60,7 @@ const StyledEmailCheckBtn = styled.button`
   border-radius: 8px;
   font-size: 13px;
   font-weight: bolder;
+  cursor: pointer;
 `;
 
 // 학과, 학년, 학적 선택
@@ -98,129 +103,169 @@ const StyledSubmitBtn = styled.button`
 
 const JoinForm = () => {
   const [form, setForm] = useState<JoinState>({
-    email: ' ',
-    authNum: ' ',
-    password: ' ',
-    name: ' ',
-    telNum: ' ',
-    studentNum: ' ',
-    major: ' ',
-    classGroup: ' ',
-    classOptions: [],
-    academicStatus: ' ',
+    accountId: '',         // 아이디
+    password: '',
+    name: '',              // 이름(실명)
+    email: '',
+    major: '',             // 학과
+    status: '',            // 학적
+    academicNumber: '',    // 학번
+  });
+  const [code, setCode] = useState<string | null>(''); // 인증 코드 
+  const [isRequestCode, setIsRequestAuthCode] = useState<boolean>(false); // 이메일 코드 요청 여부
+  const [isVerifyCode, setIsVerifyAuthCode] = useState<boolean>(true); // 이메일 코드 확인
+
+  const {
+    mutate: mutateEmailAuthCode,
+    isLoading: isEmailAuthLoading,
+  } = useMutation(fetchEmailAuthCode, {
+    onSuccess: () => {
+      setIsRequestAuthCode(true);
+
+      alert('인증 코드가 이메일로 전송되었습니다.');
+    },
+    onError: (error) => {
+      console.error(error);
+      alert('인증 코드 요청 실패!');
+    }
   });
 
-  const majorMap: Record<MajorKeys, () => void> = {
-    software: () => {
-      setForm({ ...form, classOptions: ["1", "2", "3", "4"] });
+  // 이메일 인증 코드 확인
+  const {
+    mutate: mutateVerifyAuthCode,
+    isLoading: isVerifyAuthCode,
+  } = useMutation(fetchVerifyAuthCode, {
+    onSuccess: () => {
+      alert('이메일 코드 인증 성공');
     },
-    information: () => {
-      setForm({ ...form, classOptions: ["1", "2", "3"] });
+    onError: (error) => {
+      console.error(error);
+      alert('이메일 코드 인증 실패!');
+    }
+  });
+
+  const {
+    mutate: mutateSignUp,
+    isLoading: isSignUpLoading,
+  } = useMutation(fetchSignUp, {
+    onSuccess: () => {
+      alert('회원가입 성공');
     },
-    ai: () => {
-      setForm({ ...form, classOptions: ["1", "2"] });
-    },
+    onError: (error) => {
+      console.error(error);
+      alert('회원가입 실패!');
+    }
+  });
+
+  // 이메일 인증 코드 요청
+  const handleSendAuthCode = () => {
+    mutateEmailAuthCode({ email: form.email });
   };
 
-  // 타입 가드
-  const isMajorKey = (key: string): key is MajorKeys => {
-    return key in majorMap;
-  }
+  // 이메일 인증 코드 확인
+  const handleVerifyAuthCode = () => {
+    const data: { email: string | null; code: string | null } = {
+      email: form.email,
+      code,
+    };
 
-  useEffect(() => {
-    if (isMajorKey(form.major)) {
-      majorMap[form.major]();
+    mutateVerifyAuthCode(data);
+  };
+
+  // 회원가입
+  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const data: JoinState = {
+        accountId: form.accountId,
+        password: form.password,
+        name: form.name,
+        email: form.email,
+        major: form.major,
+        status: form.status,
+        academicNumber: form.academicNumber,
+      };
+
+      mutateSignUp(data);
+    } catch (error) {
+      console.log(error);
     }
-  }, [form.major]);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     setForm((prevState) => ({
       ...prevState,
       [name]: value
     }));
   };
 
+  console.log(form)
+  console.log(code)
+
   return (
-    <StyledJoinForm>
+    <StyledJoinForm onSubmit={(e) => handleOnSubmit(e)}>
       <StyledDataInputBox>
         <StyledLeftFormBox>
           <StyledJoinFormInputFieldBox>
-            <InputField width='100%' height='40px' label="이메일" name="email" value={form.email || undefined} onChange={handleChange} />
+            <InputField width='100%' height='40px' label='이메일' name='email' value={form.email || ''} onChange={handleChange} />
             <StyledEmailCheckBtnBox>
-              <StyledEmailCheckBtn type='button'>
+              <StyledEmailCheckBtn type='button' onClick={handleSendAuthCode}>
                 인증
               </StyledEmailCheckBtn>
             </StyledEmailCheckBtnBox>
           </StyledJoinFormInputFieldBox>
           <StyledJoinFormInputFieldBox>
-            <InputField width='100%' height='40px' label="인증코드" name="authNum" value={form.authNum || undefined} onChange={handleChange} />
+            <InputField width='100%' height='40px' label='인증코드' name='code' value={code || ''} onChange={(e) => setCode(e.target.value)} />
             <StyledEmailCheckBtnBox>
-              <StyledEmailCheckBtn type='button'>
+              <StyledEmailCheckBtn onClick={handleVerifyAuthCode} type='button' disabled={!isRequestCode}>
                 확인
               </StyledEmailCheckBtn>
             </StyledEmailCheckBtnBox>
           </StyledJoinFormInputFieldBox>
-          <InputField width='100%' height='40px' label="비밀번호" name="password" value={form.password || undefined} onChange={handleChange} />
-          <InputField width='100%' height='40px' label="이름" name="name" value={form.name || undefined} onChange={handleChange} />
-          <InputField width='100%' height='40px' label="전화번호" name="telNum" value={form.telNum || undefined} placeholder='"-" 없이 입력해 주세요.' onChange={handleChange} />
+          <InputField width='100%' height='40px' label='아이디' name='accountId' value={form.accountId || ''} onChange={handleChange} />
+          <InputField width='100%' height='40px' label='비밀번호' name='password' value={form.password || ''} onChange={handleChange} />
+          <InputField width='100%' height='40px' label='이름' name='name' value={form.name || ''} onChange={handleChange} />
         </StyledLeftFormBox>
         <StyledRightFormBox>
-          <InputField width='100%' height='40px' label="학번" name="studentNum" value={form.studentNum || undefined} placeholder='학번을 입력해 주세요.' onChange={handleChange} />
+          <InputField width='100%' height='40px' label='학번' name='academicNumber' value={form.academicNumber || ''} placeholder='학번을 입력해 주세요.' onChange={handleChange} />
           <StyledTextLabel>
             학과
             <StyledSelect
-              value={form.major || ' '}
+              value={form.major || ''}
               onChange={(e) => {
-                setForm({
-                  ...form,
-                  major: e.target.value,
-                  classGroup: null,
-                });
+                setForm({ ...form, major: e.target.value });
               }}
             >
-              <option value=' ' disabled>
+              <option value='' disabled>
                 선택
               </option>
-              <option value="software">소프트웨어공학과</option>
-              <option value="information">정보공학과</option>
-              <option value="ai">인공지능소프트웨어학과</option>
-            </StyledSelect>
-          </StyledTextLabel>
-          <StyledTextLabel>
-            학년
-            <StyledSelect
-              value={form.classGroup || ' '}
-              onChange={(e) => setForm({ ...form, classGroup: e.target.value })}
-              disabled={!form.major}
-            >
-              <option value=' ' disabled>
-                선택
-              </option>
-              {form.classOptions.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
+              <option value='SoftwareEngineering'>소프트웨어공학</option>
+              <option value='InformationEngineering'>정보공학</option>
+              <option value='AIEngineering'>인공지능</option>
             </StyledSelect>
           </StyledTextLabel>
           <StyledTextLabel>
             학적
             <StyledSelect
-              value={form.academicStatus || ""}
+              value={form.status || ''}
               onChange={(e) => {
-                setForm({ ...form, academicStatus: e.target.value });
+                setForm({ ...form, status: e.target.value });
               }}
             >
-              <option value=' ' disabled>
+              <option value='' disabled>
                 선택
               </option>
-              <option value="재학">재학</option>
-              <option value="휴학">휴학</option>
-              <option value="졸업">졸업</option>
+              <option value='Enrolled'>재학</option>
+              <option value='OnLeave'>휴학</option>
+              <option value='Graduated'>졸업</option>
             </StyledSelect>
           </StyledTextLabel>
-          <StyledSubmitBtn>회원가입</StyledSubmitBtn>
+          <StyledSubmitBtn disabled={!isVerifyCode}>
+            {isSignUpLoading ? 'please wait' : '회원가입'}
+          </StyledSubmitBtn>
         </StyledRightFormBox>
       </StyledDataInputBox>
     </StyledJoinForm >
