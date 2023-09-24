@@ -1,14 +1,9 @@
 export interface JoinState {
-  email: string | null;
-  authNum: string | null;
-  password: string | null;
-  name: string | null;
-  telNum: string | null;
-  studentNum: string | null;
+  accountId: string;
+  password: string;
+  name: string;
+  email: string;
   major: string;
-  classGroup: string | null;
-  classOptions: string[];
-  academicStatus: string | null;
+  status: string;
+  academicNumber: string;
 }
-
-export type MajorKeys = 'software' | 'information' | 'ai';
