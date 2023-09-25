@@ -9,6 +9,7 @@ import { fetchSignUp, fetchEmailAuthCode, fetchVerifyAuthCode } from '../../../a
 
 // types
 import { JoinState } from '../../../types/auth';
+import { useNavigate } from 'react-router-dom';
 
 // styles
 const StyledJoinForm = styled.form`
@@ -102,6 +103,7 @@ const StyledSubmitBtn = styled.button`
 `;
 
 const JoinForm = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState<JoinState>({
     accountId: '',         // 아이디
     password: '',
@@ -125,7 +127,7 @@ const JoinForm = () => {
       alert('인증 코드가 이메일로 전송되었습니다.');
     },
     onError: (error) => {
-      console.error(error);
+      console.log(error);
       alert('인증 코드 요청 실패!');
     }
   });
@@ -139,7 +141,7 @@ const JoinForm = () => {
       alert('이메일 코드 인증 성공');
     },
     onError: (error) => {
-      console.error(error);
+      console.log(error);
       alert('이메일 코드 인증 실패!');
     }
   });
@@ -150,9 +152,10 @@ const JoinForm = () => {
   } = useMutation(fetchSignUp, {
     onSuccess: () => {
       alert('회원가입 성공');
+      navigate('./auth/login');
     },
     onError: (error) => {
-      console.error(error);
+      console.log(error);
       alert('회원가입 실패!');
     }
   });
@@ -193,6 +196,8 @@ const JoinForm = () => {
     }
   };
 
+  console.log(form)
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -201,9 +206,6 @@ const JoinForm = () => {
       [name]: value
     }));
   };
-
-  console.log(form)
-  console.log(code)
 
   return (
     <StyledJoinForm onSubmit={(e) => handleOnSubmit(e)}>
