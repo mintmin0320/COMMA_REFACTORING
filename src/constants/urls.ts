@@ -1,5 +1,5 @@
 // 회원가입
-export const SIGN_UP_URL = `/users/sign-up`;
+export const SIGN_UP_URL = `/account/signup`;
 
 // 이메일 인증 코드 요청
 export const EMAIL_AUTH_URL = `/account/email/r`;
