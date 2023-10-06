@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 /* 관리자 페이지 box */
 export const Container = styled.div`
