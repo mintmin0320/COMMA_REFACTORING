@@ -24,11 +24,10 @@ const StyledProductCategoryItem = styled.div<{ $isSelected?: boolean }>`
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border-bottom: solid 2px ${({ $isSelected }) => ($isSelected ? '#0064ff' : '#fff')};
   background-color: ${({ $isSelected }) => ($isSelected ? '#f0f0f0' : '#fff')};
-  cursor: pointer;
   font-weight: ${({ $isSelected }) => ($isSelected ? 'bolder' : '0')};
   font-size: ${({ $isSelected }) => ($isSelected ? '18px' : '15px')};
+  cursor: pointer;
 `;
 
 const ProductCategory = () => {
