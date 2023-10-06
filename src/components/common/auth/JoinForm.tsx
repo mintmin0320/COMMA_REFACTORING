@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 
+// components
 import InputField from '../InputField';
 
 // apis
@@ -9,7 +11,6 @@ import { fetchSignUp, fetchEmailAuthCode, fetchVerifyAuthCode } from '../../../a
 
 // types
 import { JoinState } from '../../../types/auth';
-import { useNavigate } from 'react-router-dom';
 
 // styles
 const StyledJoinForm = styled.form`
@@ -23,17 +24,14 @@ const StyledJoinForm = styled.form`
 
 const StyledDataInputBox = styled.div`
   width: 100%;
-  height: 100%;
-  display: flex;
-`;
-
-const StyledLeftFormBox = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-left: 40px;
-  justify-content: space-around;
+  height: 85%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  /* place-items: center; */
+  margin-left: 30px;
+  /* padding-left: 40px; */
+  /* background-color: red; */
 `;
 
 const StyledJoinFormInputFieldBox = styled.div`
@@ -41,7 +39,6 @@ const StyledJoinFormInputFieldBox = styled.div`
   height: 55px;
   display: flex;
   align-items: flex-end;
-
 `;
 
 const StyledEmailCheckBtnBox = styled.div`
@@ -64,16 +61,6 @@ const StyledEmailCheckBtn = styled.button`
   cursor: pointer;
 `;
 
-// 학과, 학년, 학적 선택
-const StyledRightFormBox = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-`;
-
 const StyledTextLabel = styled.label`
   width: 60%;
   height: 55px;
@@ -90,9 +77,17 @@ const StyledSelect = styled.select`
   margin-top: 5px;
 `;
 
+const StyledSubmitBtnBox = styled.div`
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const StyledSubmitBtn = styled.button`
-  width: 55%;
-  height: 55px;
+  width: 25%;
+  height: 50px;
   background-color: #0064ff;
   color: #fff;
   border: none;
@@ -150,9 +145,12 @@ const JoinForm = () => {
     mutate: mutateSignUp,
     isLoading: isSignUpLoading,
   } = useMutation(fetchSignUp, {
-    onSuccess: () => {
+    onSuccess: (data) => {
       alert('회원가입 성공');
-      navigate('./auth/login');
+
+      if (data.status === 201) {
+        navigate('./auth/login');
+      }
     },
     onError: (error) => {
       console.log(error);
@@ -196,8 +194,6 @@ const JoinForm = () => {
     }
   };
 
-  console.log(form)
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -210,66 +206,66 @@ const JoinForm = () => {
   return (
     <StyledJoinForm onSubmit={(e) => handleOnSubmit(e)}>
       <StyledDataInputBox>
-        <StyledLeftFormBox>
-          <StyledJoinFormInputFieldBox>
-            <InputField width='100%' height='40px' label='이메일' name='email' value={form.email || ''} onChange={handleChange} />
-            <StyledEmailCheckBtnBox>
-              <StyledEmailCheckBtn type='button' onClick={handleSendAuthCode}>
-                인증
-              </StyledEmailCheckBtn>
-            </StyledEmailCheckBtnBox>
-          </StyledJoinFormInputFieldBox>
-          <StyledJoinFormInputFieldBox>
-            <InputField width='100%' height='40px' label='인증코드' name='code' value={code || ''} onChange={(e) => setCode(e.target.value)} />
-            <StyledEmailCheckBtnBox>
-              <StyledEmailCheckBtn onClick={handleVerifyAuthCode} type='button' disabled={!isRequestCode}>
-                확인
-              </StyledEmailCheckBtn>
-            </StyledEmailCheckBtnBox>
-          </StyledJoinFormInputFieldBox>
-          <InputField width='100%' height='40px' label='아이디' name='accountId' value={form.accountId || ''} onChange={handleChange} />
-          <InputField width='100%' height='40px' label='비밀번호' name='password' value={form.password || ''} onChange={handleChange} />
-          <InputField width='100%' height='40px' label='이름' name='name' value={form.name || ''} onChange={handleChange} />
-        </StyledLeftFormBox>
-        <StyledRightFormBox>
-          <InputField width='100%' height='40px' label='학번' name='academicNumber' value={form.academicNumber || ''} placeholder='학번을 입력해 주세요.' onChange={handleChange} />
-          <StyledTextLabel>
-            학과
-            <StyledSelect
-              value={form.major || ''}
-              onChange={(e) => {
-                setForm({ ...form, major: e.target.value });
-              }}
-            >
-              <option value='' disabled>
-                선택
-              </option>
-              <option value='SoftwareEngineering'>소프트웨어공학</option>
-              <option value='InformationEngineering'>정보공학</option>
-              <option value='AIEngineering'>인공지능</option>
-            </StyledSelect>
-          </StyledTextLabel>
-          <StyledTextLabel>
-            학적
-            <StyledSelect
-              value={form.status || ''}
-              onChange={(e) => {
-                setForm({ ...form, status: e.target.value });
-              }}
-            >
-              <option value='' disabled>
-                선택
-              </option>
-              <option value='Enrolled'>재학</option>
-              <option value='OnLeave'>휴학</option>
-              <option value='Graduated'>졸업</option>
-            </StyledSelect>
-          </StyledTextLabel>
-          <StyledSubmitBtn disabled={!isVerifyCode}>
-            {isSignUpLoading ? 'please wait' : '회원가입'}
-          </StyledSubmitBtn>
-        </StyledRightFormBox>
+        <StyledJoinFormInputFieldBox>
+          <InputField width='100%' height='40px' label='이메일' name='email' value={form.email || ''} onChange={handleChange} />
+          {/* <StyledDomainBox>@m365.dongyang.ac.kr</StyledDomainBox> */}
+          <StyledEmailCheckBtnBox>
+            <StyledEmailCheckBtn type='button' onClick={handleSendAuthCode}>
+              인증
+            </StyledEmailCheckBtn>
+          </StyledEmailCheckBtnBox>
+        </StyledJoinFormInputFieldBox>
+        <StyledJoinFormInputFieldBox>
+          <InputField width='100%' height='40px' label='인증코드' name='code' value={code || ''} onChange={(e) => setCode(e.target.value)} />
+          <StyledEmailCheckBtnBox>
+            <StyledEmailCheckBtn onClick={handleVerifyAuthCode} type='button' disabled={!isRequestCode}>
+              확인
+            </StyledEmailCheckBtn>
+          </StyledEmailCheckBtnBox>
+        </StyledJoinFormInputFieldBox>
+        <InputField width='100%' height='40px' label='아이디' name='accountId' value={form.accountId || ''} onChange={handleChange} />
+        <InputField width='100%' height='40px' label='비밀번호' name='password' value={form.password || ''} onChange={handleChange} />
+        <InputField width='100%' height='40px' label='이름' name='name' value={form.name || ''} onChange={handleChange} />
+        <InputField width='100%' height='40px' label='학번' name='academicNumber' value={form.academicNumber || ''} onChange={handleChange} />
+        <StyledTextLabel>
+          학과
+          <StyledSelect
+            value={form.major || ''}
+            onChange={(e) => {
+              setForm({ ...form, major: e.target.value });
+            }}
+          >
+            <option value='' disabled>
+              선택
+            </option>
+            <option value='SoftwareEngineering'>소프트웨어공학</option>
+            <option value='InformationEngineering'>정보공학</option>
+            <option value='AIEngineering'>인공지능</option>
+          </StyledSelect>
+        </StyledTextLabel>
+        <StyledTextLabel>
+          학적
+          <StyledSelect
+            value={form.status || ''}
+            onChange={(e) => {
+              setForm({ ...form, status: e.target.value });
+            }}
+          >
+            <option value='' disabled>
+              선택
+            </option>
+            <option value='Enrolled'>재학</option>
+            <option value='OnLeave'>휴학</option>
+            <option value='Graduated'>졸업</option>
+          </StyledSelect>
+        </StyledTextLabel>
+
       </StyledDataInputBox>
+      <StyledSubmitBtnBox>
+        <StyledSubmitBtn disabled={!isVerifyCode}>
+          {isSignUpLoading ? 'please wait' : '회원가입'}
+        </StyledSubmitBtn>
+      </StyledSubmitBtnBox>
     </StyledJoinForm >
   );
 };
