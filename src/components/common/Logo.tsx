@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 // styles
-const LogoBox = styled.div`
+const StyledLogoWrap = styled.div`
   width: 40%;
   height: 100%;
   display: flex;
@@ -21,17 +22,24 @@ const pulseAnimation = keyframes`
   }
 `;
 
+const StyledLogoImgBox = styled(Link)`
+  width: 45%;
+  height: 35%;
+`;
+
 const LogoImg = styled.img`
-  width: 40%;
-  height: 40%;
+  width: 100%;
+  height: 100%;
   animation: ${pulseAnimation} 2s infinite;
 `;
 
 const Logo = () => {
   return (
-    <LogoBox>
-      <LogoImg src='../images/blue_bg.svg' />
-    </LogoBox>
+    <StyledLogoWrap>
+      <StyledLogoImgBox to='/auth/login'>
+        <LogoImg src='../images/blue_bg.svg' />
+      </StyledLogoImgBox>
+    </StyledLogoWrap>
   );
 };
 
