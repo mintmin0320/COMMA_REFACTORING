@@ -9,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 // common, util
-import Input from '../common/Input';
+import Input from '../common/InputField';
 import { setItem } from '../utils/localStorage';
 
 // library-CSS, icons
@@ -188,14 +188,14 @@ const Login = () => {
             <StyledIconBox>
               <HiUser />
             </StyledIconBox >
-            <Input width='40%' height='94%' placeholder='ID' />
+            {/* <Input width='40%' height='94%' placeholder='ID' /> */}
             <StyleIdDomain>@365.dongyang.ac.kr</StyleIdDomain>
           </StyledInputBox>
           <StyledInputBox $top='top'>
             <StyledIconBox>
               <HiMiniLockClosed />
             </StyledIconBox>
-            <Input width='85%' height='94%' placeholder='PASSWORD' />
+            {/* <Input width='85%' height='94%' placeholder='PASSWORD' /> */}
           </StyledInputBox>
           <StyledLoginButton>로그인</StyledLoginButton>
           <StyledMenuBox>

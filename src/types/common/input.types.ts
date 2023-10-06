@@ -8,3 +8,7 @@ export interface InputProps {
   height?: string;
   placeholder?: string;
 }
+
+export interface InputFieldProps extends InputProps {
+  label: string;
+}
