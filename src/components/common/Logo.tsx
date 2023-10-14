@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 // styles
-const StyledLogoWrap = styled.div`
+const StyledLogoWrap = styled.section`
   width: 40%;
   height: 100%;
   display: flex;
@@ -23,8 +23,8 @@ const pulseAnimation = keyframes`
 `;
 
 const StyledLogoImgBox = styled(Link)`
-  width: 45%;
-  height: 35%;
+  width: 35%;
+  height: 25%;
 `;
 
 const LogoImg = styled.img`
@@ -33,7 +33,7 @@ const LogoImg = styled.img`
   animation: ${pulseAnimation} 2s infinite;
 `;
 
-const Logo = () => {
+export default function Logo() {
   return (
     <StyledLogoWrap>
       <StyledLogoImgBox to='/auth/login'>
@@ -42,5 +42,3 @@ const Logo = () => {
     </StyledLogoWrap>
   );
 };
-
-export default Logo;
