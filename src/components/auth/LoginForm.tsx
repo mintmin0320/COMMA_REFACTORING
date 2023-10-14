@@ -1,23 +1,25 @@
 /*
   로그인 페이지
-  서버와 통신이 불가능 -> 비회원 접속 버튼
 */
 
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
-// common, util
-import { setItem } from '../utils/localStorage';
+// common
+import Toast from '../common/Toast';
 
 // library-CSS, icons
 import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
-import 'react-toastify/dist/ReactToastify.css';
+
+// types
 import { LoginState } from '../../types/auth';
 
-// CSS
-const StyledLogInContainer = styled.div`
+// hooks
+import { useSignIn } from './hooks/useAuth';
+
+// styles
+const StyledLogInContainer = styled.section`
   width: 60%;
   height: 100%;
   display: flex;
@@ -37,7 +39,7 @@ const StyledLogInBox = styled.div`
   box-shadow: 2px 4px 30px rgba(0, 0, 0, 0.1);
 `;
 
-const StyledLogInForm = styled.form`
+const Form = styled.form`
   width: 55%;
   height: 40%;
 `;
@@ -69,7 +71,7 @@ const Input = styled.input`
 `;
 
 // 로그인 버튼
-const StyledSubmitButton = styled.button`
+const LoginButton = styled.button`
   width: 100%;
   height: 45px;
   display: flex;
@@ -190,14 +192,20 @@ const StyleIdDomain = styled.div`
   font-size: 15px;
 `;
 
-const Login = () => {
-  const navigate = useNavigate();
+export default function LoginForm() {
+  const toast = Toast();
+  const signIn = useSignIn();
+
   const [loginForm, setLoginForm] = useState<LoginState>({
     accountId: '',
     password: '',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    toast.info('웰컴~');
+  }, []);
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setLoginForm((prevState) => ({
@@ -206,20 +214,22 @@ const Login = () => {
     }));
   };
 
-  useEffect(() => {
-    toast.info('처음 방문하셨나요? 비회원 접속이 가능합니다.');
-  }, []);
+  // 로그인
+  const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const handleOnLoginBtn = () => {
-    setItem('userId', JSON.stringify('guest'));
+    const data = {
+      accountId: loginForm.accountId,
+      password: loginForm.password,
+    };
 
-    navigate('/');
+    signIn(data);
   };
 
   return (
     <StyledLogInContainer>
       <StyledLogInBox>
-        <StyledLogInForm>
+        <Form onSubmit={(e) => handleOnSubmit(e)}>
           <StyledInputFiled style={{ borderBottom: 'none' }}>
             <StyledIconBox>
               <HiUser size='22px' />
@@ -228,7 +238,8 @@ const Login = () => {
               type='text'
               name='accountId'
               value={loginForm.accountId}
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => handleOnChange(e)}
+              required
             />
           </StyledInputFiled>
           <StyledInputFiled>
@@ -239,17 +250,22 @@ const Login = () => {
               type='password'
               name='password'
               value={loginForm.password}
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => handleOnChange(e)}
+              required
             />
           </StyledInputFiled>
-          <StyledSubmitButton
+          <LoginButton
             type='submit'
-          >로그인
-          </StyledSubmitButton>
-        </StyledLogInForm>
+          >
+            로그인
+          </LoginButton>
+        </Form>
+        <LoginButton
+          style={{ width: '55%', background: '#d8d8d8', color: '#000' }}
+        >
+          회원가입
+        </LoginButton>
       </StyledLogInBox>
     </StyledLogInContainer>
   );
 };
-
-export default Login;
