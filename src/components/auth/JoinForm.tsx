@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import { useMutation } from 'react-query';
-import { useNavigate } from 'react-router-dom';
 
 // components
-import InputField from '../InputField';
+import InputField from '../common/InputField';
 
-// apis
-import { fetchSignUp, fetchEmailAuthCode, fetchVerifyAuthCode } from '../../../apis/auth';
+// hooks
+import { useSignUp } from './hooks/useAuth';
+import { useReqAuthCode, useVerifyAuthCode } from './hooks/useEmailAuthCode';
 
 // types
-import { JoinState } from '../../../types/auth';
+import { JoinState } from '../../types/auth';
 
 // styles
-const StyledJoinForm = styled.form`
+const Form = styled.form`
   width: 60%;
   height: 100%;
   background-color: #fff;
@@ -98,7 +97,10 @@ const StyledSubmitBtn = styled.button`
 `;
 
 const JoinForm = () => {
-  const navigate = useNavigate();
+  const reqAuthCode = useReqAuthCode();
+  const verifyAuthCode = useVerifyAuthCode();
+  const signUp = useSignUp();
+
   const [form, setForm] = useState<JoinState>({
     accountId: '',         // 아이디
     password: '',
@@ -109,89 +111,41 @@ const JoinForm = () => {
     academicNumber: '',    // 학번
   });
   const [code, setCode] = useState<string | null>(''); // 인증 코드 
-  const [isRequestCode, setIsRequestAuthCode] = useState<boolean>(false); // 이메일 코드 요청 여부
-  const [isVerifyCode, setIsVerifyAuthCode] = useState<boolean>(true); // 이메일 코드 확인
-
-  const {
-    mutate: mutateEmailAuthCode,
-    isLoading: isEmailAuthLoading,
-  } = useMutation(fetchEmailAuthCode, {
-    onSuccess: () => {
-      setIsRequestAuthCode(true);
-
-      alert('인증 코드가 이메일로 전송되었습니다.');
-    },
-    onError: (error) => {
-      console.log(error);
-      alert('인증 코드 요청 실패!');
-    }
-  });
-
-  // 이메일 인증 코드 확인
-  const {
-    mutate: mutateVerifyAuthCode,
-    isLoading: isVerifyAuthCode,
-  } = useMutation(fetchVerifyAuthCode, {
-    onSuccess: () => {
-      alert('이메일 코드 인증 성공');
-    },
-    onError: (error) => {
-      console.log(error);
-      alert('이메일 코드 인증 실패!');
-    }
-  });
-
-  const {
-    mutate: mutateSignUp,
-    isLoading: isSignUpLoading,
-  } = useMutation(fetchSignUp, {
-    onSuccess: (data) => {
-      alert('회원가입 성공');
-
-      if (data.status === 201) {
-        navigate('./auth/login');
-      }
-    },
-    onError: (error) => {
-      console.log(error);
-      alert('회원가입 실패!');
-    }
-  });
+  const [isRequestCode, setIsRequestAuthCode] = useState<boolean>(true);
+  const [isVerifyCode, setIsVerifyAuthCode] = useState<boolean>(true);
 
   // 이메일 인증 코드 요청
   const handleSendAuthCode = () => {
-    mutateEmailAuthCode({ email: form.email });
+    reqAuthCode(form.email);
   };
 
   // 이메일 인증 코드 확인
   const handleVerifyAuthCode = () => {
-    const data: { email: string | null; code: string | null } = {
+    const data: {
+      email: string | null; code: string | null
+    } = {
       email: form.email,
       code,
     };
 
-    mutateVerifyAuthCode(data);
+    verifyAuthCode(data);
   };
 
   // 회원가입
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    try {
-      const data: JoinState = {
-        accountId: form.accountId,
-        password: form.password,
-        name: form.name,
-        email: form.email,
-        major: form.major,
-        status: form.status,
-        academicNumber: form.academicNumber,
-      };
+    const data: JoinState = {
+      accountId: form.accountId,
+      password: form.password,
+      name: form.name,
+      email: form.email,
+      major: form.major,
+      status: form.status,
+      academicNumber: form.academicNumber,
+    };
 
-      mutateSignUp(data);
-    } catch (error) {
-      console.log(error);
-    }
+    signUp(data);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -204,11 +158,10 @@ const JoinForm = () => {
   };
 
   return (
-    <StyledJoinForm onSubmit={(e) => handleOnSubmit(e)}>
+    <Form onSubmit={(e) => handleOnSubmit(e)}>
       <StyledDataInputBox>
         <StyledJoinFormInputFieldBox>
           <InputField width='100%' height='40px' label='이메일' name='email' value={form.email || ''} onChange={handleChange} />
-          {/* <StyledDomainBox>@m365.dongyang.ac.kr</StyledDomainBox> */}
           <StyledEmailCheckBtnBox>
             <StyledEmailCheckBtn type='button' onClick={handleSendAuthCode}>
               인증
@@ -259,14 +212,13 @@ const JoinForm = () => {
             <option value='Graduated'>졸업</option>
           </StyledSelect>
         </StyledTextLabel>
-
       </StyledDataInputBox>
       <StyledSubmitBtnBox>
         <StyledSubmitBtn disabled={!isVerifyCode}>
-          {isSignUpLoading ? 'please wait' : '회원가입'}
+          회원가입
         </StyledSubmitBtn>
       </StyledSubmitBtnBox>
-    </StyledJoinForm >
+    </Form >
   );
 };
 
