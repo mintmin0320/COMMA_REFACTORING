@@ -37,6 +37,20 @@
 </table>
 
 <br/>
+<br/>
+
+## 📚 기술 스택
+<div>
+ <code><img width="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/></code>
+ <code><img width="50" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/></code>
+ <code><img width="50" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/></code>
+ <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png" alt="styled components" title="styled components"/></code>
+ <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1631622784/noticon/zwush4y3u0mgamlck9bq.png" alt="React Query" title="React Query"/></code>
+ <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1641952185/noticon/a9qgcuhj0enmzobh68cf.png" alt="Recoil" title="Recoil"/></code>
+</div>
+
+<br/>
+<br/>
 
 ## ⭐️ 주요 변경 사항
 ### 디렉토리 구조 변경 ( 계층별 -> 기능별 )
@@ -78,19 +92,6 @@ comma-refacor
 - API 요청 시 발생하는 에러의 경우 각 요청 함수마다 try-catch로 처리 <br/>
 💡 에러 발생 시 queryClient에서 onError 콜백에서 에러 핸들러 진행
 
-
-<br/>
-<br/>
-
-## 📚 기술 스택
-<div>
- <code><img width="50" src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png" alt="JavaScript" title="JavaScript"/></code>
- <code><img width="50" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/></code>
- <code><img width="50" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/></code>
- <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png" alt="styled components" title="styled components"/></code>
- <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1631622784/noticon/zwush4y3u0mgamlck9bq.png" alt="React Query" title="React Query"/></code>
- <code><img width="50" src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1641952185/noticon/a9qgcuhj0enmzobh68cf.png" alt="Recoil" title="Recoil"/></code>
-</div>
 
 <br/>
 <br/>
