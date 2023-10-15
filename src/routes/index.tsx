@@ -4,6 +4,7 @@ export { default as NoticeRoute } from './NoticeRoute';
 export { default as ProductRoute } from './ProductRoute';
 export { default as CommunityRoute } from './CommunityRoute';
 export { default as BasketRoute } from './BasketRoute';
+export { default as AdminRoute } from './AdminRoute';
 export { default as ProfileRoute } from './ProfileRoute';
 export { default as PrivateRoute } from './PrivateRoute';
 export { default as PublicOnlyRoute } from './PublicOnlyRoute';

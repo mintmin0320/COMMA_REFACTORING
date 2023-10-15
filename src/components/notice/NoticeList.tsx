@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import noticeData from './noticeData.json';
@@ -56,11 +57,12 @@ const StyledNoticeFile = styled.div`
 `;
 
 const Notice = () => {
+  const navigate = useNavigate();
   return (
     <>
       {noticeData.map((list: NoticeInfo) => (
         <StyledNoticeInfo key={list.noticeId}>
-          <StyledNoticeTitle >
+          <StyledNoticeTitle onClick={() => navigate(`/notice/${list.noticeId}`)} >
             <StyledNoticeInfoText $title='title'>{list.noticeTitle}</StyledNoticeInfoText>
           </StyledNoticeTitle>
           <StyledNoticeWriter>

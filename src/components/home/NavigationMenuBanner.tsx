@@ -24,7 +24,7 @@ const StyledAdditionalText = styled.div`
   height: 80px;
   font-size: 45px;
   font-weight: bold;
-  font-family: 'ADLaMDisplay', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #fff;
 `;
 

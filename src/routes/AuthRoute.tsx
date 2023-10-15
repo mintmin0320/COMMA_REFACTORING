@@ -1,10 +1,17 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import LoginPage from '../pages/auth/LoginPage';
 import JoinPage from '../pages/auth/JoinPage';
 
 const AuthRoute = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const pageTitle = location.pathname === '/auth/login' ? '로그인 - COMMA' : '회원가입 - COMMA';
+    document.title = pageTitle;
+  }, [location]);
+
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />

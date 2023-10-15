@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 // icons
-import { BsFillBasketFill, BsFillChatDotsFill } from "react-icons/bs";
+import { BsFillBasketFill, BsFillChatDotsFill, BsFillGearFill } from "react-icons/bs";
 import { BiSolidUser } from "react-icons/bi";
 import { RiLogoutBoxRFill } from "react-icons/ri";
-import { Link } from 'react-router-dom';
 
 // CSS
 const ProfileWrap = styled.div`
@@ -68,25 +68,32 @@ const StyledNavLink = styled(Link) <{ $right?: boolean }>`
 `;
 
 const Profile = () => {
+  const isAdmin = true;
+
   return (
     <ProfileWrap>
       <StyledProfileBox>
         <StyledProfileFrame>
-          <StyledProfile src='./images/mintmin.jpg' alt='' />
+          <StyledProfile src='../images/mintmin.jpg' alt='' />
         </StyledProfileFrame>
       </StyledProfileBox>
       <StyledNavBox>
         <StyledNavLink to='/profile' >
           <BiSolidUser size='20px' />
         </StyledNavLink>
-        <StyledNavLink to='/'>
-          <RiLogoutBoxRFill size='20px' />
-        </StyledNavLink>
+        {isAdmin && (
+          <StyledNavLink to='/admin/user-info'>
+            <BsFillGearFill size='20px' />
+          </StyledNavLink>
+        )}
         <StyledNavLink to='/basket'>
           <BsFillBasketFill size='20px' />
         </StyledNavLink>
-        <StyledNavLink to='/' $right={true}>
+        <StyledNavLink to='/'>
           <BsFillChatDotsFill size='20px' />
+        </StyledNavLink>
+        <StyledNavLink to='/' $right={true}>
+          <RiLogoutBoxRFill size='20px' />
         </StyledNavLink>
       </StyledNavBox>
     </ProfileWrap>

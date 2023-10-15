@@ -10,14 +10,14 @@ import { MenuItem } from '../../../types/common';
 import { HeaderProps } from '../../../types/common';
 
 // CSS
-const Container = styled.div<{ backgroundColor: string, borderBottom: string }>`
+const Container = styled.div<{ $backgroundColor: string, $borderBottom: string }>`
   width: 100%;
   height: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-bottom: ${props => props.borderBottom};
-  background-color: ${props => props.backgroundColor};
+  border-bottom: ${props => props.$borderBottom};
+  background-color: ${props => props.$backgroundColor};
   position: sticky;
   top: 0px;
   z-index: 1000;
@@ -82,7 +82,7 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
 
   const headerItem: MenuItem[] = [
     { name: '공지사항', path: '/notice' },
-    { name: '상품', path: '/product' },
+    { name: '실습재료', path: '/product' },
     { name: '커뮤니티', path: '/community' },
     { name: '메뉴4', path: '/' },
   ];
@@ -119,10 +119,10 @@ const Header = ({ isHomePage = false }: HeaderProps) => {
   }, [isHomePage]);
 
   return (
-    <Container backgroundColor={backgroundColor} borderBottom={borderBottom}>
+    <Container $backgroundColor={backgroundColor} $borderBottom={borderBottom}>
       <StyledHeaderWrap>
         <StyledLogoBox to='/'>
-          <StyledLogoImg src='./images/blue_bg.svg' />
+          <StyledLogoImg src='../images/blue_bg.svg' />
           <StyledLogoTitle>
             COMMA
           </StyledLogoTitle>
