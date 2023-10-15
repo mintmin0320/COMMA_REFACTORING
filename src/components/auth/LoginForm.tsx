@@ -5,6 +5,7 @@
 */
 
 import { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // common
 import Toast from '../common/Toast';
@@ -24,6 +25,7 @@ import * as S from './LoginForm.style';
 export default function LoginForm() {
   const toast = Toast();
   const signIn = useSignIn();
+  const navigate = useNavigate();
 
   const [loginForm, setLoginForm] = useState<LoginState>({
     accountId: '',
@@ -56,7 +58,7 @@ export default function LoginForm() {
   };
 
   return (
-    <S.LogInContainer>
+    <S.LoginContainer>
       <S.Wrap>
         <S.Form onSubmit={(e) => handleOnSubmit(e)}>
           <S.InputBox style={{ borderBottom: 'none' }}>
@@ -91,10 +93,11 @@ export default function LoginForm() {
         </S.Form>
         <S.Button
           style={{ width: '55%', background: '#e5e1e1', color: '#000' }}
+          onClick={() => navigate('/auth/join')}
         >
           회원가입
         </S.Button>
       </S.Wrap>
-    </S.LogInContainer>
+    </S.LoginContainer>
   );
 };

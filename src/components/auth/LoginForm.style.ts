@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const LogInContainer = styled.section`
+export const LoginContainer = styled.section`
   width: 60%;
   height: 100%;
   display: flex;
