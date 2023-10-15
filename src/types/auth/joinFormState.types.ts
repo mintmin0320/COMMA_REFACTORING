@@ -7,3 +7,8 @@ export interface JoinState {
   status: string;
   academicNumber: string;
 }
+
+export interface LoginState {
+  accountId: string;
+  password: string;
+}

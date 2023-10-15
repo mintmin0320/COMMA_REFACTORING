@@ -1,9 +1,13 @@
-import Join from '../../components/auth/Join';
+import Logo from '../../components/common/Logo';
+import JoinForm from '../../components/auth/JoinForm';
 
-const JoinPage = () => {
+import { Container } from '../../components/styles/AuthPageStyles';
+
+export default function JoinPage() {
   return (
-    <Join />
+    <Container>
+      <Logo />
+      <JoinForm />
+    </Container>
   );
 };
-
-export default JoinPage;

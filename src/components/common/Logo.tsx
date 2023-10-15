@@ -1,11 +1,12 @@
+import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 
 // styles
-const LogoBox = styled.div`
+const StyledLogoWrap = styled.section`
   width: 40%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `;
 
@@ -21,18 +22,23 @@ const pulseAnimation = keyframes`
   }
 `;
 
+const StyledLogoImgBox = styled(Link)`
+  width: 35%;
+  height: 25%;
+`;
+
 const LogoImg = styled.img`
-  width: 40%;
-  height: 40%;
+  width: 100%;
+  height: 100%;
   animation: ${pulseAnimation} 2s infinite;
 `;
 
-const Logo = () => {
+export default function Logo() {
   return (
-    <LogoBox>
-      <LogoImg src='../images/blue_bg.svg' />
-    </LogoBox>
+    <StyledLogoWrap>
+      <StyledLogoImgBox to='/auth/login'>
+        <LogoImg src='../images/blue_bg.svg' />
+      </StyledLogoImgBox>
+    </StyledLogoWrap>
   );
 };
-
-export default Logo;

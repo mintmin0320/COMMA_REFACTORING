@@ -1,9 +1,14 @@
-import Login from '../../components/auth/Login';
+import Logo from '../../components/common/Logo';
+import LoginForm from '../../components/auth/LoginForm';
 
-const LoginPage = () => {
+// global-styles
+import { Container } from '../../components/styles/AuthPageStyles';
+
+export default function LoginPage() {
   return (
-    <Login />
+    <Container>
+      <Logo />
+      <LoginForm />
+    </Container>
   );
 };
-
-export default LoginPage;
