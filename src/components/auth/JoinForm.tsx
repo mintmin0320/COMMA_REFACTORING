@@ -15,7 +15,7 @@ import { JoinState } from '../../types/auth';
 import * as S from './JoinForm.style';
 
 // types
-import { JoinFormProps } from './types/auth.type';
+import { JoinFormProps, VerifyAuthCode } from './types/auth.type';
 
 export default function JoinForm({
   reqAuthCode,
@@ -42,9 +42,7 @@ export default function JoinForm({
 
   // 이메일 인증 코드 확인
   const handleVerifyAuthCode = () => {
-    const data: {
-      email: string | null; code: string | null
-    } = {
+    const data: VerifyAuthCode = {
       email: joinForm.email,
       code,
     };
