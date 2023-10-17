@@ -6,16 +6,16 @@
 
 import { useCallback, useState } from 'react';
 
-import InputField from '../common/InputField';
+import InputField from '../../../common/InputField';
 
 // types
-import { JoinState } from '../../types/auth';
+import { JoinState } from '../../../../types/auth';
 
 // styles
 import * as S from './JoinForm.style';
 
 // types
-import { JoinFormProps, VerifyAuthCode } from './types/auth.type';
+import { JoinFormProps, VerifyAuthCode } from '../../types/auth.type';
 
 export default function JoinForm({
   reqAuthCode,
@@ -23,9 +23,9 @@ export default function JoinForm({
   signUp
 }: JoinFormProps) {
   const [joinForm, setJoinForm] = useState<JoinState>({
-    accountId: '',         // 아이디
+    accountId: '',
     password: '',
-    name: '',              // 이름(실명)
+    name: '',
     email: '',
     major: '',             // 학과
     status: '',            // 학적
@@ -51,28 +51,32 @@ export default function JoinForm({
   };
 
   // 회원가입
-  const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     signUp(joinForm);
   };
 
   // <input>, <textarea>, <select> 태그의 변경 이벤트와 모두 호환
-  const handleOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
 
-    setJoinForm((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
+    if (name === 'code') {
+      setCode(value);
+    } else {
+      setJoinForm((prevState) => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
   }, []);
 
   return (
     <S.JoinContainer>
-      <S.Form onSubmit={handleOnSubmit}>
+      <S.Form onSubmit={handleSubmit}>
         <S.InputBox>
           <S.VerifyEmailInputBox>
-            <InputField width='100%' height='40px' label='이메일' name='email' value={joinForm.email} onChange={handleOnChange} />
+            <InputField width='100%' height='40px' label='이메일' name='email' value={joinForm.email} onChange={handleChange} />
             <S.VerifyButtonBox>
               <S.VerifyButton type='button' onClick={handleSendAuthCode}>
                 인증
@@ -80,23 +84,23 @@ export default function JoinForm({
             </S.VerifyButtonBox>
           </S.VerifyEmailInputBox>
           <S.VerifyEmailInputBox>
-            <InputField width='100%' height='40px' label='인증코드' name='code' value={code} onChange={handleOnChange} />
+            <InputField width='100%' height='40px' label='인증코드' name='code' value={code} onChange={handleChange} />
             <S.VerifyButtonBox>
               <S.VerifyButton onClick={handleVerifyAuthCode} type='button'>
                 확인
               </S.VerifyButton>
             </S.VerifyButtonBox>
           </S.VerifyEmailInputBox>
-          <InputField width='100%' height='40px' label='아이디' name='accountId' value={joinForm.accountId} onChange={handleOnChange} />
-          <InputField width='100%' height='40px' label='비밀번호' name='password' type='password' value={joinForm.password} onChange={handleOnChange} />
-          <InputField width='100%' height='40px' label='이름' name='name' value={joinForm.name} onChange={handleOnChange} />
-          <InputField width='100%' height='40px' label='학번' name='academicNumber' value={joinForm.academicNumber} onChange={handleOnChange} />
+          <InputField width='100%' height='40px' label='아이디' name='accountId' value={joinForm.accountId} onChange={handleChange} />
+          <InputField width='100%' height='40px' label='비밀번호' name='password' type='password' value={joinForm.password} onChange={handleChange} />
+          <InputField width='100%' height='40px' label='이름' name='name' value={joinForm.name} onChange={handleChange} />
+          <InputField width='100%' height='40px' label='학번' name='academicNumber' value={joinForm.academicNumber} onChange={handleChange} />
           <S.TextLabel>
             학과
             <S.Select
               name='major'
               value={joinForm.major}
-              onChange={handleOnChange}
+              onChange={handleChange}
               required
             >
               <option value='' disabled>
@@ -112,7 +116,7 @@ export default function JoinForm({
             <S.Select
               name='status'
               value={joinForm.status}
-              onChange={handleOnChange}
+              onChange={handleChange}
               required
             >
               <option value='' disabled>

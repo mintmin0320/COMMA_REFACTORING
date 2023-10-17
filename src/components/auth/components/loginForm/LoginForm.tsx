@@ -8,16 +8,16 @@ import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // common
-import Toast from '../common/Toast';
+import Toast from '../../../common/Toast';
 
 // library-CSS, icons
 import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
 
 // types
-import { LoginState } from '../../types/auth';
+import { LoginState } from '../../../../types/auth';
 
 // hooks
-import { useSignIn } from './hooks/useAuth';
+import { useSignIn } from '../../hooks/useAuth';
 
 // styles
 import * as S from './LoginForm.style';

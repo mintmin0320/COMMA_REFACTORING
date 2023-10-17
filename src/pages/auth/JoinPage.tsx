@@ -1,5 +1,5 @@
 import Logo from '../../components/common/Logo';
-import JoinForm from '../../components/auth/JoinForm';
+import JoinForm from '../../components/auth/components/joinForm/JoinForm';
 
 import { Container } from '../../components/styles/AuthPageStyles';
 
