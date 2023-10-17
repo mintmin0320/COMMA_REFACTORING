@@ -8,21 +8,20 @@ import { useCallback, useState } from 'react';
 
 import InputField from '../common/InputField';
 
-// hooks
-import { useSignUp } from './hooks/useAuth';
-import { useReqAuthCode, useVerifyAuthCode } from './hooks/useEmailAuthCode';
-
 // types
 import { JoinState } from '../../types/auth';
 
 // styles
 import * as S from './JoinForm.style';
 
-export default function JoinForm() {
-  const reqAuthCode = useReqAuthCode();
-  const verifyAuthCode = useVerifyAuthCode();
-  const signUp = useSignUp();
+// types
+import { JoinFormProps } from './types/auth.type';
 
+export default function JoinForm({
+  reqAuthCode,
+  verifyAuthCode,
+  signUp
+}: JoinFormProps) {
   const [joinForm, setJoinForm] = useState<JoinState>({
     accountId: '',         // 아이디
     password: '',

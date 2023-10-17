@@ -12,12 +12,12 @@ import Toast from '../../common/Toast';
 import { LOGIN, JOIN } from './constants';
 
 // types
-import { JoinState, LoginState } from '../../../types/auth';
+import { JoinState, LoginState } from '../types/auth.type';
 
 const toast = Toast();
 
 // 로그인
-async function fetchAuthCode(data: LoginState) {
+async function fetchSignIn(data: LoginState) {
   await axios.post(LOGIN, data);
 };
 
@@ -28,7 +28,7 @@ export function useSignIn(): UseMutateFunction<
   unknown
 > {
   const navigate = useNavigate();
-  const { mutate } = useMutation(fetchAuthCode, {
+  const { mutate } = useMutation(fetchSignIn, {
     onSuccess: () => {
       toast.success('환영합니다! 🎉');
       navigate('/');
@@ -39,7 +39,7 @@ export function useSignIn(): UseMutateFunction<
 };
 
 // 회원가입
-async function fetchVerifyAuthCode(data: JoinState) {
+async function fetchSignUp(data: JoinState) {
   await axios.post(JOIN, data);
 };
 
@@ -50,7 +50,7 @@ export function useSignUp(): UseMutateFunction<
   unknown
 > {
   const navigate = useNavigate();
-  const { mutate } = useMutation(fetchVerifyAuthCode, {
+  const { mutate } = useMutation(fetchSignUp, {
     onSuccess: () => {
       toast.success('인증코드 확인 완료');
       navigate('/auth/login');

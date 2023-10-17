@@ -10,10 +10,8 @@ import Toast from '../../common/Toast';
 // constants
 import { REQUEST_EMAIL_AUTH, VERIFY_AUTH_CODE } from './constants';
 
-interface VerifyAuthCode {
-  email: string | null,
-  code: string | null
-}
+// types
+import { VerifyAuthCode } from '../types/auth.type';
 
 const toast = Toast();
 
