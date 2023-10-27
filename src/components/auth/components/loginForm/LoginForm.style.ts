@@ -69,3 +69,11 @@ export const Button = styled.button`
   color: #fff;
   cursor: pointer;
 `;
+
+export const ErrorTextBox = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+margin-top: 5px;
+color: #FE2E2E;
+`;

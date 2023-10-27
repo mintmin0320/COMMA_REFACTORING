@@ -1,77 +1,43 @@
-/*
-  로그인
-  - 로그인
-  - 회원가입 페이지 이동
-*/
-
-import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// common
-import Toast from '../../../common/Toast';
-
-// library-CSS, icons
-import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
-
 // types
-import { LoginState } from '../../../../types/auth';
+import { LoginFormProps, LoginState } from '../../types/auth.type';
 
-// hooks
-import { useSignIn } from '../../hooks/useAuth';
-
-// styles
 import * as S from './LoginForm.style';
+import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
+import { useForm } from 'react-hook-form';
 
-export default function LoginForm() {
-  const toast = Toast();
-  const signIn = useSignIn();
+export default function LoginForm({ signIn }: LoginFormProps) {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors }
+  } = useForm<LoginState>();
+
   const navigate = useNavigate();
 
-  const [loginForm, setLoginForm] = useState<LoginState>({
-    accountId: '',
-    password: '',
+  const onSubmit = handleSubmit((value) => {
+    signIn.mutate(value);
   });
-
-  useEffect(() => {
-    toast.info('Welcome to COMMA 👋');
-  }, []);
-
-  const handleOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-
-    setLoginForm((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  }, []);
-
-  // 로그인
-  const handleOnSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const data = {
-      accountId: loginForm.accountId,
-      password: loginForm.password,
-    };
-
-    signIn(data);
-  };
 
   return (
     <S.LoginContainer>
       <S.Wrap>
-        <S.Form onSubmit={(e) => handleOnSubmit(e)}>
+        <S.Form onSubmit={onSubmit}>
           <S.InputBox style={{ borderBottom: 'none' }}>
             <S.IconBox>
               <HiUser size='22px' />
             </S.IconBox>
             <S.Input
               type='text'
-              name='accountId'
-              value={loginForm.accountId}
-              onChange={(e) => handleOnChange(e)}
               placeholder='ID'
-              required
+              {...register('accountId', {
+                required: 'Required',
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message: '영문과 숫자 조합만 사용해 주세요.'
+                }
+              })}
             />
           </S.InputBox>
           <S.InputBox>
@@ -80,19 +46,34 @@ export default function LoginForm() {
             </S.IconBox>
             <S.Input
               type='password'
-              name='password'
-              value={loginForm.password}
-              onChange={(e) => handleOnChange(e)}
               placeholder='Password'
-              required
+              {...register('password', {
+                required: 'Required',
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message: '영문과 숫자 조합만 사용해 주세요.'
+                }
+              })}
             />
           </S.InputBox>
+          {errors.accountId && (
+            <S.ErrorTextBox>
+              ID : {errors.accountId.message}
+            </S.ErrorTextBox>
+          )}
+          {errors.password && (
+            <S.ErrorTextBox>
+              PW : {errors.password.message}
+            </S.ErrorTextBox>
+          )}
           <S.Button type='submit'>
             로그인
           </S.Button>
         </S.Form>
         <S.Button
-          style={{ width: '55%', background: '#e5e1e1', color: '#000' }}
+          style={{
+            width: '55%', background: '#e5e1e1', color: '#000'
+          }}
           onClick={() => navigate('/auth/join')}
         >
           회원가입

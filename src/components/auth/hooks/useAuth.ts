@@ -9,7 +9,7 @@ import axios from 'axios';
 import Toast from '../../common/Toast';
 
 // constants
-import { LOGIN, JOIN } from './constants';
+import { LOGIN, JOIN } from '../constants/constants';
 
 // types
 import { JoinState, LoginState } from '../types/auth.type';
