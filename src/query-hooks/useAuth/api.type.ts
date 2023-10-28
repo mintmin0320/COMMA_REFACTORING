@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios';
-import { UseMutateFunction, UseMutationResult } from 'react-query';
+import { UseMutationResult } from 'react-query';
 
 // 회원가입 form-data 타입
 export interface JoinState {
@@ -20,17 +20,17 @@ export interface LoginState {
 
 // 이메일 인증 데이터 타입
 export interface VerifyAuthCode {
-  email: string | null,
-  code: string | null
+  email: string,
+  code: string
 }
 
 // hook 타입
 export type JoinFormProps = {
-  reqAuthCode: UseMutateFunction<void, unknown, string | null, unknown>
-  verifyAuthCode: UseMutateFunction<void, unknown, VerifyAuthCode, unknown>;
+  reqAuthCode: UseMutationResult<number, AxiosError, string>
+  verifyAuthCode: UseMutationResult<number, AxiosError, VerifyAuthCode>
   signUp: UseMutationResult<number, AxiosError, JoinState>
 };
 
 export type LoginFormProps = {
-  signIn: UseMutationResult<string, AxiosError, LoginState>
+  signIn: UseMutationResult<number, AxiosError, LoginState>
 };

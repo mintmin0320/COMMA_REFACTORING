@@ -1,9 +1,14 @@
 import { useMutation } from 'react-query';
 import { AxiosError } from 'axios';
 
-import { fetchSignIn, fetchSignUp } from './api';
+import {
+  fetchAuthCode,
+  fetchSignIn,
+  fetchSignUp,
+  fetchVerifyAuthCode
+} from './api';
 
-import { JoinState, LoginState } from './api.type';
+import { JoinState, LoginState, VerifyAuthCode } from './api.type';
 
 import Toast from '../../components/common/Toast';
 
@@ -12,7 +17,7 @@ const toast = Toast();
 // 로그인
 function useSignIn() {
   return useMutation<
-    string,
+    number,
     AxiosError,
     LoginState
   >(({ accountId, password }) => fetchSignIn({ accountId, password }),
@@ -44,4 +49,35 @@ function useSignUp() {
     });
 };
 
-export { useSignIn, useSignUp };
+// 인증 코드 요청
+function useReqAuthCode() {
+  return useMutation<
+    number,
+    AxiosError,
+    string
+  >((email) => fetchAuthCode(email),
+    {
+      onSuccess: () => {
+        toast.success("인증 코드를 요청했습니다.");
+      },
+      onError: (error: AxiosError) => {
+        toast.error(error.message);
+      }
+    });
+};
+
+// 인증 코드 확인
+function useVerifyAuthCode() {
+  return useMutation<
+    number,
+    AxiosError,
+    VerifyAuthCode
+  >((params) => fetchVerifyAuthCode(params),
+    {
+      onError: (error: AxiosError) => {
+        toast.error(error.message);
+      }
+    });
+};
+
+export { useSignIn, useSignUp, useReqAuthCode, useVerifyAuthCode };
