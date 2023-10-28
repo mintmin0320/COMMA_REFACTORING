@@ -9,15 +9,19 @@ import Toast from '../../components/common/Toast';
 
 const toast = Toast();
 
+type SignInResponse = {
+  msg: string;
+};
+
 function useSignIn() {
   return useMutation<
-    void,
+    SignInResponse,
     AxiosError,
     LoginState
   >(({ accountId, password }) =>
     fetchSignIn({ accountId, password }), {
-    onSuccess: () => {
-      toast.success('환영합니다! 🎉');
+    onSuccess: (data: SignInResponse) => {
+      toast.success(`${data.msg} 🎉`);
     },
     onError: (error: AxiosError) => {
       /* 에러 핸들러 추가 필요 */

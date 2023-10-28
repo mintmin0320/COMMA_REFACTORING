@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 // types
 import { LoginFormProps, LoginState } from '../../types/auth.type';
 
 import * as S from './LoginForm.style';
 import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
-import { useForm } from 'react-hook-form';
 
 export default function LoginForm({ signIn }: LoginFormProps) {
   const {
@@ -16,8 +16,14 @@ export default function LoginForm({ signIn }: LoginFormProps) {
 
   const navigate = useNavigate();
 
-  const onSubmit = handleSubmit((value) => {
-    signIn.mutate(value);
+  const onSubmit = handleSubmit(async (value) => {
+    try {
+      await signIn.mutateAsync(value);
+
+      navigate('/');
+    } catch (error) {
+      console.log(error)
+    }
   });
 
   return (

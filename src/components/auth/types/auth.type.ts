@@ -24,6 +24,10 @@ export interface VerifyAuthCode {
   code: string | null
 }
 
+type SignInResponse = {
+  msg: string;
+};
+
 // hook 타입
 export type JoinFormProps = {
   reqAuthCode: UseMutateFunction<void, unknown, string | null, unknown>
@@ -32,5 +36,5 @@ export type JoinFormProps = {
 };
 
 export type LoginFormProps = {
-  signIn: UseMutationResult<void, AxiosError, LoginState>
+  signIn: UseMutationResult<SignInResponse, AxiosError, LoginState>
 };
