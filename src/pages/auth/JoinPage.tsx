@@ -4,8 +4,8 @@ import JoinForm from '../../components/auth/components/joinForm/JoinForm';
 import { Container } from '../../components/styles/AuthPageStyles';
 
 // hooks
-import { useSignUp } from '../../components/auth/hooks/useAuth';
 import { useReqAuthCode, useVerifyAuthCode } from '../../components/auth/hooks/useEmailAuthCode';
+import { useSignUp } from '../../query-hooks/useAuth';
 
 export default function JoinPage() {
   const reqAuthCode = useReqAuthCode();

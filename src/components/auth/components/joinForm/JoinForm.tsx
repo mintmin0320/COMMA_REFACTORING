@@ -1,12 +1,6 @@
-/*
-  회원가입
-  - 이메일 인증 코드 요청
-  - 이메일 인증 코드 확인
-*/
-
-import { useCallback, useState } from 'react';
-
-import InputField from '../../../common/InputField';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 // types
 import { JoinState } from '../../../../types/auth';
@@ -15,13 +9,34 @@ import { JoinState } from '../../../../types/auth';
 import * as S from './JoinForm.style';
 
 // types
-import { JoinFormProps, VerifyAuthCode } from '../../types/auth.type';
+import { VerifyAuthCode } from '../../types/auth.type';
+import { JoinFormProps } from '../../../../query-hooks/useAuth/api.type';
 
 export default function JoinForm({
   reqAuthCode,
   verifyAuthCode,
   signUp
 }: JoinFormProps) {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors }
+  } = useForm<JoinState & { code: string }>();
+
+  const navigate = useNavigate();
+
+  // 회원가입
+  const onSubmit = handleSubmit(async (value) => {
+    console.log(value);
+    try {
+      // await signUp.mutateAsync(value);
+
+      // navigate('/auth/login');
+    } catch (error) {
+      console.log(error)
+    }
+  });
+
   const [joinForm, setJoinForm] = useState<JoinState>({
     accountId: '',
     password: '',
@@ -37,46 +52,36 @@ export default function JoinForm({
 
   // 이메일 인증 코드 요청
   const handleSendAuthCode = () => {
-    reqAuthCode(joinForm.email);
+    // reqAuthCode(joinForm.email);
   };
 
   // 이메일 인증 코드 확인
   const handleVerifyAuthCode = () => {
-    const data: VerifyAuthCode = {
-      email: joinForm.email,
-      code,
-    };
+    // const data: VerifyAuthCode = {
+    //   email: joinForm.email,
+    //   code,
+    // };
 
-    verifyAuthCode(data);
+    // verifyAuthCode(data);
   };
-
-  // 회원가입
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    signUp(joinForm);
-  };
-
-  // <input>, <textarea>, <select> 태그의 변경 이벤트와 모두 호환
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-
-    if (name === 'code') {
-      setCode(value);
-    } else {
-      setJoinForm((prevState) => ({
-        ...prevState,
-        [name]: value
-      }));
-    }
-  }, []);
 
   return (
     <S.JoinContainer>
-      <S.Form onSubmit={handleSubmit}>
-        <S.InputBox>
+      <S.Form onSubmit={onSubmit}>
+        <S.InputWrap>
           <S.VerifyEmailInputBox>
-            <InputField width='100%' height='40px' label='이메일' name='email' value={joinForm.email} onChange={handleChange} />
+            <S.InputField>
+              이메일
+              <S.Input
+                {...register('email', {
+                  required: 'Required',
+                  pattern: {
+                    value: /^[a-zA-Z0-9]+$/,
+                    message: '영문과 숫자 조합만 사용해 주세요.'
+                  }
+                })}
+              />
+            </S.InputField>
             <S.VerifyButtonBox>
               <S.VerifyButton type='button' onClick={handleSendAuthCode}>
                 인증
@@ -84,24 +89,77 @@ export default function JoinForm({
             </S.VerifyButtonBox>
           </S.VerifyEmailInputBox>
           <S.VerifyEmailInputBox>
-            <InputField width='100%' height='40px' label='인증코드' name='code' value={code} onChange={handleChange} />
+            <S.InputField>
+              인증코드
+              <S.Input
+                {...register('code', {
+                  required: 'Required',
+                  pattern: {
+                    value: /^[a-zA-Z0-9]+$/,
+                    message: '영문과 숫자 조합만 사용해 주세요.'
+                  }
+                })}
+              />
+            </S.InputField>
             <S.VerifyButtonBox>
               <S.VerifyButton onClick={handleVerifyAuthCode} type='button'>
                 확인
               </S.VerifyButton>
             </S.VerifyButtonBox>
           </S.VerifyEmailInputBox>
-          <InputField width='100%' height='40px' label='아이디' name='accountId' value={joinForm.accountId} onChange={handleChange} />
-          <InputField width='100%' height='40px' label='비밀번호' name='password' type='password' value={joinForm.password} onChange={handleChange} />
-          <InputField width='100%' height='40px' label='이름' name='name' value={joinForm.name} onChange={handleChange} />
-          <InputField width='100%' height='40px' label='학번' name='academicNumber' value={joinForm.academicNumber} onChange={handleChange} />
+          <S.InputField>
+            아이디
+            <S.Input
+              {...register('accountId', {
+                required: 'Required',
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message: '영문과 숫자 조합만 사용해 주세요.'
+                }
+              })}
+            />
+          </S.InputField>
+          <S.InputField>
+            비밀번호
+            <S.Input
+              type='password'
+              {...register('password', {
+                required: 'Required',
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message: '영문과 숫자 조합만 사용해 주세요.'
+                }
+              })}
+            />
+          </S.InputField>
+          <S.InputField>
+            이름
+            <S.Input
+              {...register('name', {
+                required: 'Required',
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message: '영문과 숫자 조합만 사용해 주세요.'
+                }
+              })}
+            />
+          </S.InputField>
+          <S.InputField>
+            학번
+            <S.Input
+              {...register('academicNumber', {
+                required: 'Required',
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message: '영문과 숫자 조합만 사용해 주세요.'
+                }
+              })}
+            />
+          </S.InputField>
           <S.TextLabel>
             학과
             <S.Select
-              name='major'
-              value={joinForm.major}
-              onChange={handleChange}
-              required
+              {...register('major', { required: '학과 선택은 필수입니다.' })}
             >
               <option value='' disabled>
                 선택
@@ -114,10 +172,7 @@ export default function JoinForm({
           <S.TextLabel>
             학적
             <S.Select
-              name='status'
-              value={joinForm.status}
-              onChange={handleChange}
-              required
+              {...register('status', { required: '학적 선택은 필수입니다.' })}
             >
               <option value='' disabled>
                 선택
@@ -127,7 +182,7 @@ export default function JoinForm({
               <option value='Graduated'>졸업</option>
             </S.Select>
           </S.TextLabel>
-        </S.InputBox>
+        </S.InputWrap>
         <S.ButtonBox>
           <S.Button>
             회원가입

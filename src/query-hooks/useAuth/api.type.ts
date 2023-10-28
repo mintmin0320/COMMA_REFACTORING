@@ -28,9 +28,9 @@ export interface VerifyAuthCode {
 export type JoinFormProps = {
   reqAuthCode: UseMutateFunction<void, unknown, string | null, unknown>
   verifyAuthCode: UseMutateFunction<void, unknown, VerifyAuthCode, unknown>;
-  signUp: UseMutateFunction<void, unknown, JoinState, unknown>
+  signUp: UseMutationResult<number, AxiosError, JoinState>
 };
 
 export type LoginFormProps = {
-  signIn: UseMutationResult<void, AxiosError, LoginState>
+  signIn: UseMutationResult<string, AxiosError, LoginState>
 };

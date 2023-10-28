@@ -36,5 +36,5 @@ export type JoinFormProps = {
 };
 
 export type LoginFormProps = {
-  signIn: UseMutationResult<SignInResponse, AxiosError, LoginState>
+  signIn: UseMutationResult<string, AxiosError, LoginState>
 };

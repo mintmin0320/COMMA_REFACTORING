@@ -17,7 +17,7 @@ export const Form = styled.form`
   box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
 `;
 
-export const InputBox = styled.div`
+export const InputWrap = styled.div`
   width: 100%;
   height: 80%;
   display: grid;
@@ -88,3 +88,30 @@ export const Button = styled.button`
   font-weight: bolder;
   cursor: pointer;
 `;
+
+export const InputField = styled.label`
+  width: 60%;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+
+  & > input{
+    border: solid 1px #d8d8d8;
+    border-radius: 8px;
+    margin-top: 5px;
+
+    &::placeholder {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }
+`;
+
+export const Input = styled.input`
+  display: inline-block;
+  border: none;
+  width: 100%;
+  height: 40px;
+  font-size: 15px;
+`; 
