@@ -1,8 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-// types
-import { LoginFormProps, LoginState } from '../../types/auth.type';
+import { LoginFormProps, LoginState } from '../../../../query-hooks/useAuth/api.type';
 
 import * as S from './LoginForm.style';
 import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
