@@ -11,50 +11,50 @@ export const JoinContainer = styled.section`
 export const Form = styled.form`
   width: 75%;
   height: 65%;
-  background-color: #fff;
   border: 1px solid #D8D8D8;
   border-radius: 12px;
   box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 `;
 
-export const InputBox = styled.div`
+export const InputWrap = styled.div`
   width: 100%;
-  height: 80%;
+  height: 85%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  margin-left: 40px;
+  align-items: flex-end;
+  margin-left: 25px;
 `;
 
 export const VerifyEmailInputBox = styled.div`
   width: 100%;
-  height: 55px;
-  display: flex;
-  align-items: flex-end;
-`;
-
-export const VerifyButtonBox = styled.div`
-  width: 55px;
-  height: 38px;
-  margin-left: 20px;
+  height: 100%;
   display: flex;
   align-items: center;
 `;
 
+export const VerifyButtonBox = styled.div`
+  width: 25%;
+  height: 95px;
+  display: flex;
+  justify-content: center;
+`;
+
 export const VerifyButton = styled.button`
-  width: 100%;
-  height: 25px;
-  background-color: #0064ff;
+  width: 65px;
+  height: 30px;
   color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 13px;
   font-weight: bolder;
+  margin-top: 19px;
+  background-color: #0064ff;
   cursor: pointer;
 `;
 
 export const TextLabel = styled.label`
-  width: 62%;
+  width: 65%;
   height: 55px;
   display: flex;
   flex-direction: column;
@@ -71,15 +71,15 @@ export const Select = styled.select`
 
 export const ButtonBox = styled.div`
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export const Button = styled.button`
-  width: 25%;
-  height: 50px;
+  width: 120px;
+  height: 40px;
   background-color: #0064ff;
   color: #fff;
   border: none;
@@ -87,4 +87,45 @@ export const Button = styled.button`
   font-size: 16px;
   font-weight: bolder;
   cursor: pointer;
+`;
+
+export const InputField = styled.div`
+  width: 65%;
+  height: 95px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 15px;
+
+  & > input{
+    border: solid 1px #d8d8d8;
+    border-radius: 8px;
+
+    &::placeholder {
+      font-size: 12px;
+      padding: 5px;
+    }
+  }
+`;
+
+export const InputInfo = styled.p`
+  width: 100%;
+  height: 20px;
+`;
+
+export const Input = styled.input`
+  display: inline-block;
+  border: none;
+  width: calc(100% - 4px);
+  height: 30px;
+  font-size: 15px;
+`;
+
+export const ValidBox = styled.div`
+  width: 100%;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  color: #FE2E2E;
 `;

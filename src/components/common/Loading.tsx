@@ -34,7 +34,7 @@ export default function Loading() {
   return (
     <LoadingWrap style={{ display: display }}>
       <LoadingBox>
-        <PacmanLoader color='#36d7b7' size='40' margin='5' />
+        <PacmanLoader color='#36d7b7' size='40px' margin='5px' />
       </LoadingBox>
     </LoadingWrap>
   );

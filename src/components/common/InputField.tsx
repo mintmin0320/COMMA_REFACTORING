@@ -32,7 +32,7 @@ const StyledInput = styled.input`
   font-size: 15px;
 `;
 
-const InputField = ({ name, value, width, height, placeholder, onChange, onSubmit, label }: InputFieldProps) => {
+const InputField = ({ name, value, width, height, placeholder, onChange, onSubmit, type, label }: InputFieldProps) => {
   const onEnterSubmit = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (!onSubmit || e.nativeEvent.isComposing) {
       return;
@@ -54,6 +54,7 @@ const InputField = ({ name, value, width, height, placeholder, onChange, onSubmi
         width={width}
         height={height}
         placeholder={placeholder}
+        type={type || 'text'}
         required
       />
     </StyledTextLabel>
