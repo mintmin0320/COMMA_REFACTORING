@@ -1,4 +1,4 @@
-import Logo from '../../components/common/Logo';
+import Logo from '../../components/common/layout/authLogo/Logo';
 import JoinForm from '../../components/auth/components/joinForm/JoinForm';
 
 import { Container } from '../../components/styles/AuthPageStyles';
