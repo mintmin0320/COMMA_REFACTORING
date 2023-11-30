@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-// icons
-import { ImArrowRight } from "react-icons/im";
+import { ImArrowRight } from '../common/icons';
 
 // CSS
 const StyledGuideBannerBox = styled.div`

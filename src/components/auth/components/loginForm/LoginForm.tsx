@@ -4,7 +4,8 @@ import { useForm } from 'react-hook-form';
 import { LoginFormProps, LoginState } from '../../../../query-hooks/useAuth/api.type';
 
 import * as S from './LoginForm.style';
-import { HiUser, HiMiniLockClosed } from "react-icons/hi2";
+
+import { HiUser, FaLock } from '../../../common/icons';
 
 export default function LoginForm({ signIn }: LoginFormProps) {
   const {
@@ -47,7 +48,7 @@ export default function LoginForm({ signIn }: LoginFormProps) {
           </S.InputBox>
           <S.InputBox>
             <S.IconBox>
-              <HiMiniLockClosed size='22px' />
+              <FaLock size='22px' />
             </S.IconBox>
             <S.Input
               type='password'

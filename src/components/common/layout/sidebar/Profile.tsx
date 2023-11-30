@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// icons
-import { BsFillBasketFill, BsFillChatDotsFill, BsFillGearFill } from "react-icons/bs";
-import { BiSolidUser } from "react-icons/bi";
-import { RiLogoutBoxRFill } from "react-icons/ri";
+import {
+  FaShoppingBasket,
+  BsFillChatDotsFill,
+  BsFillGearFill,
+  HiUser,
+  RiLogoutBoxRFill
+} from '../../icons';
 
 // CSS
 const ProfileWrap = styled.div`
@@ -79,7 +82,7 @@ const Profile = () => {
       </StyledProfileBox>
       <StyledNavBox>
         <StyledNavLink to='/profile' >
-          <BiSolidUser size='20px' />
+          <HiUser size='20px' />
         </StyledNavLink>
         {isAdmin && (
           <StyledNavLink to='/admin/user-info'>
@@ -87,7 +90,7 @@ const Profile = () => {
           </StyledNavLink>
         )}
         <StyledNavLink to='/basket'>
-          <BsFillBasketFill size='20px' />
+          <FaShoppingBasket size='20px' />
         </StyledNavLink>
         <StyledNavLink to='/'>
           <BsFillChatDotsFill size='20px' />

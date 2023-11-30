@@ -6,9 +6,7 @@
 
 import styled from 'styled-components';
 
-// icons
-import { FcSearch } from "react-icons/fc";
-import { MdOutlineKeyboardVoice } from "react-icons/md";
+import { FcSearch } from '../common/icons'
 
 // CSS
 const StyledSearchWrap = styled.div`
@@ -59,7 +57,7 @@ const SearchBar = () => {
         <StyledSearchCorner $corner='left' />
         <StyledSearchInput />
         <StyledSearchIconBox>
-          <MdOutlineKeyboardVoice color='#0064ff' />
+          <FcSearch color='#0064ff' />
         </StyledSearchIconBox>
         <StyledSearchIconBox>
           <FcSearch />

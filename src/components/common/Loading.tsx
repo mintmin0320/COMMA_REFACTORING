@@ -1,7 +1,7 @@
-import { useIsFetching, useIsMutating } from 'react-query';
 import styled from 'styled-components';
 
 import { PacmanLoader } from 'react-spinners';
+import { useIsFetching, useIsMutating } from '@tanstack/react-query';
 
 const LoadingWrap = styled.div`
   width: 100%;

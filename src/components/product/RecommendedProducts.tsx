@@ -12,10 +12,13 @@ import { RecommendInfo } from '../../types/product';
 // dummy-data
 import recommendData from './recommend.json';
 
-// icons
-import { FiRefreshCcw } from "react-icons/fi";
-import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
-import { BsFillCartCheckFill } from "react-icons/bs";
+import {
+  FiRefreshCcw,
+  AiFillHeart,
+  AiOutlineHeart,
+  AiOutlineShoppingCart,
+  FaCartPlus,
+} from '../common/icons';
 
 // CSS
 const StyledProductRecommendWrap = styled.div`
@@ -171,7 +174,7 @@ const RecommendedProducts = () => {
                   }}
                 >
                   {
-                    !isCartVisible[item.recommendId] ? <AiOutlineShoppingCart /> : <BsFillCartCheckFill />
+                    !isCartVisible[item.recommendId] ? <AiOutlineShoppingCart /> : <FaCartPlus />
                   }
                 </StyledProductRecommendIcon>
               </StyledProductRecommendIconBox>

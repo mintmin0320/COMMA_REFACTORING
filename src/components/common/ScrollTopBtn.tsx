@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-// icons
-import { ImArrowUp2 } from "react-icons/im";
+import { ImArrowUp2 } from './icons';
 
 // CSS
 const StyledTopBtn = styled.div`

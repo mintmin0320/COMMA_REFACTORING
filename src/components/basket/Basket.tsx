@@ -4,8 +4,7 @@ import styled from 'styled-components';
 // types
 import { SelectedState } from '../../types/basket';
 
-// icons
-import { BsFillTrash3Fill } from "react-icons/bs";
+import { FaTrash } from '../common/icons';
 
 // CSS
 const StyledBasketForm = styled.form`
@@ -321,7 +320,7 @@ const Basket = () => {
             <StyledBasketItemCategory>센서</StyledBasketItemCategory>
             <StyledBasketItemButtonBox>
               <StyledBasketItemButton type='button'>
-                <BsFillTrash3Fill size='20px' />
+                <FaTrash size='20px' />
               </StyledBasketItemButton>
             </StyledBasketItemButtonBox>
           </StyledBasketItemInfoBox>

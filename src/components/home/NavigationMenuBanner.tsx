@@ -1,14 +1,12 @@
-/*
-  간단한 로직이므로 컴포넌트 분리가 아닌 반복문을 사용해 중복 해소
-*/
-
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// icons
-import { FaShoppingBasket } from "react-icons/fa";
-import { BiConversation } from "react-icons/bi";
-import { AiOutlineNotification, AiOutlineQuestionCircle } from "react-icons/ai";
+import {
+  FaShoppingBasket,
+  BiConversation,
+  AiOutlineNotification,
+  AiOutlineQuestionCircle
+} from '../common/icons';
 
 // CSS
 const StyledBannerBox = styled.div`

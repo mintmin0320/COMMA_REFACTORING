@@ -10,8 +10,14 @@ import { StyledModalContainer } from '../styles/CommonStyles';
 import { ModalProps } from '../../types/product';
 
 // icons
-import { AiOutlineHeart, AiOutlineShoppingCart, AiFillHeart } from "react-icons/ai";
-import { BsFillCartCheckFill } from "react-icons/bs";
+
+import {
+  AiOutlineHeart,
+  AiOutlineShoppingCart,
+  AiFillHeart,
+  FaCartPlus
+} from '../common/icons';
+
 
 // CSS
 const StyledModalWrap = styled.div`
@@ -179,7 +185,7 @@ const ProductDetail = ({ isOpen, onClose }: ModalProps) => {
                 </StyledProductIcon>
                 <StyledProductIcon onClick={() => setIsCartVisible(!isCartVisible)}>
                   {
-                    !isCartVisible ? <AiOutlineShoppingCart /> : <BsFillCartCheckFill />
+                    !isCartVisible ? <AiOutlineShoppingCart /> : <FaCartPlus />
                   }
                 </StyledProductIcon>
               </StyledProductIconBox>

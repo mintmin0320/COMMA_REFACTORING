@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-// icons
-import { BsGithub } from 'react-icons/bs';
-import { SiVelog } from 'react-icons/si';
+import { FaLinkedin, FaGithub } from '../icons';
 
 // CSS
 const Container = styled.div`
@@ -43,10 +41,10 @@ const Footer = () => {
       <StyledFooterWrap>
         <StyledInfo>
           <StyledIconLink to='https://github.com/mintmin0320/COMMA_REFACTORING'>
-            <BsGithub size='25px' color='#000' />
+            <FaGithub size='25px' color='#000' />
           </StyledIconLink>
-          <StyledIconLink to='https://velog.io/@mintmin0320'>
-            <SiVelog size='25px' color='#20C997' />
+          <StyledIconLink to='https://www.linkedin.com/in/%ED%95%98%EB%AF%BC-%EB%B0%95-0aba16285/'>
+            <FaLinkedin size='25px' color='#20C997' />
           </StyledIconLink>
         </StyledInfo>
         <StyledInfo>

@@ -8,8 +8,7 @@ import styled from 'styled-components';
 // types
 import { BestPostInfo } from './../../types/community'
 
-// icons, dummy-data
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart } from '../common/icons';
 
 import bestPostData from './bestPostData.json';
 

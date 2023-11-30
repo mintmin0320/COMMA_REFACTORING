@@ -1,8 +1,7 @@
 import { ChangeEvent, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-// icons
-import { FcAddImage } from "react-icons/fc";
+import { FcAddImage } from '../common/icons';
 
 // CSS
 const StyledAddProductContainer = styled.div`
