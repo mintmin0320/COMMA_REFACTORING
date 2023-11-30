@@ -7,7 +7,8 @@ import * as S from './LoginForm.style';
 
 import { HiUser, FaLock } from '../../../common/icons';
 
-export default function LoginForm({ signIn }: LoginFormProps) {
+// export default function LoginForm({ signIn }: LoginFormProps) {
+export default function LoginForm() {
   const {
     handleSubmit,
     register,
@@ -18,7 +19,7 @@ export default function LoginForm({ signIn }: LoginFormProps) {
 
   const onSubmit = handleSubmit(async (value) => {
     try {
-      await signIn.mutateAsync(value);
+      // await signIn.mutateAsync(value);
 
       navigate('/');
     } catch (error) {

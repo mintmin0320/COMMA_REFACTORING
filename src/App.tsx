@@ -1,5 +1,5 @@
-import { QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
+
+
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 
@@ -10,6 +10,8 @@ import { queryClient } from './react-query/queryClient';
 
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { QueryClientProvider } from '@tanstack/react-query';
 
 export default function App() {
   return (
@@ -20,7 +22,7 @@ export default function App() {
         <ScrollToTop />
         <MainRoute />
       </BrowserRouter>
-      <ReactQueryDevtools initialIsOpen={false} />
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 };

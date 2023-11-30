@@ -14,11 +14,12 @@ import {
   VerifyAuthCode
 } from '../../../../query-hooks/useAuth/api.type';
 
-export default function JoinForm({
-  reqAuthCode,
-  verifyAuthCode,
-  signUp
-}: JoinFormProps) {
+// export default function JoinForm({
+//   reqAuthCode,
+//   verifyAuthCode,
+//   signUp
+// }: JoinFormProps) {
+export default function JoinForm() {
   const {
     handleSubmit,
     register,
@@ -38,61 +39,61 @@ export default function JoinForm({
 
   // 이메일 인증 코드 요청
   const handleAuthCode = async () => {
-    if (!await trigger('email')) {
-      toast.warning('유효하지 않은 형식');
+    // if (!await trigger('email')) {
+    //   toast.warning('유효하지 않은 형식');
 
-      return;
-    }
+    //   return;
+    // }
 
-    try {
-      const data = await reqAuthCode.mutateAsync(email);
+    // try {
+    //   // const data = await reqAuthCode.mutateAsync(email);
 
-      if (data === 200) {
-        setIsRequestAuthCode(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    //   if (data === 200) {
+    //     setIsRequestAuthCode(true);
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   // 이메일 인증 코드 확인
   const handleVerifyAuthCode = async () => {
-    if (!await trigger('code')) {
-      toast.warning('유효하지 않은 형식');
+    // if (!await trigger('code')) {
+    //   toast.warning('유효하지 않은 형식');
 
-      return;
-    }
+    //   return;
+    // }
 
-    const params: VerifyAuthCode = { email, code };
+    // const params: VerifyAuthCode = { email, code };
 
-    try {
-      const data = await verifyAuthCode.mutateAsync(params);
+    // try {
+    //   const data = await verifyAuthCode.mutateAsync(params);
 
-      if (data === 200) {
-        setIsVerifyAuthCode(true);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    //   if (data === 200) {
+    //     setIsVerifyAuthCode(true);
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   // 회원가입
   const onSubmit = handleSubmit(async (value) => {
-    if (!isVerifyCode) {
-      toast.warning('우선 이메일 인증을 완료해 주새요.');
+    // if (!isVerifyCode) {
+    //   toast.warning('우선 이메일 인증을 완료해 주새요.');
 
-      return;
-    }
+    //   return;
+    // }
 
-    try {
-      const data = await signUp.mutateAsync(value);
+    // try {
+    //   const data = await signUp.mutateAsync(value);
 
-      if (data === 201) {
-        navigate('/auth/login');
-      }
-    } catch (error) {
-      console.log(error)
-    }
+    //   if (data === 201) {
+    //     navigate('/auth/login');
+    //   }
+    // } catch (error) {
+    //   console.log(error)
+    // }
   });
 
   return (

@@ -1,5 +1,5 @@
+import { UseMutationResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { UseMutationResult } from 'react-query';
 
 // 회원가입 form-data 타입
 export interface JoinState {
