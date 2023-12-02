@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 
-import LoginPage from '../pages/auth/LoginPage';
-import JoinPage from '../pages/auth/JoinPage';
+import LoginPage from '../pages/auth/loginPage/LoginPage';
+import JoinPage from '../pages/auth/joinPage/JoinPage';
 
 const AuthRoute = () => {
   const location = useLocation();

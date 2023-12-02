@@ -1,36 +1,48 @@
-// import { AxiosError } from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import { useNavigate } from "react-router-dom";
+import { AxiosError } from 'axios';
 
-// import {
-//   fetchAuthCode,
-//   fetchSignIn,
-//   fetchSignUp,
-//   fetchVerifyAuthCode
-// } from './api';
+import {
+  postSignIn,
+  fetchAuthCode,
+  fetchSignUp,
+  fetchVerifyAuthCode
+} from './api';
 
-// import { JoinState, LoginState, VerifyAuthCode } from './api.type';
+import { handleError } from '../../utils/error/handleError';
 
-// import Toast from '../../components/common/Toast';
-// import { useMutation } from '@tanstack/react-query';
+import { LoginState } from '../../types/auth';
+import renderToast from '../../lib/toast';
+interface TokenResponse {
+  access_token: string;
+  refresh_token: string;
+}
+// 로그인
+function useSignIn() {
+  const navigate = useNavigate();
 
-// const toast = Toast();
+  return useMutation<
+    TokenResponse,
+    AxiosError,
+    LoginState
+  >({
+    mutationFn: (params) => postSignIn(params),
+    onSuccess: () => {
+      renderToast({
+        type: 'success',
+        message: 'Welcome to COMMA! 🎉',
+      });
 
-// // 로그인
-// function useSignIn() {
-//   return useMutation<
-//     number,
-//     AxiosError,
-//     LoginState
-//   >(({ accountId, password }) => fetchSignIn({ accountId, password }),
-//     {
-//       onSuccess: () => {
-//         toast.success('Welcome to COMMA! 🎉');
-//       },
-//       onError: (error: AxiosError) => {
-//         /* 에러 핸들러 추가 필요 */
-//         toast.error(error.message);
-//       }
-//     });
-// };
+      navigate('/');
+    },
+    onError: () => {
+      renderToast({
+        type: 'loading',
+        message: '로그인을 실패했습니다. 다시 시도해 주세요.',
+      });
+    }
+  });
+};
 
 // // 회원가입
 // function useSignUp() {
@@ -80,6 +92,4 @@
 //     });
 // };
 
-// export { useSignIn, useSignUp, useReqAuthCode, useVerifyAuthCode };
-
-export { };
+export { useSignIn };

@@ -1,30 +1,10 @@
 import styled from 'styled-components';
 
-export const LoginContainer = styled.section`
-  width: 60%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const Wrap = styled.div`
-  width: 55%;
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #D8D8D8;
-  border-radius: 12px;
-  box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
-`;
-
 export const Form = styled.form`
   width: 55%;
 `;
 
-export const InputBox = styled.div`
+export const InputLabel = styled.label`
   width: calc(100% - 4px);
   height: 40px;
   display: flex;
@@ -54,7 +34,6 @@ export const Input = styled.input`
   }
 `;
 
-// 버튼
 export const Button = styled.button`
   width: 100%;
   height: 45px;
@@ -71,9 +50,10 @@ export const Button = styled.button`
 `;
 
 export const ErrorTextBox = styled.div`
-width: 100%;
-display: flex;
-justify-content: center;
-margin-top: 5px;
-color: #FE2E2E;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  font-size: 0.9em;
+  color: #FE2E2E;
 `;

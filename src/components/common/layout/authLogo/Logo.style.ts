@@ -7,6 +7,7 @@ export const LogoWrap = styled.section`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  background-color: #FAFAFA;
 `;
 
 const pulseAnimation = keyframes`
