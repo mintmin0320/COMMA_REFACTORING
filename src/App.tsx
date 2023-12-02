@@ -1,12 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { MutationCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
 
-import MainRoute from './routes/MainRote';
+import Router from './routes/Router';
 import ScrollToTop from './components/common/ScrollTop';
 import Loading from './components/common/Loading';
-
 import './App.css';
 
 const queryClient = new QueryClient({
@@ -25,7 +24,7 @@ export default function App() {
         <Loading />
         <Toaster />
         <ScrollToTop />
-        <MainRoute />
+        <Router />
       </BrowserRouter>
       <ReactQueryDevtools />
     </QueryClientProvider>
