@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Header from '../../components/common/layout/Header'
+import Header from '../../components/common/layout/header/Header'
 import SideBar from '../../components/common/layout/sidebar/SideBar';
 import NoticeDetail from '../../components/notice/NoticeDetail';
 

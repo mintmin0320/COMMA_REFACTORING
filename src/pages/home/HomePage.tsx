@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // layout
 import Home from '../../components/home/Home';
-import Header from '../../components/common/layout/Header';
+import Header from '../../components/common/layout/header/Header';
 import Footer from '../../components/common/layout/footer/Footer';
 import ScrollTopBtn from '../../components/common/ScrollTopBtn';
 
