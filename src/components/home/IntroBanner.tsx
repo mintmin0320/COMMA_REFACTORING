@@ -25,7 +25,7 @@ const StyledFirstBox = styled.div`
 const StyledAdditionalText = styled.div`
   font-size: 60px;
   font-weight: bolder;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'ADLaMDisplay', sans-serif;
   color: #fff;
   margin-bottom: 40px;
 `;
