@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { debounce } from 'lodash';
 
-import ScrollProgressBar from '../../ScrollProgressBar';
-
-import { MenuItem } from '../../../../types/common';
-import { HeaderProps } from '../../../../types/common';
+import { MenuItem, HeaderProps } from '../../../../types/common';
 
 import * as S from './Header.style';
 
