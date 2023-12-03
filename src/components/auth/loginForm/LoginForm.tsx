@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import { LoginState } from '../../../../types/auth';
+import { LoginState } from '../../../types/auth';
 
 import * as S from './LoginForm.style';
 
-import { HiUser, FaLock } from '../../../common/icons';
+import { HiUser, FaLock } from '../../common/icons';
 
-import { useSignIn } from '../../../../query-hooks/useAuth';
+import { useSignIn } from '../../../query-hooks/useAuth';
 
 export default function LoginForm() {
   const navigate = useNavigate();

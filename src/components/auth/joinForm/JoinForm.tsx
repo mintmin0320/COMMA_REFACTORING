@@ -4,17 +4,17 @@ import { useNavigate } from 'react-router-dom';
 
 import * as S from './JoinForm.style';
 
-import renderToast from '../../../../lib/toast';
+import renderToast from '../../../lib/toast';
 
 import {
   useRequestEmail,
   useSignUp,
   useVerifyAuthCode
-} from '../../../../query-hooks/useAuth';
+} from '../../../query-hooks/useAuth';
 
-import { JoinState, VerifyAuthCode } from '../../../../types/auth';
+import { JoinState, VerifyAuthCode } from '../../../types/auth';
 
-import { SUCCESS_CODE } from '../../../../constants/success';
+import { SUCCESS_CODE } from '../../../constants/success';
 
 export default function JoinForm() {
   const navigate = useNavigate();

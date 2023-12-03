@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import Logo from '../../../components/common/layout/authLogo/Logo';
-import LoginForm from '../../../components/auth/components/loginForm/LoginForm';
+import LoginForm from '../../../components/auth/loginForm/LoginForm';
 
 import { Container } from '../../../components/styles/AuthPageStyles';
 import * as S from './LoginPage.style';
