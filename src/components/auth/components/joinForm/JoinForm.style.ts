@@ -1,25 +1,19 @@
 import styled from 'styled-components';
 
-export const JoinContainer = styled.section`
-  width: 60%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 export const Form = styled.form`
   width: 75%;
-  height: 65%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: 1px solid #D8D8D8;
   border-radius: 12px;
-  box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
   background-color: #fff;
 `;
 
 export const InputWrap = styled.div`
   width: 100%;
-  height: 85%;
+  height: 75%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: flex-end;
@@ -74,7 +68,7 @@ export const ButtonBox = styled.div`
   height: 15%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 `;
 
 export const Button = styled.button`
@@ -89,7 +83,7 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const InputField = styled.div`
+export const InputField = styled.label`
   width: 65%;
   height: 95px;
   display: flex;
