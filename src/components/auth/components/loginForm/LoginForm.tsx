@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { LoginState } from '../../../../types/auth';
@@ -9,20 +10,25 @@ import { HiUser, FaLock } from '../../../common/icons';
 import { useSignIn } from '../../../../query-hooks/useAuth';
 
 export default function LoginForm() {
+  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
     formState: { errors }
   } = useForm<LoginState>();
 
-  const { mutate: signIn } = useSignIn();
+  const { mutateAsync: signIn } = useSignIn();
 
-  const onSubmit = handleSubmit(({ accountId, password }) => {
-    signIn({ accountId, password });
-  });
+  const onSubmit = async ({ accountId, password }: LoginState) => {
+    const data = await signIn({ accountId, password });
+
+    if (data) {
+      navigate('/');
+    }
+  };
 
   return (
-    <S.Form onSubmit={onSubmit}>
+    <S.Form onSubmit={handleSubmit(onSubmit)}>
       <S.InputLabel style={{ borderBottom: 'none' }}>
         <S.IconBox>
           <HiUser size='24px' />
