@@ -53,45 +53,6 @@
 <br/>
 
 ## ⭐️ 주요 변경 사항
-### 디렉토리 구조 변경 ( 계층별 -> 기능별 )
-> 효율성 향상의 이점 <br/>
-- 같은 기능으로 구성된 폴더로 응집성을 높여 효율적인 작업 수행 <br/>
-💡 계층별로 코드를 관리할 경우 여러 폴더에 흩어진 파일에 접근하는 것에 비해 효율적 (가독성의 이점)
-
-<br/>
-
-```
-comma-refacor
-└── components                                                                                   
-    ├── shared 			
-    │   └── (여러 기능이 공통으로 사용하는 코드)
-    └── auth                                  
-        ├── components
-        │   ├── JoinForm.tsx                       
-        │   ├── JoinForm.style.ts                           
-	│   ├── LoginForm.tsx
-        │   └── LoginForm.style.ts
-        ├── hooks
-        │   ├── constants.ts
-        │   ├── useAuth.ts
-        │   └── useEmailAuthCode.ts
-        └── utils
-```
-
-<br/>
-
-### React-Query 적용
-> 서버 데이터 캐싱 진행
-
-- 기존 학식 위젯의 경우 useEffect를 사용해 모든 페이지에서 마운트될 때마다 불필요한 데이터를 재요청 <br/>
-💡 학식의 경우 하루 단위로 변경되기 때문에 데이터를 수시로 갱신의 필요가 없다.
-
-<br/>
-  
-> 에러 핸들러 중앙화
-- API 요청 시 발생하는 에러의 경우 각 요청 함수마다 try-catch로 처리 <br/>
-💡 에러 발생 시 queryClient에서 onError 콜백에서 에러 핸들러 진행
-
 
 <br/>
 <br/>
