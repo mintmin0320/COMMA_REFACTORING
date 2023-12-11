@@ -10,7 +10,6 @@ import productItemData from '../productData.json';
 import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
 import ProductCard from '../productCard/ProductCard';
-import { useSearchProductQuery } from '../../../query-hooks/useSearchProductQuery';
 
 import * as S from './ProductList.style';
 
