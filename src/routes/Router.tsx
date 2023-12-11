@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { PATH } from '../constants/path';
+import PageLoading from '../components/common/skeleton/PageLoading';
 
 const LoginPage = lazy(() => import('../pages/auth/loginPage/LoginPage'));
 const JoinPage = lazy(() => import('../pages/auth/joinPage/JoinPage'));
@@ -18,7 +19,7 @@ const NotFoundPage = lazy(() => import('../components/notice/NotFoundPage'));
 
 const Router = () => {
   return (
-    <Suspense fallback='Loading'>
+    <Suspense fallback={<PageLoading />}>
       <Routes>
         <Route path={PATH.HOME} element={<HomePage />} />
         <Route path={`${PATH.AUTH}/login`} element={<LoginPage />} />
