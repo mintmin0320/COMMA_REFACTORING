@@ -13,7 +13,7 @@ const StyledProductCategoryBox = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   border: solid 1px #d8d8d8;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
 

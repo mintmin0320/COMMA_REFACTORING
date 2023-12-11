@@ -14,6 +14,13 @@ const StyledSearchWrap = styled.div`
   height: 70px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border: solid 1px #d8d8d8;
+  border-top: none;
+  border-radius: 0 0px 8px 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+  background-color: #fff;
 `;
 
 const StyledSearchBox = styled.div`
@@ -22,8 +29,7 @@ const StyledSearchBox = styled.div`
   display: flex;
   border: solid 1px #d8d8d8;
   border-radius: 30px;
-  background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.1);
 `;
 
 const StyledSearchInput = styled.input`
@@ -57,10 +63,9 @@ const SearchBar = () => {
         <StyledSearchCorner $corner='left' />
         <StyledSearchInput />
         <StyledSearchIconBox>
-          <FcSearch color='#0064ff' />
+          <FcSearch />
         </StyledSearchIconBox>
         <StyledSearchIconBox>
-          <FcSearch />
         </StyledSearchIconBox>
         <StyledSearchCorner />
       </StyledSearchBox>

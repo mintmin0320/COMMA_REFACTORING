@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useInView } from 'react-intersection-observer';
 
-import ProductList from './ProductList';
+import ProductList from './productList/ProductList';
 import ProductCategory from './ProductCategory';
 import ProductCarousel from './ProductCarousel';
 import SearchBar from '../common/SearchBar';
@@ -27,13 +27,13 @@ const StyledProductWrap = styled.div`
 `;
 
 const Product = () => {
-  const { ref, inView } = useInView();
+  // const { ref, inView } = useInView();
 
-  useEffect(() => {
-    if (inView) {
-      alert('hi')
-    }
-  }, [inView]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     alert('hi')
+  //   }
+  // }, [inView]);
 
   return (
     <Container>
@@ -42,9 +42,9 @@ const Product = () => {
         <ProductCarousel />
         <SearchBar />
         <ProductList />
-        <div ref={ref}>
+        {/* <div ref={ref}>
           <h1>loading</h1>
-        </div>
+        </div> */}
       </StyledProductWrap>
     </Container>
   );
