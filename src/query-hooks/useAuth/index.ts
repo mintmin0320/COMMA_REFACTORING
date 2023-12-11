@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from "react-router-dom";
-import { AxiosError } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 
 import {
   postSignIn,
@@ -12,20 +12,26 @@ import {
 import { handleError } from '../../utils/error/handleError';
 import renderToast from '../../lib/toast';
 
-import { JoinState, LoginState, VerifyAuthCode } from '../../types/auth';
-import { TokenResponse } from './api.type';
+import {
+  JoinState,
+  LoginState,
+  TokenResponse,
+  VerifyAuthCode
+} from '../../types/auth';
 
 // 로그인
 function useSignIn() {
   const navigate = useNavigate();
-
   return useMutation<
     TokenResponse,
     AxiosError,
     LoginState
   >({
     mutationFn: (params) => postSignIn(params),
-    onSuccess: () => {
+    onSuccess: ({ access_token, refresh_token }) => {
+      localStorage.setItem('token', access_token);
+      localStorage.setItem('token', refresh_token);
+
       renderToast({
         type: 'success',
         message: 'Welcome to COMMA! 🎉',
@@ -33,10 +39,10 @@ function useSignIn() {
 
       navigate('/');
     },
-    onError: () => {
-      renderToast({
-        type: 'error',
-        message: '로그인을 실패했습니다. 다시 시도해 주세요.',
+    onError: (error) => {
+      handleError({
+        error,
+        message: '로그인 실패!'
       });
     }
   });
@@ -53,7 +59,10 @@ function useRequestEmail() {
       });
     },
     onError: (error: AxiosError) => {
-      handleError(error);
+      handleError({
+        error,
+        message: '인정번호 요청 실패!'
+      });
     }
   });
 };
@@ -69,7 +78,7 @@ function useVerifyAuthCode() {
       });
     },
     onError: (error: AxiosError) => {
-      handleError(error);
+      // handleError(error);1
     }
   });
 };

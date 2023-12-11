@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { LoginState } from '../../../types/auth';
@@ -10,21 +9,16 @@ import { HiUser, FaLock } from '../../common/icons';
 import { useSignIn } from '../../../query-hooks/useAuth';
 
 export default function LoginForm() {
-  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
     formState: { errors }
   } = useForm<LoginState>();
 
-  const { mutateAsync: signIn } = useSignIn();
+  const { mutate: signIn } = useSignIn();
 
-  const onSubmit = async ({ accountId, password }: LoginState) => {
-    const data = await signIn({ accountId, password });
-
-    if (data) {
-      navigate('/');
-    }
+  const onSubmit = ({ accountId, password }: LoginState) => {
+    signIn({ accountId, password });
   };
 
   return (

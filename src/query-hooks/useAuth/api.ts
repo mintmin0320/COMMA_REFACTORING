@@ -1,12 +1,16 @@
-import { TokenResponse } from './api.type';
-import { JoinState, LoginState, VerifyAuthCode } from '../../types/auth';
+import {
+  JoinState,
+  LoginState,
+  TokenResponse,
+  VerifyAuthCode
+} from '../../types/auth';
 
-import axiosInstance from '../../lib/axiosInstance';
+import clint from '../../lib/client';
 
 // 로그인
 export async function postSignIn(params: LoginState): Promise<TokenResponse> {
-  const { data } = await axiosInstance.post<TokenResponse>(
-    '/account/signin',
+  const { data } = await clint.post<TokenResponse>(
+    '/users/sign-in',
     params
   );
 
@@ -15,7 +19,7 @@ export async function postSignIn(params: LoginState): Promise<TokenResponse> {
 
 // 인증 코드 요청
 export async function postRequestEmail(email: string): Promise<number> {
-  const { status } = await axiosInstance.post(
+  const { status } = await clint.post(
     'users/email-authentication',
     { email }
   );
@@ -25,7 +29,7 @@ export async function postRequestEmail(email: string): Promise<number> {
 
 // 인증 코드 확인
 export async function postVerifyAuthCode(params: VerifyAuthCode): Promise<number> {
-  const { status } = await axiosInstance.post(
+  const { status } = await clint.post(
     '/account/email/verify',
     params
   );
@@ -35,7 +39,7 @@ export async function postVerifyAuthCode(params: VerifyAuthCode): Promise<number
 
 // 회원가입
 export async function postSignUp(params: JoinState): Promise<number> {
-  const { status } = await axiosInstance.post(
+  const { status } = await clint.post(
     '/account/signup',
     params
   );
