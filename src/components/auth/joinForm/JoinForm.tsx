@@ -32,7 +32,7 @@ export default function JoinForm() {
   const email = watch('email');
   const code = watch('code');
 
-  const { mutateAsync: requestEmail } = useRequestEmail();
+  const { mutate: requestEmail } = useRequestEmail();
   const { mutateAsync: verifyAuthCode } = useVerifyAuthCode();
   const { mutateAsync: signUp } = useSignUp();
 
@@ -47,11 +47,13 @@ export default function JoinForm() {
       return;
     }
 
-    const data = await requestEmail(email);
-
-    if (data === SUCCESS_CODE.CREATED_REQUEST) {
-      setIsRequestCode(true);
-    }
+    requestEmail(email, {
+      onSuccess: (data) => {
+        if (data) {
+          setIsRequestCode(true);
+        }
+      }
+    });
   };
 
   // 이메일 인증 코드 확인
