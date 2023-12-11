@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 
 import * as S from './JoinForm.style';
 
@@ -14,10 +13,7 @@ import {
 
 import { JoinState, VerifyAuthCode } from '../../../types/auth';
 
-import { SUCCESS_CODE } from '../../../constants/success';
-
 export default function JoinForm() {
-  const navigate = useNavigate();
   const {
     handleSubmit,
     register,
@@ -33,8 +29,8 @@ export default function JoinForm() {
   const code = watch('code');
 
   const { mutate: requestEmail } = useRequestEmail();
-  const { mutateAsync: verifyAuthCode } = useVerifyAuthCode();
-  const { mutateAsync: signUp } = useSignUp();
+  const { mutate: verifyAuthCode } = useVerifyAuthCode();
+  const { mutate: signUp } = useSignUp();
 
   // 이메일 인증 코드 요청
   const handleRequestEmail = async () => {
@@ -48,10 +44,8 @@ export default function JoinForm() {
     }
 
     requestEmail(email, {
-      onSuccess: (data) => {
-        if (data) {
-          setIsRequestCode(true);
-        }
+      onSuccess: () => {
+        setIsRequestCode(true);
       }
     });
   };
@@ -66,15 +60,17 @@ export default function JoinForm() {
 
       return;
     }
+
     const params: VerifyAuthCode = {
-      email, code
+      email,
+      code
     };
 
-    const data = await verifyAuthCode(params);
-
-    if (data === SUCCESS_CODE.CREATED_REQUEST) {
-      setIsValidCode(true);
-    }
+    verifyAuthCode(params, {
+      onSuccess: () => {
+        setIsValidCode(true);
+      }
+    });
   };
 
   // 회원가입
@@ -87,14 +83,13 @@ export default function JoinForm() {
     status,
     academicNumber
   }: JoinState) => {
-    alert('hi')
     if (!isValidCode) {
       alert('이메일 인증을 완료해 주세요.');
 
       return;
     }
 
-    const data = await signUp({
+    signUp({
       email,
       accountId,
       password,
@@ -103,10 +98,6 @@ export default function JoinForm() {
       status,
       academicNumber
     });
-
-    if (data === SUCCESS_CODE.CREATED_REQUEST) {
-      navigate('/auth/login');
-    }
   };
 
   return (
@@ -144,7 +135,6 @@ export default function JoinForm() {
                 maxLength={6}
                 disabled={!isRequestCode}
                 {...register('code', {
-                  required: '필수 입력',
                   maxLength: { value: 6, message: '코드는 6자리여야 합니다.' },
                   minLength: { value: 6, message: '코드는 6자리여야 합니다.' },
                   pattern: {

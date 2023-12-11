@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from "react-router-dom";
-import { AxiosError, AxiosResponse } from 'axios';
+import { AxiosError } from 'axios';
 
 import {
   postSignIn,
@@ -34,7 +34,7 @@ function useSignIn() {
 
       renderToast({
         type: 'success',
-        message: 'Welcome to COMMA! 🎉',
+        message: 'Welcome to COMMA! 🎉'
       });
 
       navigate('/');
@@ -50,12 +50,12 @@ function useSignIn() {
 
 // 이메일 인증 요청
 function useRequestEmail() {
-  return useMutation<number, AxiosError, string>({
+  return useMutation<void, AxiosError, string>({
     mutationFn: (email) => postRequestEmail(email),
     onSuccess: () => {
       renderToast({
         type: 'success',
-        message: '이메일로 인증코드를 전송했습니다.',
+        message: '이메일로 인증코드를 전송했습니다.'
       });
     },
     onError: (error: AxiosError) => {
@@ -69,34 +69,40 @@ function useRequestEmail() {
 
 // 인증 코드 확인
 function useVerifyAuthCode() {
-  return useMutation<number, AxiosError, VerifyAuthCode>({
+  return useMutation<void, AxiosError, VerifyAuthCode>({
     mutationFn: (params) => postVerifyAuthCode(params),
     onSuccess: () => {
       renderToast({
         type: 'success',
-        message: '인증코드가 확인되었습니다.',
+        message: '인증코드가 확인되었습니다.'
       });
     },
     onError: (error: AxiosError) => {
-      // handleError(error);1
+      handleError({
+        error,
+        message: '잘못된 인증번호입니다!'
+      });
     }
   });
 };
 
-// // 회원가입
+// 회원가입
 function useSignUp() {
-  return useMutation<number, AxiosError, JoinState>({
+  const navigate = useNavigate();
+  return useMutation<void, AxiosError, JoinState>({
     mutationFn: (params) => postSignUp(params),
     onSuccess: () => {
       renderToast({
         type: 'success',
-        message: '회원가입이 완료되었습니다.',
+        message: '회원가입이 완료되었습니다.'
       });
+
+      navigate('/auth/login');
     },
     onError: (error: AxiosError) => {
-      renderToast({
-        type: 'error',
-        message: '회원가입 중 오류가 발생했습니다.',
+      handleError({
+        error,
+        message: '회원가입 실패!'
       });
     }
   });
