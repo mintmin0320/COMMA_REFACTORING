@@ -10,5 +10,7 @@ export const ERROR_CODE = {
   /* 405 */
   CONFLICT: 409,
   /* 500 */
-  INTERNAL_SERVER_ERROR: 500
+  INTERNAL_SERVER_ERROR: 500,
+  /* ERR_NETWORK */
+  ERR_NETWORK: "Network Error"
 };
