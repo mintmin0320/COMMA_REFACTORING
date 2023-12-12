@@ -42,12 +42,12 @@ const ProductCard = ({ product }: any) => {
     // onClick={() => setIsOpen(true)}
     >
       <StyledProductImgBox>
-        <StyledProductImg src={product.produceImg} />
-        <StyledProductTitle>{product.name}</StyledProductTitle>
-        <StyledProductCategory>{product.produceCategory}</StyledProductCategory>
+        <StyledProductImg src={product?.produceImg} />
+        <StyledProductTitle>{product?.name}</StyledProductTitle>
+        <StyledProductCategory>{product?.produceCategory}</StyledProductCategory>
         <StyledProductCount>
           {
-            product.produceCount === 0
+            product?.produceCount === 0
               ? '품 절'
               : `${product.produceCount}EA`
           }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import ProductDetail from '../ProductDetail';
-
 // types
 import { ProductInfo } from '../../../types/product';
 
@@ -12,21 +11,55 @@ import { useInView } from 'react-intersection-observer';
 import ProductCard from '../productCard/ProductCard';
 
 import * as S from './ProductList.style';
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
+import client from '../../../lib/client';
+
 
 const ROWS_PER_PAGE = 15; // 한 페이지당 불러올 상품개수
 
 const ProductList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const fetchPokemon = async () => {
+    const { data } = await client.get(
+      'usersd'
+    );
+
+    console.log(data)
+
+    return data;
+  };
+
+  const { data, isLoading, error } = useQuery(
+    {
+      queryKey: ['pokemon'],
+      queryFn: fetchPokemon,
+      throwOnError: true
+    }
+  );
+
+  if (isLoading) {
+    return <div>Loading~</div>;
+  }
+
+
+  console.log(data)
+
+
+  // if (isError) {
+  //   return <div>Error: {error.message}</div>;
+  // }
+
 
 
   return (
     <S.ProductListWrap>
+      {data[0]?.name}
       {/* <ProductDetail isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
       {
-        productItemData.map((product: any, index: number) => (
-          <ProductCard key={index} product={product} />
-        ))
+        // data.map((product: any, index: number) => (
+        //   <ProductCard key={index} product={product} />
+        // ))
       }
       {/* <div ref={ref} /> */}
     </S.ProductListWrap>
