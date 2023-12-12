@@ -20,12 +20,21 @@ const ROWS_PER_PAGE = 15; // 한 페이지당 불러올 상품개수
 const ProductList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const getRandomInt = (min: number, max: number) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
   const fetchPokemon = async () => {
+    // 1에서 3 사이의 랜덤한 숫자 생성
+    const n = getRandomInt(1, 3);
+
     const { data } = await client.get(
-      'https://pokeapi.co/api/v2/pokemon/dittoㅇ'
+      `https://pokeapi.co/api/v${n}/pokemon/ditto`
     );
 
-    console.log(data)
+    console.log(data);
 
     return data;
   };
