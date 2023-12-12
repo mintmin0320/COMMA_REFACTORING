@@ -22,7 +22,7 @@ const ProductList = () => {
 
   const fetchPokemon = async () => {
     const { data } = await client.get(
-      'usersd'
+      'https://pokeapi.co/api/v2/pokemon/ditto'
     );
 
     console.log(data)
@@ -54,7 +54,7 @@ const ProductList = () => {
 
   return (
     <S.ProductListWrap>
-      {data[0]?.name}
+      {data?.name}
       {/* <ProductDetail isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
       {
         // data.map((product: any, index: number) => (
