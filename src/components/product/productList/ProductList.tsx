@@ -22,7 +22,7 @@ const ProductList = () => {
 
   const fetchPokemon = async () => {
     const { data } = await client.get(
-      'https://pokeapi.co/api/v2/pokemon/ditto'
+      'https://pokeapi.co/api/v2/pokemon/dittoㅇ'
     );
 
     console.log(data)
