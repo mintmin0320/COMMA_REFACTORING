@@ -1,6 +1,6 @@
 /* 회원가입 form-data  */
 export interface JoinState {
-  account_Id: string;
+  account_id: string;
   password: string;
   name: string;
   email: string;
@@ -17,7 +17,7 @@ export interface VerifyAuthCode {
 
 /* 로그인 form-data */
 export interface LoginState {
-  account_Id: string;
+  account_id: string;
   password: string;
 }
 

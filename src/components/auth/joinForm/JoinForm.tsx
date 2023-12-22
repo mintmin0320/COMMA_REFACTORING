@@ -76,7 +76,7 @@ export default function JoinForm() {
   // 회원가입
   const onSubmit = async ({
     email,
-    account_Id,
+    account_id,
     password,
     name,
     major,
@@ -91,7 +91,7 @@ export default function JoinForm() {
 
     signUp({
       email,
-      account_Id,
+      account_id,
       password,
       name,
       major,
@@ -160,7 +160,7 @@ export default function JoinForm() {
         <S.InputField>
           <S.InputInfo>아이디</S.InputInfo>
           <S.Input
-            {...register('account_Id', {
+            {...register('account_id', {
               required: '필수 입력',
               pattern: {
                 value: /^[a-zA-Z0-9]+$/,
@@ -169,7 +169,7 @@ export default function JoinForm() {
             })}
           />
           <S.ValidBox>
-            {errors.account_Id && (errors.account_Id.message)}
+            {errors.account_id && (errors.account_id.message)}
           </S.ValidBox>
         </S.InputField>
         <S.InputField>
