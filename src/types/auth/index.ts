@@ -6,7 +6,7 @@ export interface JoinState {
   email: string;
   major: string;
   status: string;
-  academicNumber: string;
+  academic_number: string;
 }
 
 /* 이메일 인증 데이터 타입 */
@@ -23,6 +23,10 @@ export interface LoginState {
 
 /* 로그인 Response */
 export interface TokenResponse {
+  body: TokenResponseBody;
+}
+
+export interface TokenResponseBody {
   access_token: string;
   refresh_token: string;
 }

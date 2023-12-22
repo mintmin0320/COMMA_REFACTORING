@@ -2,25 +2,26 @@ import {
   JoinState,
   LoginState,
   TokenResponse,
+  TokenResponseBody,
   VerifyAuthCode
 } from '../../types/auth';
 
 import clint from '../../lib/client';
 
 // 로그인
-export async function postSignIn(params: LoginState): Promise<TokenResponse> {
+export async function postSignIn(params: LoginState): Promise<TokenResponseBody> {
   const { data } = await clint.post<TokenResponse>(
     '/account/signin',
     params
   );
 
-  return data;
+  return data.body;
 };
 
 // 인증 코드 요청
 export async function postRequestEmail(email: string): Promise<void> {
   await clint.post(
-    '/account/email/r',
+    '/account/email/verify/request',
     { email }
   );
 };
