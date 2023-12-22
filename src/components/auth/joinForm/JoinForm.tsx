@@ -37,7 +37,7 @@ export default function JoinForm() {
     if (!await trigger('email')) {
       renderToast({
         type: 'error',
-        message: '유효하지 않은 형식입니다.',
+        message: '유효하지 않은 이메일 형식입니다. \n 동양미래대 이메일 주소를 사용해 주세요.'
       });
 
       return;
@@ -55,7 +55,7 @@ export default function JoinForm() {
     if (!await trigger('code')) {
       renderToast({
         type: 'error',
-        message: '유효하지 않은 형식입니다.',
+        message: '유효하지 않은 인증 코드입니다.',
       });
 
       return;
@@ -81,7 +81,7 @@ export default function JoinForm() {
     name,
     major,
     status,
-    academicNumber
+    academic_number
   }: JoinState) => {
     if (!isValidCode) {
       alert('이메일 인증을 완료해 주세요.');
@@ -96,7 +96,7 @@ export default function JoinForm() {
       name,
       major,
       status,
-      academicNumber
+      academic_number
     });
   };
 
@@ -109,8 +109,8 @@ export default function JoinForm() {
             <S.Input
               {...register('email', {
                 pattern: {
-                  value: /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/,
-                  message: '유효하지 않은 이메일 형식'
+                  value: /^[a-zA-Z0-9]+@m365\.dongyang\.ac\.kr$/,
+                  message: '유효하지 않은 이메일 형식입니다. 동양대 이메일 주소를 사용해 주세요.'
                 }
               })}
             />
@@ -207,7 +207,7 @@ export default function JoinForm() {
           <S.InputInfo>힉번</S.InputInfo>
           <S.Input
             maxLength={8}
-            {...register('academicNumber', {
+            {...register('academic_number', {
               required: '필수 입력',
               pattern: {
                 value: /^[0-9]+$/,
@@ -216,7 +216,7 @@ export default function JoinForm() {
             })}
           />
           <S.ValidBox>
-            {errors.academicNumber && (errors.academicNumber.message)}
+            {errors.academic_number && (errors.academic_number.message)}
           </S.ValidBox>
         </S.InputField>
         <S.TextLabel>
