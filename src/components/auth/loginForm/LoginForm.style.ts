@@ -4,7 +4,7 @@ export const Form = styled.form`
   width: 55%;
 `;
 
-export const InputLabel = styled.label`
+export const Label = styled.label`
   width: calc(100% - 4px);
   height: 40px;
   display: flex;

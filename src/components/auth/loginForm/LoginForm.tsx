@@ -23,7 +23,7 @@ export default function LoginForm() {
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <S.InputLabel style={{ borderBottom: 'none' }}>
+      <S.Label style={{ borderBottom: 'none' }}>
         <S.IconBox>
           <HiUser size='24px' />
         </S.IconBox>
@@ -38,8 +38,8 @@ export default function LoginForm() {
             }
           })}
         />
-      </S.InputLabel>
-      <S.InputLabel>
+      </S.Label>
+      <S.Label>
         <S.IconBox>
           <FaLock size='20px' />
         </S.IconBox>
@@ -54,7 +54,7 @@ export default function LoginForm() {
             }
           })}
         />
-      </S.InputLabel>
+      </S.Label>
       {errors.account_Id && (
         <S.ErrorTextBox>
           ID : {errors.account_Id.message}
