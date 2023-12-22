@@ -17,8 +17,8 @@ export default function LoginForm() {
 
   const { mutate: signIn } = useSignIn();
 
-  const onSubmit = ({ accountId, password }: LoginState) => {
-    signIn({ accountId, password });
+  const onSubmit = ({ account_Id, password }: LoginState) => {
+    signIn({ account_Id, password });
   };
 
   return (
@@ -30,7 +30,7 @@ export default function LoginForm() {
         <S.Input
           type='text'
           placeholder='ID'
-          {...register('accountId', {
+          {...register('account_Id', {
             required: '필수 입력란입니다.',
             pattern: {
               value: /^[a-zA-Z0-9]+$/,
@@ -55,9 +55,9 @@ export default function LoginForm() {
           })}
         />
       </S.InputLabel>
-      {errors.accountId && (
+      {errors.account_Id && (
         <S.ErrorTextBox>
-          ID : {errors.accountId.message}
+          ID : {errors.account_Id.message}
         </S.ErrorTextBox>
       )}
       {errors.password && (
