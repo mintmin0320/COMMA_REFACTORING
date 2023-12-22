@@ -15,7 +15,7 @@ import renderToast from '../../lib/toast';
 import {
   JoinState,
   LoginState,
-  TokenResponse,
+  TokenResponseBody,
   VerifyAuthCode
 } from '../../types/auth';
 
@@ -23,14 +23,14 @@ import {
 function useSignIn() {
   const navigate = useNavigate();
   return useMutation<
-    TokenResponse,
+    TokenResponseBody,
     AxiosError,
     LoginState
   >({
     mutationFn: (params) => postSignIn(params),
     onSuccess: ({ access_token, refresh_token }) => {
-      localStorage.setItem('token', access_token);
-      localStorage.setItem('token', refresh_token);
+      localStorage.setItem('access_token', access_token);
+      localStorage.setItem('refresh_token', refresh_token);
 
       renderToast({
         type: 'success',
