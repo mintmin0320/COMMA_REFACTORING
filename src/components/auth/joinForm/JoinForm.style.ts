@@ -45,7 +45,13 @@ export const VerifyButton = styled.button`
   margin-top: 19px;
   background-color: #0064ff;
   cursor: pointer;
+
+  &:disabled {
+    background-color: #f2f2f2;
+    color: #bfbfbf;
+  }
 `;
+
 
 export const TextLabel = styled.label`
   width: 65%;

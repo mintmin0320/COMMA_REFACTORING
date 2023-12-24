@@ -151,6 +151,7 @@ export default function JoinForm() {
                 type='button'
                 onClick={handleVerifyAuthCode}
                 aria-label='인증코드 확인'
+                disabled={!isRequestCode}
               >
                 확인
               </S.VerifyButton>
@@ -247,7 +248,10 @@ export default function JoinForm() {
         </S.TextLabel>
       </S.InputWrap>
       <S.ButtonBox>
-        <S.Button type='submit' aria-label='회원가입'>
+        <S.Button
+          type='submit'
+          aria-label='회원가입'
+        >
           회원가입
         </S.Button>
       </S.ButtonBox>
