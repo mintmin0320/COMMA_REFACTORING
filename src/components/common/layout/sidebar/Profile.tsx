@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { useSignOut } from '../../../../query-hooks/useAuth';
+
 import {
   FaShoppingBasket,
   BsFillChatDotsFill,
@@ -70,8 +72,28 @@ const StyledNavLink = styled(Link) <{ $right?: boolean }>`
   color: inherit;
 `;
 
+const Button = styled.button`
+  width: 25%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  background-color:transparent;
+  border: none;
+  cursor: pointer;
+`;
+
+
 const Profile = () => {
   const isAdmin = true;
+
+  const { mutate: signOut } = useSignOut();
+
+  const handleSignOut = () => {
+    signOut();
+  };
 
   return (
     <ProfileWrap>
@@ -84,20 +106,20 @@ const Profile = () => {
         <StyledNavLink to='/profile' >
           <HiUser size='20px' />
         </StyledNavLink>
-        {isAdmin && (
-          <StyledNavLink to='/admin/user-info'>
-            <BsFillGearFill size='20px' />
-          </StyledNavLink>
-        )}
         <StyledNavLink to='/basket'>
           <FaShoppingBasket size='20px' />
         </StyledNavLink>
         <StyledNavLink to='/'>
           <BsFillChatDotsFill size='20px' />
         </StyledNavLink>
-        <StyledNavLink to='/' $right={true}>
+        {isAdmin && (
+          <StyledNavLink to='/admin/user-info'>
+            <BsFillGearFill size='20px' />
+          </StyledNavLink>
+        )}
+        <Button onClick={handleSignOut} aria-label='로그아웃'>
           <RiLogoutBoxRFill size='20px' />
-        </StyledNavLink>
+        </Button>
       </StyledNavBox>
     </ProfileWrap>
   );

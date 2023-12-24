@@ -6,7 +6,8 @@ import {
   postSignIn,
   postRequestEmail,
   postVerifyAuthCode,
-  postSignUp
+  postSignUp,
+  postSignOut
 } from './api';
 
 import { handleError } from '../../utils/error/handleError';
@@ -43,6 +44,31 @@ function useSignIn() {
       handleError({
         error,
         message: '로그인 실패!'
+      });
+    }
+  });
+};
+
+// 로그아웃
+function useSignOut() {
+  const navigate = useNavigate();
+  return useMutation<void, AxiosError, void>({
+    mutationFn: () => postSignOut(),
+    onSuccess: () => {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+
+      renderToast({
+        type: 'success',
+        message: '로그아웃 되었습니다.'
+      });
+
+      navigate('/auth/login');
+    },
+    onError: (error) => {
+      handleError({
+        error,
+        message: '로그인아웃 실패!'
       });
     }
   });
@@ -112,5 +138,6 @@ export {
   useSignIn,
   useRequestEmail,
   useVerifyAuthCode,
-  useSignUp
+  useSignUp,
+  useSignOut,
 };

@@ -18,9 +18,16 @@ export async function postSignIn(params: LoginState): Promise<TokenResponseBody>
   return data.body;
 };
 
+// 로그아웃
+export async function postSignOut(): Promise<void> {
+  await clint.post<void>(
+    '/account/signout'
+  );
+};
+
 // 인증 코드 요청
 export async function postRequestEmail(email: string): Promise<void> {
-  await clint.post(
+  await clint.post<void>(
     '/account/email/verify/request',
     { email }
   );
@@ -28,7 +35,7 @@ export async function postRequestEmail(email: string): Promise<void> {
 
 // 인증 코드 확인
 export async function postVerifyAuthCode(params: VerifyAuthCode): Promise<void> {
-  await clint.post(
+  await clint.post<void>(
     '/account/email/verify',
     params
   );
@@ -36,7 +43,7 @@ export async function postVerifyAuthCode(params: VerifyAuthCode): Promise<void> 
 
 // 회원가입
 export async function postSignUp(params: JoinState): Promise<void> {
-  await clint.post(
+  await clint.post<void>(
     '/account/signup',
     params
   );
