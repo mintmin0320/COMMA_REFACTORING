@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { QueryErrorResetBoundary, useQueryErrorResetBoundary } from '@tanstack/react-query';
 import Header from '../../components/common/layout/header/Header';
-import SideBar from '../../components/common/layout/sidebar/SideBar';
+import SideBar from '../../components/common/layout/side/sideBar/SideBar';
 import Product from '../../components/product/Product';
 import ScrollTopBtn from '../../components/common/ScrollTopBtn';
 import ProductCategory from '../../components/product/ProductCategory';
@@ -12,7 +12,7 @@ import { useInView } from 'react-intersection-observer';
 import { Suspense, useEffect, useState } from 'react';
 import axios from 'axios';
 import { ErrorBoundary } from 'react-error-boundary';
-import Skeleton from '../../components/product/skeleton';
+import ErrorFallback from '../../components/product/skeleton';
 
 const Container = styled.section`
   width: 100%;
@@ -57,7 +57,7 @@ const ProductPage = () => {
               {({ reset }) => (
                 <ErrorBoundary
                   onReset={reset}
-                  fallbackRender={Skeleton}
+                  FallbackComponent={ErrorFallback}
                 >
                   {/* <Suspense fallback={<div>Suspense Loading</div>}> */}
                   <ProductList />

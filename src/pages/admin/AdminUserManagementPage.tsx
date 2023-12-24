@@ -1,5 +1,5 @@
 import AdminUserManagement from '../../components/admin/AdminUserManagement';
-import AdminSideBar from '../../components/common/layout/sidebar/AdminSideBar';
+import AdminSideBar from '../../components/common/layout/side/AdminSideBar';
 
 // styles
 import { Container } from '../../components/styles/AdminPageStyles';

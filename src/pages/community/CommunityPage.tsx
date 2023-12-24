@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Header from '../../components/common/layout/header/Header';
-import SideBar from '../../components/common/layout/sidebar/SideBar';
+import SideBar from '../../components/common/layout/side/sideBar/SideBar';
 import Community from '../../components/community/Community';
 import ScrollTopBtn from '../../components/common/ScrollTopBtn';
 import ScrollProgressBar from '../../components/common/ScrollProgressBar';

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Aside = styled.aside`
+export const Aside = styled.div`
   width: 80%;
   height: 270px;
   display: flex;
