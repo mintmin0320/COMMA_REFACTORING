@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Diet from './Diet';
-import Profile from './Profile';
+import Profile from './profile/Profile';
 
 // CSS
 const Container = styled.div`
