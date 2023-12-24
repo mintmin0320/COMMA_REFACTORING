@@ -7,7 +7,8 @@ import {
   postRequestEmail,
   postVerifyAuthCode,
   postSignUp,
-  postSignOut
+  postSignOut,
+  postRequestToken
 } from './api';
 
 import { handleError } from '../../utils/error/handleError';
@@ -134,10 +135,21 @@ function useSignUp() {
   });
 };
 
+// 토큰 요청
+function useRequestToken() {
+  return useMutation<TokenResponseBody, AxiosError, string>({
+    mutationFn: (refreshToken) => postRequestToken(refreshToken),
+    onSuccess: ({ access_token }) => {
+      localStorage.setItem('access_token', access_token);
+    },
+  });
+};
+
 export {
   useSignIn,
   useRequestEmail,
   useVerifyAuthCode,
   useSignUp,
   useSignOut,
+  useRequestToken
 };

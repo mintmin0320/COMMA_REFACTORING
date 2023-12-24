@@ -48,3 +48,13 @@ export async function postSignUp(params: JoinState): Promise<void> {
     params
   );
 };
+
+// 토큰 요청
+export async function postRequestToken(refreshToken: string): Promise<TokenResponseBody> {
+  const { data } = await clint.post<TokenResponse>(
+    '/account/refresh-token',
+    { refreshToken }
+  );
+
+  return data.body;
+};
