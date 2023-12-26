@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosInstance } from 'axios';
 
 import { ERROR_CODE } from '../constants/error';
 
-import { useRequestToken } from '../query-hooks/useAuth';
+import { useRequestToken } from '../query-hooks/useRefrashToken';
 
 const client: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_SERVER_URL,
@@ -13,11 +13,12 @@ const client: AxiosInstance = axios.create({
 
 client.interceptors.request.use(
   (config) => {
-    const accessToken = localStorage.getItem('accessToken');
+    const access_token = localStorage.getItem('access_token');
 
-    if (accessToken) {
-      config.headers['Authorization'] = `Bearer ${accessToken}`;
+    if (access_token) {
+      config.headers['Authorization'] = `Bearer ${access_token}`;
     }
+
     return config;
   }
 );

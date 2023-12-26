@@ -5,13 +5,13 @@ import * as S from './JoinForm.style';
 
 import renderToast from '../../../lib/toast';
 
-import {
-  useRequestEmail,
-  useSignUp,
-  useVerifyAuthCode
-} from '../../../query-hooks/useAuth';
+import { useSignUp } from '../../../query-hooks/useSignUp';
+import { useRequestAuthCode } from '../../../query-hooks/useRequestAuthCode';
+import { useVerifyAuthCode } from '../../../query-hooks/useVerifyAuthCode';
 
 import { JoinState, VerifyAuthCode } from '../../../types/auth';
+
+import { Button } from '../../../stories/Button';
 
 export default function JoinForm() {
   const {
@@ -28,7 +28,7 @@ export default function JoinForm() {
   const email = watch('email');
   const code = watch('code');
 
-  const { mutate: requestEmail } = useRequestEmail();
+  const { mutate: requestEmail } = useRequestAuthCode();
   const { mutate: verifyAuthCode } = useVerifyAuthCode();
   const { mutate: signUp } = useSignUp();
 
@@ -248,12 +248,11 @@ export default function JoinForm() {
         </S.TextLabel>
       </S.InputWrap>
       <S.ButtonBox>
-        <S.Button
+        <Button
+          label='회원가입'
           type='submit'
           aria-label='회원가입'
-        >
-          회원가입
-        </S.Button>
+        />
       </S.ButtonBox>
     </S.Form >
   );
