@@ -6,7 +6,7 @@ import * as S from './LoginForm.style';
 
 import { HiUser, FaLock } from '../../common/icons';
 
-import { useSignIn } from '../../../query-hooks/useSignIn';
+import { useSignIn } from '../../../query-hooks/auth/useSignIn';
 
 export default function LoginForm() {
   const {

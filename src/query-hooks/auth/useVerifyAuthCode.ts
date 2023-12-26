@@ -1,10 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
-import { VerifyAuthCode } from '../types/auth';
+import { VerifyAuthCode } from '../../types/auth';
 
-import client from '../lib/client';
-import renderToast from '../lib/toast';
+import client from '../../lib/client';
+import renderToast from '../../lib/toast';
 
 async function postVerifyAuthCode(params: VerifyAuthCode): Promise<void> {
   await client.post<void>(

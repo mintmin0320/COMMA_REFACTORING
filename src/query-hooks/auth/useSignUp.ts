@@ -2,10 +2,10 @@ import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 
-import { JoinState } from '../types/auth';
+import { JoinState } from '../../types/auth';
 
-import client from '../lib/client';
-import renderToast from '../lib/toast';
+import client from '../../lib/client';
+import renderToast from '../../lib/toast';
 
 async function postSignUp(params: JoinState): Promise<void> {
   await client.post<void>(

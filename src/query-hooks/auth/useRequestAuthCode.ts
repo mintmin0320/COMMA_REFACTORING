@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
-import client from '../lib/client';
-import renderToast from '../lib/toast';
+import client from '../../lib/client';
+import renderToast from '../../lib/toast';
 
 async function postRequestAuthCode(email: string): Promise<void> {
   await client.post<void>(

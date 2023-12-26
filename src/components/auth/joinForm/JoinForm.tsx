@@ -5,9 +5,9 @@ import * as S from './JoinForm.style';
 
 import renderToast from '../../../lib/toast';
 
-import { useSignUp } from '../../../query-hooks/useSignUp';
-import { useRequestAuthCode } from '../../../query-hooks/useRequestAuthCode';
-import { useVerifyAuthCode } from '../../../query-hooks/useVerifyAuthCode';
+import { useSignUp } from '../../../query-hooks/auth/useSignUp';
+import { useRequestAuthCode } from '../../../query-hooks/auth/useRequestAuthCode';
+import { useVerifyAuthCode } from '../../../query-hooks/auth/useVerifyAuthCode';
 
 import { JoinState, VerifyAuthCode } from '../../../types/auth';
 

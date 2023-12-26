@@ -6,10 +6,10 @@ import {
   LoginState,
   TokenResponse,
   TokenResponseBody
-} from '../types/auth';
+} from '../../types/auth';
 
-import renderToast from '../lib/toast';
-import client from '../lib/client';
+import renderToast from '../../lib/toast';
+import client from '../../lib/client';
 
 async function postSignIn(params: LoginState): Promise<TokenResponseBody> {
   const { data } = await client.post<TokenResponse>(

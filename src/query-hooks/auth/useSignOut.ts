@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 import { useMutation } from '@tanstack/react-query';
 
-import client from '../lib/client';
-import renderToast from '../lib/toast';
+import client from '../../lib/client';
+import renderToast from '../../lib/toast';
 
 async function postSignOut(): Promise<void> {
   await client.post<void>(

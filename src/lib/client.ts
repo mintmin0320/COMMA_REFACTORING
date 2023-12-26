@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosInstance } from 'axios';
 
 import { ERROR_CODE } from '../constants/error';
 
-import { useRequestToken } from '../query-hooks/useRefrashToken';
+import { useRequestToken } from '../query-hooks/auth/useRefrashToken';
 
 const client: AxiosInstance = axios.create({
   baseURL: process.env.REACT_APP_SERVER_URL,
