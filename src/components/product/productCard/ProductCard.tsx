@@ -7,6 +7,7 @@ const StyledProductItem = styled.div`
   justify-content: center;
   cursor: pointer;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
 `;
 
 const StyledProductImgBox = styled.div`
