@@ -1,4 +1,4 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useSuspenseInfiniteQuery } from '@tanstack/react-query';
 
 import client from '../../lib/client';
 
@@ -13,7 +13,7 @@ export const getSearchProduct = async ({ pageParam }: any) => {
 };
 
 export const useSearchProductQuery = () => {
-  return useInfiniteQuery({
+  return useSuspenseInfiniteQuery({
     queryKey: [productKey.searchProducts],
     queryFn: getSearchProduct,
     initialPageParam: 0,
@@ -23,7 +23,7 @@ export const useSearchProductQuery = () => {
         return nextPage - 1;
       }
     },
-    retry: 0
+    retry: 0,
   })
 };
 
