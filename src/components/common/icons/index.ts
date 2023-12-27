@@ -60,3 +60,6 @@ export { FaTrash } from "@react-icons/all-files/fa/FaTrash";
 
 /* 이미지 파일 업로드 */
 export { FcAddImage } from "@react-icons/all-files/fc/FcAddImage";
+
+/* 경고 */
+export { AiFillWarning } from "@react-icons/all-files/ai/AiFillWarning";

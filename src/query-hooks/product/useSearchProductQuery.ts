@@ -5,7 +5,7 @@ import client from '../../lib/client';
 import { productKey } from './key';
 
 export const getSearchProduct = async ({ pageParam }: any) => {
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await new Promise(resolve => setTimeout(resolve, 2000));
 
   const { data } = await client.get(
     `/arduinos?page=${pageParam}`
