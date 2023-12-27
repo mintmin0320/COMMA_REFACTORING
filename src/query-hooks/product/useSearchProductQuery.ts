@@ -1,10 +1,12 @@
-import { useInfiniteQuery, useSuspenseInfiniteQuery } from '@tanstack/react-query';
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query';
 
 import client from '../../lib/client';
 
 import { productKey } from './key';
 
 export const getSearchProduct = async ({ pageParam }: any) => {
+  await new Promise(resolve => setTimeout(resolve, 5000));
+
   const { data } = await client.get(
     `/arduinos?page=${pageParam}`
   );

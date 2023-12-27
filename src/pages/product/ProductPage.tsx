@@ -15,6 +15,7 @@ import ErrorFallback from '../../components/product/utils/ErrorFallback';
 
 import * as S from './ProductPage.style';
 
+import Skeleton from '../../components/product/utils/skeleton/Skeleton';
 const ProductPage = () => {
   return (
     <S.Container>
@@ -31,7 +32,7 @@ const ProductPage = () => {
                   onReset={reset}
                   FallbackComponent={ErrorFallback}
                 >
-                  <Suspense fallback={<div>Suspense Loading</div>}>
+                  <Suspense fallback={<Skeleton />}>
                     <ProductList />
                   </Suspense>
                 </ErrorBoundary>
