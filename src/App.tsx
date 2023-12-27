@@ -21,7 +21,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Loading />
+        {/* <Loading /> */}
         <Toaster />
         <ScrollToTop />
         <Router />

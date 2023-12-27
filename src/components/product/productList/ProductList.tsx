@@ -15,6 +15,7 @@ const ProductList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { data, fetchNextPage } = useSearchProductQuery();
+
   const { ref, inView } = useInView();
 
   useEffect(() => {
