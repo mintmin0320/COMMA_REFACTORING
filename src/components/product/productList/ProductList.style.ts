@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProductListWrap = styled.div`
+export const Wrap = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
