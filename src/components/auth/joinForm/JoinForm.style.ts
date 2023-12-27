@@ -49,6 +49,7 @@ export const VerifyButton = styled.button`
   &:disabled {
     background-color: #f2f2f2;
     color: #bfbfbf;
+    cursor: default;
   }
 `;
 
