@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 
 import ProductDetail from '../ProductDetail';
 // types
-import { ProductInfo } from '../../../types/product';
+import { Arduino, ProductInfo } from '../../../types/product';
 
 import { useInView } from 'react-intersection-observer';
 import ProductCard from '../productCard/ProductCard';
@@ -27,19 +27,19 @@ const ProductList = () => {
   console.log(data);
 
   return (
-    <S.ProductListWrap>
+    <S.Wrap>
       {/* <ProductDetail isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
       {
         data?.pages.map((group, i) => (
           <Fragment key={i}>
-            {group.arduinos.map((project: any, index: number) => (
+            {group.arduinos.map((project: Arduino, index: number) => (
               <ProductCard key={index} product={project} />
             ))}
           </Fragment>
         ))
       }
       <div ref={ref} />
-    </S.ProductListWrap>
+    </S.Wrap>
   );
 };
 
