@@ -1,76 +1,43 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import ProductDetail from '../ProductDetail';
 // types
 import { ProductInfo } from '../../../types/product';
 
-// dummy-data
-import productItemData from '../productData.json';
-import axios from 'axios';
 import { useInView } from 'react-intersection-observer';
 import ProductCard from '../productCard/ProductCard';
 
 import * as S from './ProductList.style';
-import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
-import client from '../../../lib/client';
 
-
-const ROWS_PER_PAGE = 15; // 한 페이지당 불러올 상품개수
+import { useSearchProductQuery } from '../../../query-hooks/product/useSearchProductQuery';
 
 const ProductList = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const getRandomInt = (min: number, max: number) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+  const { data, fetchNextPage } = useSearchProductQuery();
+  const { ref, inView } = useInView();
 
-  const fetchPokemon = async () => {
-    // 1에서 3 사이의 랜덤한 숫자 생성
-    const n = getRandomInt(1, 3);
-
-    const { data } = await client.get(
-      `https://pokeapi.co/api/v${n}/pokemon/ditto`
-    );
-
-    console.log(data);
-
-    return data;
-  };
-
-  const { data, isLoading, error } = useQuery(
-    {
-      queryKey: ['pokemon'],
-      queryFn: fetchPokemon,
-      throwOnError: true
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
     }
-  );
+  }, [inView]);
 
-  if (isLoading) {
-    return <div>Loading~</div>;
-  }
-
-
-  console.log(data)
-
-
-  // if (isError) {
-  //   return <div>Error: {error.message}</div>;
-  // }
-
-
+  console.log(data);
 
   return (
     <S.ProductListWrap>
-      {data?.name}
       {/* <ProductDetail isOpen={isOpen} onClose={() => setIsOpen(false)} /> */}
       {
-        // data.map((product: any, index: number) => (
-        //   <ProductCard key={index} product={product} />
-        // ))
+        data?.pages.map((group, i) => (
+          <Fragment key={i}>
+            {group.arduinos.map((project: any, index: number) => (
+              <ProductCard key={index} product={project} />
+            ))}
+          </Fragment>
+        ))
       }
-      {/* <div ref={ref} /> */}
+      <div ref={ref} />
     </S.ProductListWrap>
   );
 };
